@@ -1,0 +1,61 @@
+{
+  "Default": {
+    "fields": {
+      "investigation": "None",
+      "hpi": "",
+      "pmh": "",
+      "homeMeds": "",
+      "ros": "",
+      "vitals": "",
+      "pe": "",
+      "plan": "",
+      "cc": ""
+    },
+    "dxList": [],
+    "meds": []
+  },
+  "Common Cold": {
+    "fields": {
+      "cc": "ไข้ ไอ น้ำมูก 2 วัน / Fever, cough, rhinorrhea 2 days",
+      "hpi": "- มีไข้ ไอ น้ำมูก\n- ไม่มีหอบเหนื่อย\n- รับประทานได้\n- ไม่มีอาการอันตราย",
+      "ros": "- ไม่มีเจ็บหน้าอก\n- ไม่มีหอบเหนื่อย\n- ไม่มีอาเจียนรุนแรง",
+      "vitals": "T, BP, PR, RR, SpO2",
+      "pe": "- GA good\n- Throat mildly injected\n- Chest clear",
+      "investigation": "None",
+      "plan": "- Symptomatic treatment\n- Advise fluids/rest\n- Return if SOB, persistent fever, poor intake"
+    },
+    "dxList": [{ "text": "URI / Common cold", "type": "Primary" }],
+    "meds": [
+      {
+        "drug": "Paracetamol",
+        "dose": "500 mg",
+        "route": "PO",
+        "freq": "1 tab prn q6h",
+        "duration": "10",
+        "instruction": "for fever/pain"
+      }
+    ]
+  },
+  "Trauma": {
+    "fields": {
+      "cc": "เจ็บปวดรวดร้าว",
+      "hpi": "- ได้รับอุบัติเหตุ\n- ไม่มีหอบเหนื่อย\n- จำเหตุการณ์ได้\n",
+      "ros": "- ไม่มีเจ็บหน้าอก\n- ไม่มีศีรษะกระแทก\n- ไม่มีปวดศีรษะ-อาเจียนรุนแรง",
+      "vitals": "T, BP, PR, RR, SpO2",
+      "pe": "- GA good\n- ABC - pass all\n- Chest clear",
+      "investigation": "None",
+      "plan": "- Symptomatic treatment\n- Advise fluids/rest\n- Return if SOB, persistent fever, poor intake"
+    },
+    "dxList": [{ "text": "URI / Common cold", "type": "Primary" }],
+    "meds": [
+      {
+        "drug": "Ibuprofen",
+        "dose": "400 mg",
+        "route": "PO",
+        "freq": "1 tab prn q8h",
+        "duration": "20",
+        "instruction": "for fever/pain"
+      }
+    ]
+  }
+}

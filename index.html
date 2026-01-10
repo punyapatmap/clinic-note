@@ -79,7 +79,7 @@
       </div>
 
       <label class="block">
-        ROS (ทบทวนอาการตามระบบ)
+        Review of System (ทบทวนอาการตามระบบ)
         <textarea id="ros" rows="3" placeholder="Tip: use bullets like - cough, - sore throat"></textarea>
       </label>
 
@@ -96,9 +96,9 @@
 
       <div class="grid2">
         <div class="block">
-  <div class="dxHeader">
+  
+            <div class="dxHeader">
     <div class="dxTitle">Assessment / Dx (การวินิจฉัย)</div>
-    <button id="btnAddDx" type="button">+ Add Dx</button>
   </div>
 
   <div class="tableWrap">
@@ -113,6 +113,7 @@
       </thead>
       <tbody id="dxTbody"></tbody>
     </table>
+    <button id="btnAddDx" type="button">+ Add Dx</button>
   </div>
 
   <div class="hint">Tip: put main diagnosis first. Type can be “Primary / Secondary / Problem”.</div>
@@ -124,7 +125,7 @@
         </label>
 
         <label class="block">
-          Plan (แผนการรักษา)
+          Treatment Plan (แผนการรักษา)
           <textarea id="plan" rows="3"></textarea>
         </label>
       </div>
@@ -170,18 +171,24 @@
     <!-- PREVIEW / PRINT AREA -->
     <section class="panel preview">
       <div id="printArea" class="note noteA4">
-  <div class="noteHeader">
+  <!-- <div class="noteHeader">
     <div class="hospitalName" id="hospitalName">[Your Hospital Name]</div>
     <div class="docTitle">OPD Note</div>
-  </div>
-
-  <div class="line"></div>
+  </div> -->
 
   <div class="twoCol">
     <!-- LEFT (main note) -->
     <div class="mainCol">
       <!-- “history” section row like your screenshot -->
       <div class="row">
+        <div class="rowLabel"><span class="u">ประวัติอดีต</span></div>
+        <div class="rowBody pre" data-bind="pmh"></div>
+        
+        <div class="rowLabel"><span class="u">Current Meds</span></div>
+        <div class="rowBody pre" data-bind="homeMeds"></div>
+    </div>
+
+    <div class="row">
         <div class="rowLabel"><span class="u">ประวัติเพิ่มเติม</span></div>
         <div class="rowBody pre" data-bind="hpi"></div>
       </div>
@@ -207,7 +214,12 @@
     <aside class="sideCol">
       <div class="sideBlock avoidBreak">
         <div class="sideTitle u">การส่งตรวจเพิ่มเติม</div>
-        <div class="sideBody pre">- <span data-bind="investigation"></span></div>
+        <div class="sideBody pre"><span data-bind="investigation"></span></div>
+      </div>
+      
+      <div class="sideBlock avoidBreak">
+        <div class="sideTitle u">การรักษาเพิ่มเติม</div>
+        <div class="sideBody pre"><span data-bind="plan"></span></div>
       </div>
 
       <div class="sideBlock avoidBreak">

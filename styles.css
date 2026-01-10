@@ -159,7 +159,7 @@ td input{ padding:8px; border-radius:10px; }
   min-height: 297mm;
 
   /* You can tweak these to match Google Docs ruler positions */
-  padding: 25mm 25mm 25mm 30mm; /* top right bottom left */
+  padding: 140mm 25mm 25mm 30mm; /* top right bottom left */
 
   box-sizing: border-box;
   background:#fff;
@@ -186,7 +186,7 @@ td input{ padding:8px; border-radius:10px; }
   display:grid;
 
   /* Adjust these 3 numbers to match the ruler perfectly */
-  grid-template-columns: 115mm 55mm;  /* left col / right col */
+  grid-template-columns: 68% 32%;  /* left col / right col */
   column-gap: 10mm;                  /* gap between columns */
 
   align-items:start;
@@ -264,6 +264,8 @@ td input{ padding:8px; border-radius:10px; }
   page-break-inside: avoid;
 }
 
+.warn { outline: 2px solid #f5a623; }
+
 /* =========================
    PRINT
    ========================= */
@@ -307,4 +309,22 @@ td input{ padding:8px; border-radius:10px; }
 }
 .dxListPrint li{
   margin: 0 0 1.5mm 0;
+}
+
+/* fix the preview side static, do not move with the scroll */
+/* Make only the form scroll; keep preview fixed */
+.layout{
+  height: calc(100vh - 60px); /* adjust if your topbar height differs */
+  overflow: hidden;
+}
+
+.panel.no-print{
+  overflow: auto;            /* left side scroll */
+}
+
+.panel.preview{
+  position: sticky;
+  top: 12px;                 /* aligns with your layout padding */
+  height: calc(100vh - 60px - 24px);
+  overflow: auto;            /* preview itself can scroll inside if needed */
 }

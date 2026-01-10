@@ -1,10 +1,9 @@
 /* =========================================================
-   app.js (fixed + JSON adapters)
+   app.js (fixed)
    - Live bind form -> print template
    - Sticky default physician + license (localStorage)
    - Templates loaded from data/templates.json (dropdown auto-populated)
-   - Med DB loaded from data/medications.json (supports your schema:
-       { name, dose:[...], route:[...], forms:[...], defaultSig:{...} })
+   - Med DB loaded from data/medications.json (autosuggest)
    - Dx list + Med table
    - Print ONLY the template (#printArea)
 ========================================================= */
@@ -54,18 +53,9 @@ function bindPreviewFields() {
 
     const targets = document.querySelectorAll(`[data-bind="${id}"]`);
     const update = () => {
-  let val = (input.value ?? "").trim();
-
-  // ✅ Default text ONLY when blank (print/preview)
-  if (!val) {
-    if (id === "allergy") val = "ไม่มีประวัติแพ้ยาแพ้อาหาร";
-    if (id === "pmh") val = "ปฏิเสธโรคประจำตัว";
-    if (id === "homeMeds") val = "ไม่มียาที่ใช้อยู่เป็นประจำ";
-  }
-
-  targets.forEach((t) => (t.textContent = val));
-};
-
+      const val = (input.value ?? "").trim();
+      targets.forEach((t) => (t.textContent = val));
+    };
 
     input.addEventListener("input", update);
     input.addEventListener("change", update);
@@ -100,7 +90,6 @@ function initStickyDefault(id) {
    Databases: Meds + Templates (JSON)
 ========================================================= */
 let MED_DB = [];
-let DX_DB = [];
 let templates = {};
 
 async function loadMedicationDB() {
@@ -128,22 +117,6 @@ async function loadTemplatesDB() {
   }
 }
 
-async function loadDiseaseDB() {
-  try {
-    const res = await fetch("./data/icd10dx.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    DX_DB = Array.isArray(data) ? data : [];
-    console.log("Loaded diseases:", DX_DB.length);
-  } catch (err) {
-    console.warn("Could not load diseases.json. Using empty list.", err);
-    DX_DB = [];
-  }
-}
-
-/* =========================================================
-   Templates dropdown (from templates.json)
-========================================================= */
 const templateSelect = $("templateSelect");
 
 function populateTemplateDropdown() {
@@ -153,6 +126,7 @@ function populateTemplateDropdown() {
   if (keys.length === 0) return;
 
   const current = templateSelect.value;
+
   templateSelect.innerHTML = "";
 
   keys.sort((a, b) => {
@@ -199,8 +173,6 @@ function createDxRow({ text = "", type = "Primary" } = {}) {
   });
   tdText.appendChild(inp);
   tr.appendChild(tdText);
-
-  attachDxAutocomplete(inp);
 
   const tdType = document.createElement("td");
   const sel = document.createElement("select");
@@ -260,54 +232,6 @@ function getDxRows({ sortByType = false } = {}) {
   return rows;
 }
 
-function attachDxAutocomplete(input) {
-  let box = null;
-
-  const getSearchText = (d) => {
-  const syn = Array.isArray(d.synonyms) ? d.synonyms.join(" ") : "";
-  return `${d.icd10 || ""} ${d.en || ""} ${d.th || ""} ${syn}`.toLowerCase();
-};
-
-  const close = () => { if (box) { box.remove(); box = null; } };
-
-  input.addEventListener("input", () => {
-    const q = input.value.trim().toLowerCase();
-    close();
-    if (q.length < 2) return;
-    if (!DX_DB.length) return;
-
-    const matches = DX_DB
-      .filter(d => getSearchText(d).includes(q))
-      .slice(0, 8);
-
-    if (!matches.length) return;
-
-    box = document.createElement("div");
-    box.className = "dxSuggestBox";
-
-    matches.forEach(d => {
-      const item = document.createElement("div");
-      item.className = "dxSuggestItem";
-      item.textContent = `${d.icd10 || ""} ${d.en || ""} / ${d.th || ""}`.trim();
-
-      item.addEventListener("mousedown", (e) => {
-        e.preventDefault();
-        // what gets inserted into Dx list:
-        input.value = `${d.en}${d.icd10 ? ` (${d.icd10})` : ""}`;
-        close();
-        input.dispatchEvent(new Event("input"));
-      });
-
-      box.appendChild(item);
-    });
-
-    input.parentElement.style.position = "relative";
-    input.parentElement.appendChild(box);
-  });
-
-  document.addEventListener("click", close);
-}
-
 function syncDxToPrint() {
   if (!dxPrintList) return;
 
@@ -357,12 +281,8 @@ const btnAddMed = $("btnAddMed");
 
 const MED_COLS = ["drug", "dose", "route", "freq", "duration", "instruction"];
 
-// Your JSON schema helper: { name, dose:[...], route:[...], forms:[...], defaultSig:{...} }
 function getMedDisplayText(m) {
-  const name = (m?.name || m?.drug || m?.label || "").toString();
-  const strengths = Array.isArray(m?.dose) ? m.dose.join(", ") : (m?.dose || "");
-  const routes = Array.isArray(m?.route) ? m.route.join(", ") : (m?.route || "");
-  return [name, strengths, routes].filter(Boolean).join(" — ");
+  return (m.label || m.name || m.drug || "").toString();
 }
 
 function createMedRow(data = {}) {
@@ -496,13 +416,13 @@ function attachMedAutocomplete(input, rowEl) {
     const q = input.value.trim().toLowerCase();
     removeBox();
 
-    // suggestions only when typing (1+ char)
+    // ✅ show from 1 char (you can change back to 2 if you want)
     if (q.length < 1) return;
     if (!Array.isArray(MED_DB) || MED_DB.length === 0) return;
 
-    const matches = MED_DB
-      .filter((m) => (m?.name || "").toLowerCase().includes(q))
-      .slice(0, 8);
+    const matches = MED_DB.filter((m) =>
+      getMedDisplayText(m).toLowerCase().includes(q)
+    ).slice(0, 8);
 
     if (matches.length === 0) return;
 
@@ -515,7 +435,7 @@ function attachMedAutocomplete(input, rowEl) {
       item.textContent = getMedDisplayText(med);
 
       item.addEventListener("mousedown", (e) => {
-        e.preventDefault();
+        e.preventDefault(); // prevent input losing focus before apply
         applyMed(rowEl, med);
         removeBox();
       });
@@ -536,6 +456,7 @@ function attachMedAutocomplete(input, rowEl) {
     if (e.key === "Escape") removeBox();
   });
 
+  // click outside closes
   document.addEventListener(
     "click",
     (e) => {
@@ -547,41 +468,17 @@ function attachMedAutocomplete(input, rowEl) {
   );
 }
 
-// Adapter: convert your JSON med -> row fields
 function applyMed(rowEl, med) {
   const inputs = rowEl.querySelectorAll("input");
 
-  const strength = Array.isArray(med?.dose) ? (med.dose[0] || "") : (med?.dose || "");
-  const route = Array.isArray(med?.route) ? (med.route[0] || "") : (med?.route || "");
-  const form = Array.isArray(med?.forms) ? (med.forms[0] || "") : (med?.forms || "");
-
-  const sig = med?.defaultSig || {};
-  const sigDose = (sig.dose || "").trim();       // e.g. "1 Tab"
-  const sigFreq = (sig.freq || "").trim();       // e.g. "q 8 hrs prn"
-  const sigDur = (sig.duration || "").trim();    // e.g. "5 days"
-  const sigIns = (sig.instruction || "").trim();
-
-  // Build row fields
   const map = {
-    drug: med?.name || "",
-    dose: strength,
-    route: (route || "").toUpperCase(),
-    // If defaultSig.dose already includes Tab/Cap, avoid duplicating with form
-    freq: [sigDose, form, sigFreq].filter(Boolean).join(" ").replace(/\b(Tab|Cap|Syr)\s+\1\b/gi, "$1"),
-    duration: sigDur,
-    instruction: sigIns,
+    drug: med.drug || med.name || "",
+    dose: med.dose || "",
+    route: med.route || "",
+    freq: med.freq || "",
+    duration: med.duration || "",
+    instruction: med.instruction || "",
   };
-
-  rowEl.dataset.medName = med.name || "";
-  rowEl.dataset.medClass = med.class || "";
-
-  const warnings = checkMedicationRedundancy(med, rowEl);
-  
-  if (warnings.length > 0) {
-  rowEl.classList.add("warn");
-  rowEl.title = warnings.join("\n");
-}
-
 
   MED_COLS.forEach((col, i) => {
     if (map[col] !== undefined) inputs[i].value = map[col];
@@ -590,39 +487,6 @@ function applyMed(rowEl, med) {
   syncMedToPrint();
   saveDraft();
 }
-
-function checkMedicationRedundancy(newMed, currentRow) {
-  const warnings = [];
-
-  const newName = ((newMed?.name || newMed?.drug || "")).toLowerCase();
-  const newClass = (newMed.class || "").toLowerCase().trim();
-
-  if (!medTbody) return warnings;
-
-  for (const tr of medTbody.querySelectorAll("tr")) {
-    if (tr === currentRow) continue;
-
-    // Fallback: if dataset is missing, read from the first input (drug column)
-    const typedOldDrug = (tr.querySelector("input")?.value || "").trim();
-
-    const oldName = ((tr.dataset.medName || typedOldDrug || "")).toLowerCase();
-    const oldClass = (tr.dataset.medClass || "").toLowerCase().trim();
-
-
-    // B) Same class
-    if (newClass && oldClass && newClass === oldClass) {
-      warnings.push(`Same drug class (${newMed.class})`);
-    }
-    // A) Same drug name
-    if (newName && oldName && newName === oldName) {
-      warnings.push(`Duplicate drug: ${newMed.name || typedOldDrug}`);
-    }
-
-  }
-
-  return warnings;
-}
-
 
 /* =========================================================
    Templates apply
@@ -635,10 +499,7 @@ function setFieldValue(id, value) {
 }
 
 function applyTemplate(key) {
-  const t =
-    templates?.[key] ??
-    templates?.blank ??
-    { fields: {}, dxList: [], meds: [] };
+  const t = templates?.[key] ?? templates?.blank ?? { fields: {}, dxList: [], meds: [] };
 
   if (t.fields) {
     Object.entries(t.fields).forEach(([id, val]) => setFieldValue(id, val));
@@ -689,9 +550,7 @@ function loadDraft() {
     const data = JSON.parse(raw);
 
     if (data?.fields) {
-      Object.entries(data.fields).forEach(([id, val]) =>
-        setFieldValue(id, val)
-      );
+      Object.entries(data.fields).forEach(([id, val]) => setFieldValue(id, val));
     }
 
     loadDx(data?.dxList ?? []);
@@ -754,9 +613,8 @@ function printOnly(elementId) {
    Init
 ========================================================= */
 async function init() {
-  // Load JSON first (prevents empty dropdown / empty autosuggest)
+  // Load JSON first
   await loadMedicationDB();
-  await loadDiseaseDB();
   await loadTemplatesDB();
 
   // Build dropdown from templates.json

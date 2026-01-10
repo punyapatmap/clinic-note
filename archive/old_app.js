@@ -1,13 +1,12 @@
 /* =========================================================
-   app.js (fixed + JSON adapters)
+   app.js (clean version)
    - Live bind form -> print template
    - Sticky default physician + license (localStorage)
-   - Templates loaded from data/templates.json (dropdown auto-populated)
-   - Med DB loaded from data/medications.json (supports your schema:
-       { name, dose:[...], route:[...], forms:[...], defaultSig:{...} })
-   - Dx list + Med table
-   - Print ONLY the template (#printArea)
-========================================================= */
+   - Template presets (prefill fields + Dx + Meds)
+   - Dx list (numbered like meds)
+   - Med table
+   - Print ONLY the template (#printArea), not the form
+   ========================================================= */
 
 /* -------------------------
    Helpers
@@ -45,6 +44,74 @@ const BIND_FIELDS = [
   "investigation",
   "physician",
   "license",
+/* -------------------------
+   Medication database (JSON -> in-memory)
+   - Put your meds in ./data/medications.json
+   - Supports flexible schemas (label/name/drug)
+------------------------- */
+let MED_DB = [];
+
+function normalizeMedRecord(raw) {
+  if (!raw || typeof raw !== "object") return null;
+
+  // Accept a few common field names
+  const drug = (raw.drug ?? raw.name ?? raw.generic ?? "").toString().trim();
+  const dose = (raw.dose ?? raw.strength ?? "").toString().trim();
+  const route = (raw.route ?? (Array.isArray(raw.routes) ? raw.routes[0] : "") ?? "").toString().trim();
+  const freq = (raw.freq ?? raw.frequency ?? "").toString().trim();
+  const duration = (raw.duration ?? raw.days ?? "").toString().trim();
+  const instruction = (raw.instruction ?? raw.note ?? "").toString().trim();
+
+  // label is what we show in the suggestion list
+  const label =
+    (raw.label ?? "").toString().trim() ||
+    [drug, dose, route].filter(Boolean).join(" ").trim();
+
+  if (!label && !drug) return null;
+
+  return {
+    key: (raw.key ?? raw.id ?? drug || label).toString(),
+    label,
+    drug: drug || label,
+    dose,
+    route,
+    freq,
+    duration,
+    instruction,
+  };
+}
+
+async function loadMedicationDB() {
+  try {
+    const res = await fetch("./data/medications.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const arr = Array.isArray(data) ? data : (data?.medications ?? []);
+    MED_DB = (Array.isArray(arr) ? arr : [])
+      .map(normalizeMedRecord)
+      .filter(Boolean);
+
+    console.log("Loaded meds:", MED_DB.length);
+  } catch (err) {
+    console.warn("Could not load ./data/medications.json. Using empty list.", err);
+    MED_DB = [];
+  }
+}
+
+function medSearchText(m) {
+  return [
+    m?.label,
+    m?.drug,
+    m?.dose,
+    m?.route,
+    m?.freq,
+    m?.instruction,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
 ];
 
 function bindPreviewFields() {
@@ -54,18 +121,9 @@ function bindPreviewFields() {
 
     const targets = document.querySelectorAll(`[data-bind="${id}"]`);
     const update = () => {
-  let val = (input.value ?? "").trim();
-
-  // ✅ Default text ONLY when blank (print/preview)
-  if (!val) {
-    if (id === "allergy") val = "ไม่มีประวัติแพ้ยาแพ้อาหาร";
-    if (id === "pmh") val = "ปฏิเสธโรคประจำตัว";
-    if (id === "homeMeds") val = "ไม่มียาที่ใช้อยู่เป็นประจำ";
-  }
-
-  targets.forEach((t) => (t.textContent = val));
-};
-
+      const val = (input.value ?? "").trim();
+      targets.forEach((t) => (t.textContent = val));
+    };
 
     input.addEventListener("input", update);
     input.addEventListener("change", update);
@@ -88,6 +146,7 @@ function initStickyDefault(id) {
   const key = `sticky_${id}`;
   const saved = localStorage.getItem(key);
 
+  // saved value wins; else default; else existing value
   el.value = saved ?? STICKY_DEFAULTS[id] ?? el.value ?? "";
   el.dispatchEvent(new Event("input"));
 
@@ -97,84 +156,11 @@ function initStickyDefault(id) {
 }
 
 /* =========================================================
-   Databases: Meds + Templates (JSON)
-========================================================= */
-let MED_DB = [];
-let DX_DB = [];
-let templates = {};
-
-async function loadMedicationDB() {
-  try {
-    const res = await fetch("./data/medications.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    MED_DB = Array.isArray(data) ? data : [];
-    console.log("Loaded meds:", MED_DB.length);
-  } catch (err) {
-    console.warn("Could not load medications.json. Using empty list.", err);
-    MED_DB = [];
-  }
-}
-
-async function loadTemplatesDB() {
-  try {
-    const res = await fetch("./data/templates.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    templates = await res.json();
-    console.log("Loaded templates:", Object.keys(templates).length);
-  } catch (err) {
-    console.warn("Could not load templates.json. Using blank only.", err);
-    templates = { blank: { fields: {}, dxList: [], meds: [] } };
-  }
-}
-
-async function loadDiseaseDB() {
-  try {
-    const res = await fetch("./data/icd10dx.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    DX_DB = Array.isArray(data) ? data : [];
-    console.log("Loaded diseases:", DX_DB.length);
-  } catch (err) {
-    console.warn("Could not load diseases.json. Using empty list.", err);
-    DX_DB = [];
-  }
-}
-
-/* =========================================================
-   Templates dropdown (from templates.json)
-========================================================= */
-const templateSelect = $("templateSelect");
-
-function populateTemplateDropdown() {
-  if (!templateSelect) return;
-
-  const keys = Object.keys(templates || {});
-  if (keys.length === 0) return;
-
-  const current = templateSelect.value;
-  templateSelect.innerHTML = "";
-
-  keys.sort((a, b) => {
-    if (a === "blank") return -1;
-    if (b === "blank") return 1;
-    return a.localeCompare(b);
-  });
-
-  for (const key of keys) {
-    const opt = document.createElement("option");
-    opt.value = key;
-    opt.textContent = key; // you can prettify later
-    templateSelect.appendChild(opt);
-  }
-
-  if (current && keys.includes(current)) templateSelect.value = current;
-  else if (keys.includes("blank")) templateSelect.value = "blank";
-  else templateSelect.value = keys[0];
-}
-
-/* =========================================================
-   Dx List
+   Dx List (numbered like medication list)
+   HTML expected:
+   - tbody#dxTbody
+   - button#btnAddDx
+   - ol#dxPrintList (in print template)
 ========================================================= */
 const dxTbody = $("dxTbody");
 const dxPrintList = $("dxPrintList");
@@ -183,11 +169,13 @@ const btnAddDx = $("btnAddDx");
 function createDxRow({ text = "", type = "Primary" } = {}) {
   const tr = document.createElement("tr");
 
+  // Number cell
   const tdNum = document.createElement("td");
   tdNum.className = "dxNumCell";
-  tdNum.textContent = "";
+  tdNum.textContent = ""; // filled by renumberDx()
   tr.appendChild(tdNum);
 
+  // Dx text
   const tdText = document.createElement("td");
   const inp = document.createElement("input");
   inp.value = text;
@@ -200,8 +188,7 @@ function createDxRow({ text = "", type = "Primary" } = {}) {
   tdText.appendChild(inp);
   tr.appendChild(tdText);
 
-  attachDxAutocomplete(inp);
-
+  // Type
   const tdType = document.createElement("td");
   const sel = document.createElement("select");
   ["Primary", "Secondary", "Problem"].forEach((v) => {
@@ -218,6 +205,7 @@ function createDxRow({ text = "", type = "Primary" } = {}) {
   tdType.appendChild(sel);
   tr.appendChild(tdType);
 
+  // Remove
   const tdDel = document.createElement("td");
   const btn = document.createElement("button");
   btn.type = "button";
@@ -260,58 +248,10 @@ function getDxRows({ sortByType = false } = {}) {
   return rows;
 }
 
-function attachDxAutocomplete(input) {
-  let box = null;
-
-  const getSearchText = (d) => {
-  const syn = Array.isArray(d.synonyms) ? d.synonyms.join(" ") : "";
-  return `${d.icd10 || ""} ${d.en || ""} ${d.th || ""} ${syn}`.toLowerCase();
-};
-
-  const close = () => { if (box) { box.remove(); box = null; } };
-
-  input.addEventListener("input", () => {
-    const q = input.value.trim().toLowerCase();
-    close();
-    if (q.length < 2) return;
-    if (!DX_DB.length) return;
-
-    const matches = DX_DB
-      .filter(d => getSearchText(d).includes(q))
-      .slice(0, 8);
-
-    if (!matches.length) return;
-
-    box = document.createElement("div");
-    box.className = "dxSuggestBox";
-
-    matches.forEach(d => {
-      const item = document.createElement("div");
-      item.className = "dxSuggestItem";
-      item.textContent = `${d.icd10 || ""} ${d.en || ""} / ${d.th || ""}`.trim();
-
-      item.addEventListener("mousedown", (e) => {
-        e.preventDefault();
-        // what gets inserted into Dx list:
-        input.value = `${d.en}${d.icd10 ? ` (${d.icd10})` : ""}`;
-        close();
-        input.dispatchEvent(new Event("input"));
-      });
-
-      box.appendChild(item);
-    });
-
-    input.parentElement.style.position = "relative";
-    input.parentElement.appendChild(box);
-  });
-
-  document.addEventListener("click", close);
-}
-
 function syncDxToPrint() {
   if (!dxPrintList) return;
 
-  const rows = getDxRows({ sortByType: false });
+  const rows = getDxRows({ sortByType: false }); // keep manual order
   dxPrintList.innerHTML = "";
 
   if (rows.length === 0) {
@@ -323,7 +263,7 @@ function syncDxToPrint() {
 
   for (const r of rows) {
     const li = document.createElement("li");
-    li.textContent = r.text;
+    li.textContent = r.text; // or `${r.text} (${r.type})` if you want type shown
     dxPrintList.appendChild(li);
   }
 }
@@ -349,21 +289,17 @@ function loadDx(rows) {
 }
 
 /* =========================================================
-   Medication Table + Autosuggest
+   Medication Table
+   HTML expected:
+   - tbody#medTbody (inputs)
+   - button#btnAddMed
+   - tbody#medPrintTbody (print)
 ========================================================= */
 const medTbody = $("medTbody");
 const medPrintTbody = $("medPrintTbody");
 const btnAddMed = $("btnAddMed");
 
 const MED_COLS = ["drug", "dose", "route", "freq", "duration", "instruction"];
-
-// Your JSON schema helper: { name, dose:[...], route:[...], forms:[...], defaultSig:{...} }
-function getMedDisplayText(m) {
-  const name = (m?.name || m?.drug || m?.label || "").toString();
-  const strengths = Array.isArray(m?.dose) ? m.dose.join(", ") : (m?.dose || "");
-  const routes = Array.isArray(m?.route) ? m.route.join(", ") : (m?.route || "");
-  return [name, strengths, routes].filter(Boolean).join(" — ");
-}
 
 function createMedRow(data = {}) {
   const tr = document.createElement("tr");
@@ -372,17 +308,14 @@ function createMedRow(data = {}) {
     const td = document.createElement("td");
     const inp = document.createElement("input");
     inp.value = data[col] ?? "";
-
     if (col === "drug") {
-      inp.placeholder = "Type drug name...";
-      attachMedAutocomplete(inp, tr);
-    }
-
+  inp.placeholder = "Type drug name...";
+  attachMedAutocomplete(inp, tr);
+}
     inp.addEventListener("input", () => {
       syncMedToPrint();
       saveDraft();
     });
-
     td.appendChild(inp);
     tr.appendChild(td);
   }
@@ -410,6 +343,7 @@ function getMedRows() {
     const inputs = [...tr.querySelectorAll("input")];
     const row = {};
     MED_COLS.forEach((col, i) => (row[col] = (inputs[i]?.value ?? "").trim()));
+
     const hasAny = MED_COLS.some((c) => row[c]);
     if (hasAny) rows.push(row);
   }
@@ -433,30 +367,30 @@ function syncMedToPrint() {
     return;
   }
 
+  // Print as a simple list-like table (each med on 2 lines if needed)
+  // Keep your screenshot-like formatting: "1. Drug (dose) /qty" and sig line under it
+  // If you want the exact style, adjust HTML/CSS; for now use a consistent 2-row style per item.
   rows.forEach((r, idx) => {
     const tr1 = document.createElement("tr");
     const td1 = document.createElement("td");
     td1.colSpan = 6;
+    const isOral = /^(po|oral)$/i.test(r.route);
 
-    const isOral = /^(po|oral)$/i.test((r.route || "").trim());
+const drugText = isOral && r.dose
+  ? `${escapeHtml(r.drug)} (${escapeHtml(r.dose)})`
+  : `${escapeHtml(r.drug)} ${escapeHtml(r.dose)}`;
 
-    const drugText =
-      isOral && r.dose
-        ? `${escapeHtml(r.drug)} (${escapeHtml(r.dose)})`
-        : `${escapeHtml(r.drug)} ${escapeHtml(r.dose)}`;
-
-    td1.innerHTML = `
-      <div>
-        <b>${idx + 1}.</b>
-        ${drugText}
-        ${r.duration ? `<span style="float:right">/${escapeHtml(r.duration)}</span>` : ""}
-      </div>
-      <div style="padding-left:18px">
-        ${escapeHtml([r.freq, r.route].filter(Boolean).join(" "))}
-        ${r.instruction ? escapeHtml(r.instruction) : ""}
-      </div>
-    `;
-
+td1.innerHTML = `
+  <div>
+    <b>${idx + 1}.</b>
+    ${drugText}
+    ${r.duration ? `<span style="float:right">/${escapeHtml(r.duration)}</span>` : ""}
+  </div>
+  <div style="padding-left:18px">
+    ${escapeHtml([r.freq, r.route].filter(Boolean).join(" "))} 
+    ${r.instruction ? escapeHtml(r.instruction) : ""}
+  </div>
+`;
     tr1.appendChild(td1);
     medPrintTbody.appendChild(tr1);
   });
@@ -482,40 +416,27 @@ function loadMeds(rows) {
   syncMedToPrint();
 }
 
-function attachMedAutocomplete(input, rowEl) {
-  let box = null;
 
-  function removeBox() {
-    if (box) {
-      box.remove();
-      box = null;
-    }
-  }
+function attachMedAutocomplete(input, rowEl) {
+  let box;
 
   input.addEventListener("input", () => {
     const q = input.value.trim().toLowerCase();
     removeBox();
-
-    // suggestions only when typing (1+ char)
     if (q.length < 1) return;
-    if (!Array.isArray(MED_DB) || MED_DB.length === 0) return;
 
-    const matches = MED_DB
-      .filter((m) => (m?.name || "").toLowerCase().includes(q))
-      .slice(0, 8);
-
-    if (matches.length === 0) return;
+    const matches = MED_DB.filter(m => medSearchText(m).includes(q));
+if (matches.length === 0) return;
 
     box = document.createElement("div");
     box.className = "medSuggestBox";
 
-    matches.forEach((med) => {
+    matches.forEach(med => {
       const item = document.createElement("div");
       item.className = "medSuggestItem";
-      item.textContent = getMedDisplayText(med);
+      item.textContent = med.label || med.drug || "";
 
-      item.addEventListener("mousedown", (e) => {
-        e.preventDefault();
+      item.addEventListener("mousedown", () => {
         applyMed(rowEl, med);
         removeBox();
       });
@@ -533,100 +454,147 @@ function attachMedAutocomplete(input, rowEl) {
       const first = box.querySelector(".medSuggestItem");
       if (first) first.dispatchEvent(new MouseEvent("mousedown"));
     }
-    if (e.key === "Escape") removeBox();
   });
 
-  document.addEventListener(
-    "click",
-    (e) => {
-      if (!box) return;
-      if (e.target === input || box.contains(e.target)) return;
-      removeBox();
-    },
-    true
-  );
+  document.addEventListener("click", removeBox);
+
+  function removeBox() {
+    if (box) {
+      box.remove();
+      box = null;
+    }
+  }
 }
 
-// Adapter: convert your JSON med -> row fields
 function applyMed(rowEl, med) {
   const inputs = rowEl.querySelectorAll("input");
 
-  const strength = Array.isArray(med?.dose) ? (med.dose[0] || "") : (med?.dose || "");
-  const route = Array.isArray(med?.route) ? (med.route[0] || "") : (med?.route || "");
-  const form = Array.isArray(med?.forms) ? (med.forms[0] || "") : (med?.forms || "");
-
-  const sig = med?.defaultSig || {};
-  const sigDose = (sig.dose || "").trim();       // e.g. "1 Tab"
-  const sigFreq = (sig.freq || "").trim();       // e.g. "q 8 hrs prn"
-  const sigDur = (sig.duration || "").trim();    // e.g. "5 days"
-  const sigIns = (sig.instruction || "").trim();
-
-  // Build row fields
   const map = {
-    drug: med?.name || "",
-    dose: strength,
-    route: (route || "").toUpperCase(),
-    // If defaultSig.dose already includes Tab/Cap, avoid duplicating with form
-    freq: [sigDose, form, sigFreq].filter(Boolean).join(" ").replace(/\b(Tab|Cap|Syr)\s+\1\b/gi, "$1"),
-    duration: sigDur,
-    instruction: sigIns,
+    drug: med.drug ?? med.name ?? med.label ?? "",
+    dose: med.dose,
+    route: med.route,
+    freq: med.freq,
+    duration: med.duration,
+    instruction: med.instruction
   };
 
-  rowEl.dataset.medName = med.name || "";
-  rowEl.dataset.medClass = med.class || "";
-
-  const warnings = checkMedicationRedundancy(med, rowEl);
-  
-  if (warnings.length > 0) {
-  rowEl.classList.add("warn");
-  rowEl.title = warnings.join("\n");
-}
-
-
   MED_COLS.forEach((col, i) => {
-    if (map[col] !== undefined) inputs[i].value = map[col];
+    if (map[col] !== undefined) {
+      inputs[i].value = map[col];
+    }
   });
 
   syncMedToPrint();
   saveDraft();
 }
 
-function checkMedicationRedundancy(newMed, currentRow) {
-  const warnings = [];
-
-  const newName = ((newMed?.name || newMed?.drug || "")).toLowerCase();
-  const newClass = (newMed.class || "").toLowerCase().trim();
-
-  if (!medTbody) return warnings;
-
-  for (const tr of medTbody.querySelectorAll("tr")) {
-    if (tr === currentRow) continue;
-
-    // Fallback: if dataset is missing, read from the first input (drug column)
-    const typedOldDrug = (tr.querySelector("input")?.value || "").trim();
-
-    const oldName = ((tr.dataset.medName || typedOldDrug || "")).toLowerCase();
-    const oldClass = (tr.dataset.medClass || "").toLowerCase().trim();
-
-
-    // B) Same class
-    if (newClass && oldClass && newClass === oldClass) {
-      warnings.push(`Same drug class (${newMed.class})`);
-    }
-    // A) Same drug name
-    if (newName && oldName && newName === oldName) {
-      warnings.push(`Duplicate drug: ${newMed.name || typedOldDrug}`);
-    }
-
-  }
-
-  return warnings;
-}
-
-
 /* =========================================================
-   Templates apply
+   Templates (prefill)
+   HTML expected:
+   - select#templateSelect
 ========================================================= */
+const templateSelect = $("templateSelect");
+
+const templates = {
+  blank: {
+    fields: {
+      investigation: "None",
+      hpi: "",
+      pmh: "",
+      homeMeds: "",
+      ros: "",
+      vitals: "",
+      pe: "",
+      plan: "",
+      cc: "",
+    },
+    dxList: [],
+    meds: [],
+  },
+
+  cold: {
+    fields: {
+      cc: "ไข้ ไอ น้ำมูก 2 วัน / Fever, cough, rhinorrhea 2 days",
+      hpi:
+        "- มีไข้ ไอ น้ำมูก\n- ไม่มีหอบเหนื่อย\n- รับประทานได้\n- ไม่มีอาการอันตราย",
+      ros: "- ไม่มีเจ็บหน้าอก\n- ไม่มีหอบเหนื่อย\n- ไม่มีอาเจียนรุนแรง",
+      vitals: "T, BP, PR, RR, SpO2",
+      pe: "- GA good\n- Throat mildly injected\n- Chest clear",
+      investigation: "None",
+      plan:
+        "- Symptomatic treatment\n- Advise fluids/rest\n- Return if SOB, persistent fever, poor intake",
+    },
+    dxList: [{ text: "URI / Common cold", type: "Primary" }],
+    meds: [
+      {
+        drug: "Paracetamol",
+        dose: "500 mg",
+        route: "PO",
+        freq: "1 tab prn q6h",
+        duration: "10",
+        instruction: "for fever/pain",
+      },
+    ],
+  },
+
+  trauma: {
+    fields: {
+      cc: "บาดเจ็บจากอุบัติเหตุ / Trauma",
+      hpi:
+        "- Mechanism: ...\n- Time: ...\n- Pain score: .../10\n- Bleeding/LOC: ...",
+      pe:
+        "- ABC stable\n- Wound: ...\n- Neurovascular intact\n- Tenderness: ...",
+      investigation: "X-ray if indicated",
+      plan:
+        "- Wound care\n- Tetanus update\n- Analgesia\n- Follow-up / red flags",
+    },
+    dxList: [
+      { text: "Soft tissue injury", type: "Primary" },
+      { text: "Laceration (if present)", type: "Secondary" },
+    ],
+    meds: [
+      {
+        drug: "Ibuprofen",
+        dose: "400 mg",
+        route: "PO",
+        freq: "1 tab q8h",
+        duration: "10",
+        instruction: "after meals",
+      },
+    ],
+  },
+
+  dyspepsia: {
+    fields: {
+      cc: "ปวดจุกลิ้นปี่ / Epigastric pain",
+      hpi:
+        "- ปวดจุกลิ้นปี่เป็นๆหายๆ\n- คลื่นไส้/แน่นท้อง\n- ไม่มีถ่ายดำ/อาเจียนเป็นเลือด",
+      pe: "- Abd soft, not tender",
+      investigation: "None",
+      plan: "- PPI\n- Diet advice\n- Return if alarm symptoms",
+    },
+    dxList: [{ text: "Dyspepsia w/ Abdominal Bloating", type: "Primary" }],
+    meds: [
+      {
+        drug: "Omeprazole",
+        dose: "20 mg",
+        route: "PO",
+        freq: "1 x 1 ac",
+        duration: "20",
+        instruction: "ก่อนอาหารเช้า",
+      },
+      {
+        drug: "Simethicone",
+        dose: "120 mg",
+        route: "PO",
+        freq: "1 tab prn q8h",
+        duration: "10",
+        instruction: "",
+      },
+    ],
+  },
+};
+
 function setFieldValue(id, value) {
   const el = $(id);
   if (!el) return;
@@ -635,15 +603,14 @@ function setFieldValue(id, value) {
 }
 
 function applyTemplate(key) {
-  const t =
-    templates?.[key] ??
-    templates?.blank ??
-    { fields: {}, dxList: [], meds: [] };
+  const t = templates[key] ?? templates.blank;
 
+  // Fill normal fields
   if (t.fields) {
     Object.entries(t.fields).forEach(([id, val]) => setFieldValue(id, val));
   }
 
+  // Dx and meds
   loadDx(t.dxList ?? []);
   loadMeds(t.meds ?? []);
 
@@ -651,7 +618,8 @@ function applyTemplate(key) {
 }
 
 /* =========================================================
-   Draft persistence
+   Draft persistence (optional but useful)
+   - Saves all fields + Dx + meds in localStorage
 ========================================================= */
 const DRAFT_KEY = "opd_note_draft_v1";
 
@@ -687,13 +655,9 @@ function loadDraft() {
     if (!raw) return false;
 
     const data = JSON.parse(raw);
-
     if (data?.fields) {
-      Object.entries(data.fields).forEach(([id, val]) =>
-        setFieldValue(id, val)
-      );
+      Object.entries(data.fields).forEach(([id, val]) => setFieldValue(id, val));
     }
-
     loadDx(data?.dxList ?? []);
     loadMeds(data?.meds ?? []);
 
@@ -716,6 +680,7 @@ function printOnly(elementId) {
   const el = $(elementId);
   if (!el) return;
 
+  // include your stylesheet(s) so A4 rules apply
   const cssLinks = [...document.querySelectorAll('link[rel="stylesheet"]')]
     .map((l) => `<link rel="stylesheet" href="${l.href}">`)
     .join("\n");
@@ -751,21 +716,15 @@ function printOnly(elementId) {
 }
 
 /* =========================================================
-   Init
+   Wire up events + init
 ========================================================= */
 async function init() {
-  // Load JSON first (prevents empty dropdown / empty autosuggest)
   await loadMedicationDB();
-  await loadDiseaseDB();
-  await loadTemplatesDB();
 
-  // Build dropdown from templates.json
-  populateTemplateDropdown();
-
-  // Bind preview
+  // Bind text fields to preview
   bindPreviewFields();
 
-  // Sticky defaults
+  // Sticky identity defaults (editable, remembered)
   initStickyDefault("physician");
   initStickyDefault("license");
 
@@ -780,7 +739,7 @@ async function init() {
     });
   }
 
-  // Print
+  // Print button: sync lists then print only template
   if (btnPrint) {
     btnPrint.addEventListener("click", () => {
       renumberDx();
@@ -791,7 +750,7 @@ async function init() {
     });
   }
 
-  // Save draft on normal field changes
+  // Save draft when any normal field changes
   for (const id of BIND_FIELDS) {
     const el = $(id);
     if (!el) continue;
@@ -799,19 +758,22 @@ async function init() {
     el.addEventListener("change", saveDraft);
   }
 
-  // Load draft first; else apply selected template
+  // Load draft if exists; else apply current template (or blank)
   const hasDraft = loadDraft();
   if (!hasDraft) {
     const startTemplate = templateSelect?.value ?? "blank";
     applyTemplate(startTemplate);
   } else {
+    // ensure print areas are synced after draft load
     renumberDx();
     syncDxToPrint();
     syncMedToPrint();
   }
 
+  // Ensure at least 1 row exists for Dx and Med if everything empty
   if (getDxRows().length === 0) loadDx([]);
   if (getMedRows().length === 0) loadMeds([]);
 }
 
-document.addEventListener("DOMContentLoaded", () => init());
+document.addEventListener("DOMContentLoaded", () => { init(); });
+

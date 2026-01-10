@@ -1,0 +1,49 @@
+[
+  {
+  "name": "Ibuprofen",
+  "class": "NSAIDS",
+  "dose": ["400 mg"],
+  "route": ["po"],
+  "forms": ["tab"],
+  "defaultSig": {
+    "dose": "1 Tab",
+    "freq": "q 8 hrs prn",
+    "duration": "",
+    "instruction": "after meals"
+  }
+},
+{
+  "name": "Diclofenac",
+  "class": "NSAIDS",
+  "dose": ["25 mg"],
+  "route": ["po"],
+  "forms": ["Tab"],
+  "defaultSig": {
+    "dose": "1 tab",
+    "freq": "q 12 hrs prn",
+    "duration": "",
+    "instruction": "after meals"
+  }
+},
+  {
+    "name": "Amoxicillin",
+    "dose": ["500 mg"],
+    "route": ["po"],
+    "forms": ["Cap"],
+    "defaultSig": { "dose": "1 cap", "freq": "tid", "duration": "5 days", "instruction": "pc" }
+  },
+  {
+    "name": "Dicloxacillin",
+    "dose": ["250 mg"],
+    "route": ["po"],
+    "forms": ["Cap"],
+    "defaultSig": { "dose": "1 cap", "freq": "qid", "duration": "5 days", "instruction": "ac" }
+  },
+    {
+    "name": "Paracetamol",
+    "dose": ["500 mg"],
+    "route": ["po"],
+    "forms": ["Tab"],
+    "defaultSig": { "dose": "1 tab", "freq": "q 4-6 hrs", "duration": "10", "instruction": "prn for fever & pain" }
+  }
+]
