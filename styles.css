@@ -1,0 +1,310 @@
+/* =========================
+   Fonts (local Sarabun)
+   ========================= */
+@font-face {
+  font-family: "SarabunLocal";
+  src: url("./fonts/Sarabun-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SarabunLocal";
+  src: url("./fonts/Sarabun-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   App UI (screen)
+   ========================= */
+:root{
+  --bg:#0b0c10;
+  --panel:#11131a;
+  --text:#e9ecf1;
+  --muted:#a9b2c3;
+  --line:#2a2f3a;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: SarabunLocal, Sarabun, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 18px;
+  border-bottom:1px solid var(--line);
+}
+
+.topbar h1{ margin:0; font-size:18px; }
+.sub{ color:var(--muted); font-size:12px; margin-top:2px; }
+
+.actions{ display:flex; gap:10px; }
+
+button{
+  border:1px solid var(--line);
+  background:#1a1f2b;
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+button.primary{
+  background:#2a6df4;
+  border-color:#2a6df4;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap:12px;
+  padding:12px;
+}
+
+.panel{
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  min-height: calc(100vh - 90px);
+}
+
+.panel.preview{ overflow:auto; }
+
+h2{ margin:0 0 10px 0; font-size:16px; }
+h3{ margin:16px 0 8px; font-size:14px; }
+
+.hint{ color:var(--muted); font-size:12px; margin-bottom:8px; }
+
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+}
+
+label{
+  font-size:12px;
+  color:var(--muted);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+input, textarea, select{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:#0f1320;
+  color:var(--text);
+  font-family:inherit;
+  font-size:13px;
+}
+
+textarea{ resize:vertical; }
+.block{ margin-top:10px; }
+
+.tableWrap{
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+
+table{ width:100%; border-collapse:collapse; }
+th, td{
+  border-bottom:1px solid var(--line);
+  padding:8px;
+  vertical-align:top;
+}
+th{
+  font-size:12px;
+  color:var(--muted);
+  text-align:left;
+  background:#0f1320;
+  position:sticky;
+  top:0;
+}
+
+td input{ padding:8px; border-radius:10px; }
+
+.footerRow{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+  margin-top:12px;
+}
+
+/* =========================
+   A4 NOTE TEMPLATE (screen preview)
+   ========================= */
+.note{
+  background:#fff;
+  color:#111;
+  border-radius:10px;
+  max-width: 840px;
+  margin:0 auto;
+}
+
+/* IMPORTANT: lock page to A4 physical size */
+.noteA4{
+  width: 210mm;
+  min-height: 297mm;
+
+  /* You can tweak these to match Google Docs ruler positions */
+  padding: 25mm 25mm 25mm 30mm; /* top right bottom left */
+
+  box-sizing: border-box;
+  background:#fff;
+}
+
+/* Header */
+.noteHeader{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-end;
+  margin-bottom: 4mm;
+}
+.hospitalName{ font-weight:700; font-size:16px; }
+.docTitle{ font-size:13px; }
+
+.line{
+  border-top: 0.3mm solid #000;
+  margin: 3mm 0 5mm;
+}
+
+/* Two column layout like your Google Doc screenshot */
+.twoCol{
+  display:grid;
+
+  /* Adjust these 3 numbers to match the ruler perfectly */
+  grid-template-columns: 115mm 55mm;  /* left col / right col */
+  column-gap: 10mm;                  /* gap between columns */
+
+  align-items:start;
+}
+
+/* Left column rows: label + body with fixed indent */
+.mainCol .row{
+  display:grid;
+  grid-template-columns: 35mm 1fr; /* label width / body */
+  column-gap: 6mm;
+  margin-bottom: 6mm;
+}
+
+.rowLabel{
+  font-size: 12px;
+}
+
+.rowBody{
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* Keep line breaks from textarea */
+.pre{ white-space: pre-wrap; }
+
+/* Underline that prints like Docs (more stable than text-decoration) */
+.u{
+  display:inline-block;
+  font-weight:700;
+  border-bottom: 0.4mm solid #000;
+  padding-bottom: 0.6mm;
+}
+
+/* Diagnosis styling */
+.dxLine{
+  font-size: 12.5px;
+}
+
+/* Right column blocks */
+.sideCol{
+  padding-left: 0mm; /* keep clean; gap already handled by twoCol */
+}
+.sideBlock{
+  margin-bottom: 8mm;
+}
+.sideTitle{
+  font-size: 12px;
+  margin-bottom: 2mm;
+}
+.sideBody{
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* Medication table on the right (simple list style) */
+.sideMedTable{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+.sideMedTable td{
+  padding: 1mm 0;
+  vertical-align: top;
+}
+
+/* Signature */
+.sigMini{
+  margin-top: 10mm;
+  font-size: 11.5px;
+}
+
+/* Avoid breaking important blocks across pages */
+.avoidBreak{
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* =========================
+   PRINT
+   ========================= */
+@media print {
+  @page{
+    size: A4;
+    margin: 0; /* because noteA4 already has padding */
+  }
+
+  body{
+    background:#fff;
+    color:#000;
+  }
+
+  /* Hide form and any UI */
+  .no-print{ display:none !important; }
+
+  /* Remove app layout so ONLY the note prints nicely */
+  .layout{ display:block; padding:0; }
+  .panel{
+    background:transparent;
+    border:none;
+    border-radius:0;
+    padding:0;
+    min-height:auto;
+  }
+  .panel.preview{ overflow:visible; }
+
+  /* Make note fill page without rounded corners */
+  .note{
+    border-radius:0;
+    max-width:none;
+    margin:0;
+  }
+}
+
+.dxListPrint{
+  margin: 0;
+  padding-left: 5mm;     /* controls number indent */
+  font-size: 12.5px;
+}
+.dxListPrint li{
+  margin: 0 0 1.5mm 0;
+}
