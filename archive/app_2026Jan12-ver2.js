@@ -43,7 +43,7 @@ const BIND_FIELDS = [
   "pmh",
   "homeMeds",
   "ros",
-  "vtemp","vbp","vpulse","vresp","vspo2",
+  "vitals",
   "pe",
   "plan",
   "investigation",
@@ -64,8 +64,8 @@ const BIND_FIELDS = [
    Print Mode selection OPD / MC / Admission
 ------------------------- */
 const printMode = $("printMode");
-// const btnSaveCase = $("btnSaveCase");
-// const btnLoadLatest = $("btnLoadLatest");
+const btnSaveCase = $("btnSaveCase");
+const btnLoadLatest = $("btnLoadLatest");
 const printHost = $("printHost");
 
 const PRINT_TEMPLATES = {
@@ -74,7 +74,21 @@ const PRINT_TEMPLATES = {
   admit: "./print_templates/admit.html",
 };
 
-// 1st Load Template //
+// Track current loaded area id inside printHost
+let currentPrintAreaId = "printArea-opd";
+
+/** Returns the current print area element (scoped root for syncing) */
+function getCurrentPrintArea() {
+  const byId = document.getElementById(currentPrintAreaId);
+  if (byId) return byId;
+
+  if (printHost) {
+    const areaInHost = printHost.querySelector('[id^="printArea-"]');
+    if (areaInHost) return areaInHost;
+  }
+
+  return document.querySelector('[id^="printArea-"]') || $("printArea") || null;
+}
 
 async function loadPrintTemplate(mode) {
   if (!printHost) return;
@@ -106,23 +120,7 @@ async function loadPrintTemplate(mode) {
   }
 }
 
-/** Track current loaded area id inside printHost **/
-let currentPrintAreaId = "printArea-opd";
-
-/** Returns the current print area element (scoped root for syncing) */
-function getCurrentPrintArea() {
-  const byId = document.getElementById(currentPrintAreaId);
-  if (byId) return byId;
-
-  if (printHost) {
-    const areaInHost = printHost.querySelector('[id^="printArea-"]');
-    if (areaInHost) return areaInHost;
-  }
-
-  return document.querySelector('[id^="printArea-"]') || $("printArea") || null;
-}
-
-/* Med Certificate - Use VisitDt to indicate how many rest day */
+/* Use VisitDt to indicate how many rest day */
 function syncMcRestFromMedAndVisitDt() {
   const area = getCurrentPrintArea();
   if (!area) return;
@@ -166,25 +164,22 @@ function syncMcRestFromMedAndVisitDt() {
 
 function syncAllPrint(mode = printMode?.value || "opd") {
   renumberDx();
-  syncDxRelatedPrint(); //Try Change syncDxToPrint() into syncDxRelatedPrint()
+  syncDxToPrint();
   syncMedToPrint();
   syncMcAutoFields();
   syncMcRestFromMedAndVisitDt();
+
+  // ✅ run MC-only stuff only when MC is active
+  if (currentPrintAreaId === "printArea-mc") {
+    syncMcRestFromMedAndVisitDt();
+    if (typeof syncMcAutoFields === "function") syncMcAutoFields();
+  }
 
   const area = getCurrentPrintArea();
   if (!area) return;
 
   // MC Blocks (optional)
-    // ✅ run MC-only stuff only when MC is active
-  if (currentPrintAreaId === "printArea-mc") {
-    if (typeof syncMcAutoFields === "function") syncMcAutoFields();
-    syncMcRestFromMedAndVisitDt();
-  }
-
-  // syncMcAutoFields();
-  // syncMcRestFromMedAndVisitDt();
-
-  /* MC diagnosis */
+  // MC diagnosis (Thai + multiple Dx joined with spaces, last uses " และ ")
   const mcDxShort = area.querySelector("#mcDxShort");  // your HTML has this
   // const mcDxFull  = area.querySelector("#mcDxFull");
   const mcFitNote = area.querySelector("#mcFitNote");
@@ -193,7 +188,7 @@ function syncAllPrint(mode = printMode?.value || "opd") {
 
   const setText = (el, txt) => { if (el) el.textContent = txt ?? ""; };
 
-  // helper: join ["A","B","C"] -> "A B และ C" (Thai + multiple Dx joined with spaces, last uses " และ ")
+  // helper: join ["A","B","C"] -> "A B และ C"
   function joinThai(items) {
     const a = items.filter(Boolean);
     if (a.length === 0) return "-";
@@ -240,8 +235,7 @@ function syncAllPrint(mode = printMode?.value || "opd") {
     setText(mcFitNote, pObj?.mc?.fit_note || "");
   }
 
-  // ============== Admission blocks (optional) ============== //
-
+  // Admission blocks (optional)
   const dxAdmit = area.querySelector("#dxPrintList_admit");
   console.log('event1');
   if (dxAdmit) {
@@ -285,10 +279,6 @@ function syncAllPrint(mode = printMode?.value || "opd") {
   }
 }
 
-/* =========================================================
-   Time and Date Functions
-========================================================= */
-
 function formatThaiDate(dateInput) {
   if (!dateInput) return "";
 
@@ -325,33 +315,6 @@ function formatThaiTimeFromDate(d) {
   return `${hh}:${mm}`;
 }
 
-
-function pad2(n) {
-  return String(n).padStart(2, "0");
-}
-
-function toDatetimeLocalValue(d) {
-  return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}T${pad2(
-    d.getHours()
-  )}:${pad2(d.getMinutes())}`;
-}
-
-function initVisitDtDefault(force = false) {
-  const el = $("visitDt");
-  if (!el) return;
-  if (!force && el.value) return;
-
-  const d = new Date();
-  d.setMinutes(d.getMinutes() + 20);
-
-  el.value = toDatetimeLocalValue(d);
-  el.dispatchEvent(new Event("input"));
-  el.dispatchEvent(new Event("change"));
-}
-
-/* =========================================================
-   Preview Function
-========================================================= */
 
 function bindPreviewFields() {
   for (const id of BIND_FIELDS) {
@@ -409,24 +372,11 @@ function initStickyDefault(id) {
 /* =========================================================
    Databases: Meds + Dx + Templates (JSON)
 ========================================================= */
-
 let MED_DB = [];
 let DX_DB = [];
 let dxByIcd10 = new Map();
 let dxById = new Map();
 let templates = {};
-
-async function loadTemplatesDB() {
-  try {
-    const res = await fetch("./data/templates.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    templates = await res.json();
-    console.log("Loaded templates:", Object.keys(templates).length);
-  } catch (err) {
-    console.warn("Could not load templates.json. Using blank only.", err);
-    templates = { blank: { fields: {}, dxList: [], meds: [] } };
-  }
-}
 
 async function loadDiseaseDB() {
   try {
@@ -468,8 +418,21 @@ async function loadMedicationDB() {
   }
 }
 
-// Templates dropdown (from templates.json)
+async function loadTemplatesDB() {
+  try {
+    const res = await fetch("./data/templates.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    templates = await res.json();
+    console.log("Loaded templates:", Object.keys(templates).length);
+  } catch (err) {
+    console.warn("Could not load templates.json. Using blank only.", err);
+    templates = { blank: { fields: {}, dxList: [], meds: [] } };
+  }
+}
 
+/* =========================================================
+   Templates dropdown (from templates.json)
+========================================================= */
 const templateSelect = $("templateSelect");
 
 function populateTemplateDropdown() {
@@ -497,105 +460,6 @@ function populateTemplateDropdown() {
   if (current && keys.includes(current)) templateSelect.value = current;
   else if (keys.includes("blank")) templateSelect.value = "blank";
   else templateSelect.value = keys[0];
-}
-
-/* =========================================================
-   PMH List
-========================================================= */
-
-const chronicTbody = document.getElementById("chronicTbody");
-let chronicState = []; // [{cond, year, meds}]
-
-function chronicLine(r) {
-  const cond = (r.cond || "").trim() || "-";
-  const year = (r.year || "").trim();
-  const meds = (r.meds || "").trim();
-
-  // Format you asked:
-  // - T2DM (Dx y2567/2024); on MFM 500 mgOD
-  // If year empty, omit the Dx part.
-  const dxPart = year ? ` (Dx y${year})` : "";
-  const medPart = meds ? `; on ${meds}` : "";
-  return `${cond}${dxPart}${medPart}`;
-}
-
-function renumberChronic() {
-  if (!chronicTbody) return;
-  [...chronicTbody.querySelectorAll("tr")].forEach((tr, i) => {
-    const n = tr.querySelector("[data-n]");
-    if (n) n.textContent = String(i + 1);
-  });
-}
-
-function syncChronicToPrint() {
-  const ul = document.getElementById("chronicPrintList");
-  if (!ul) return;
-  ul.innerHTML = "";
-
-  const rows = getChronicRows();
-  if (!rows.length) {
-    const li = document.createElement("li");
-    li.textContent = "";
-    ul.appendChild(li);
-    return;
-  }
-
-  rows.forEach(r => {
-    const li = document.createElement("li");
-    li.textContent = chronicLine(r);
-    ul.appendChild(li);
-  });
-}
-
-function getChronicRows() {
-  if (!chronicTbody) return [];
-  return [...chronicTbody.querySelectorAll("tr")].map(tr => ({
-    cond: tr.querySelector('[data-field="cond"]')?.value ?? "",
-    year: tr.querySelector('[data-field="year"]')?.value ?? "",
-    meds: tr.querySelector('[data-field="meds"]')?.value ?? "",
-  })).filter(r => (r.cond.trim() || r.year.trim() || r.meds.trim()));
-}
-
-function createChronicRow(data = {}) {
-  const tr = document.createElement("tr");
-  tr.innerHTML = `
-    <td data-n></td>
-    <td><input data-field="cond" placeholder="e.g., T2DM / Asthma" value="${escapeHtml?.(data.cond) ?? ""}"></td>
-    <td><input data-field="year" placeholder="2567/2024" value="${escapeHtml?.(data.year) ?? ""}"></td>
-    <td><input data-field="meds" placeholder="e.g., Metformin 500 mg OD" value="${escapeHtml?.(data.meds) ?? ""}"></td>
-    <td><button type="button" data-remove>Remove</button></td>
-  `;
-
-  // live sync
-  tr.querySelectorAll("input").forEach(inp => {
-    inp.addEventListener("input", () => {
-      syncChronicToPrint();
-      saveDraft?.();
-    });
-  });
-
-  tr.querySelector("[data-remove]").addEventListener("click", () => {
-    tr.remove();
-    renumberChronic();
-    syncChronicToPrint();
-    saveDraft?.();
-  });
-
-  return tr;
-}
-
-function addChronicRow(data) {
-  if (!chronicTbody) return;
-  chronicTbody.appendChild(createChronicRow(data));
-  renumberChronic();
-  syncChronicToPrint();
-  saveDraft?.();
-}
-
-function bindChronicUI() {
-  const btn = document.getElementById("btnAddChronic");
-  if (!btn) return;
-  btn.addEventListener("click", () => addChronicRow({ cond: "", year: "", meds: "" }));
 }
 
 /* =========================================================
@@ -742,6 +606,102 @@ function attachDxAutocomplete(input) {
   document.addEventListener("click", close);
 }
 
+// Chronic Illness Function
+const chronicTbody = document.getElementById("chronicTbody");
+let chronicState = []; // [{cond, year, meds}]
+
+function chronicLine(r) {
+  const cond = (r.cond || "").trim() || "-";
+  const year = (r.year || "").trim();
+  const meds = (r.meds || "").trim();
+
+  // Format you asked:
+  // - T2DM (Dx y2567/2024); on MFM 500 mgOD
+  // If year empty, omit the Dx part.
+  const dxPart = year ? ` (Dx y${year})` : "";
+  const medPart = meds ? `; on ${meds}` : "";
+  return `${cond}${dxPart}${medPart}`;
+}
+
+function renumberChronic() {
+  if (!chronicTbody) return;
+  [...chronicTbody.querySelectorAll("tr")].forEach((tr, i) => {
+    const n = tr.querySelector("[data-n]");
+    if (n) n.textContent = String(i + 1);
+  });
+}
+
+function syncChronicToPrint() {
+  const ul = document.getElementById("chronicPrintList");
+  if (!ul) return;
+  ul.innerHTML = "";
+
+  const rows = getChronicRows();
+  if (!rows.length) {
+    const li = document.createElement("li");
+    li.textContent = "";
+    ul.appendChild(li);
+    return;
+  }
+
+  rows.forEach(r => {
+    const li = document.createElement("li");
+    li.textContent = chronicLine(r);
+    ul.appendChild(li);
+  });
+}
+
+function getChronicRows() {
+  if (!chronicTbody) return [];
+  return [...chronicTbody.querySelectorAll("tr")].map(tr => ({
+    cond: tr.querySelector('[data-field="cond"]')?.value ?? "",
+    year: tr.querySelector('[data-field="year"]')?.value ?? "",
+    meds: tr.querySelector('[data-field="meds"]')?.value ?? "",
+  })).filter(r => (r.cond.trim() || r.year.trim() || r.meds.trim()));
+}
+
+function createChronicRow(data = {}) {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td data-n></td>
+    <td><input data-field="cond" placeholder="e.g., T2DM / Asthma" value="${escapeHtml?.(data.cond) ?? ""}"></td>
+    <td><input data-field="year" placeholder="2567/2024" value="${escapeHtml?.(data.year) ?? ""}"></td>
+    <td><input data-field="meds" placeholder="e.g., Metformin 500 mg OD" value="${escapeHtml?.(data.meds) ?? ""}"></td>
+    <td><button type="button" data-remove>Remove</button></td>
+  `;
+
+  // live sync
+  tr.querySelectorAll("input").forEach(inp => {
+    inp.addEventListener("input", () => {
+      syncChronicToPrint();
+      saveDraft?.();
+    });
+  });
+
+  tr.querySelector("[data-remove]").addEventListener("click", () => {
+    tr.remove();
+    renumberChronic();
+    syncChronicToPrint();
+    saveDraft?.();
+  });
+
+  return tr;
+}
+
+function addChronicRow(data) {
+  if (!chronicTbody) return;
+  chronicTbody.appendChild(createChronicRow(data));
+  renumberChronic();
+  syncChronicToPrint();
+  saveDraft?.();
+}
+
+function bindChronicUI() {
+  const btn = document.getElementById("btnAddChronic");
+  if (!btn) return;
+  btn.addEventListener("click", () => addChronicRow({ cond: "", year: "", meds: "" }));
+}
+
 // ✅ FIX: scoped to current print area
 function syncDxToPrint() {
   const area = getCurrentPrintArea();
@@ -784,7 +744,6 @@ function loadDx(rows) {
   }
   rows.forEach((r) => dxTbody.appendChild(createDxRow(r)));
   renumberDx();
-  syncDxToPrint(); // Try adding this line into loadDx - Hope this work across template
   syncDxToPrint();
 }
 
@@ -796,9 +755,9 @@ function syncDxRelatedPrint() {
   const area = getCurrentPrintArea();
   if (!area) return;
 
-  // ============== MC blocks (optional) ============== //
-
+  // --- MC blocks ---
   const mcDxShort = area.querySelector("#mcDxShort");
+  // const mcDxFull = area.querySelector("#mcDxFull");
   const mcFitNote = area.querySelector("#mcFitNote");
 
   const rows = getDxRows({ sortByType: true });
@@ -844,8 +803,6 @@ function syncDxRelatedPrint() {
     // setText(mcDxFull, "");
     setText(mcFitNote, "");
   }
-
-  // ============== Admission blocks (optional) ============== //
 
   // --- Admit list (optional) ---
   const dxAdmit = area.querySelector("#dxPrintList_admit");
@@ -937,6 +894,7 @@ function getMedRows() {
   return rows;
 }
 
+// ✅ FIX: scoped to current print area
 function syncMedToPrint() {
   const area = getCurrentPrintArea();
   if (!area) return;
@@ -984,6 +942,14 @@ function syncMedToPrint() {
     tr1.appendChild(td1);
     medPrintTbody.appendChild(tr1);
   });
+
+  if (currentPrintAreaId === "printArea-mc") {
+    if (typeof syncMcAutoFields === "function") syncMcAutoFields();
+    syncMcRestFromMedAndVisitDt();
+  }
+
+  syncMcAutoFields();
+  syncMcRestFromMedAndVisitDt();
 }
 
 function addMedRow(data) {
@@ -1245,9 +1211,7 @@ function normalizeTemplateMeds(meds) {
   });
 }
 
-/* =========================================================
-   Auto-Update Medical Certificate
-========================================================= */
+/* Auto Update Medical Certificate */
 function syncMcAutoFields() {
   const area = getCurrentPrintArea();
   if (!area) return;
@@ -1307,14 +1271,6 @@ function applyTemplate(key) {
 
   saveDraft();
 }
-
-  // if (currentPrintAreaId === "printArea-mc") {
-  //   if (typeof syncMcAutoFields === "function") syncMcAutoFields();
-  //   syncMcRestFromMedAndVisitDt();
-  // }
-
-  // syncMcAutoFields();
-  // syncMcRestFromMedAndVisitDt();
 
 /* =========================================================
    Draft persistence
@@ -1479,6 +1435,30 @@ function printOnly(elementId) {
   return true;
 }
 
+
+function pad2(n) {
+  return String(n).padStart(2, "0");
+}
+
+function toDatetimeLocalValue(d) {
+  return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}T${pad2(
+    d.getHours()
+  )}:${pad2(d.getMinutes())}`;
+}
+
+function initVisitDtDefault(force = false) {
+  const el = $("visitDt");
+  if (!el) return;
+  if (!force && el.value) return;
+
+  const d = new Date();
+  d.setMinutes(d.getMinutes() + 20);
+
+  el.value = toDatetimeLocalValue(d);
+  el.dispatchEvent(new Event("input"));
+  el.dispatchEvent(new Event("change"));
+}
+
 /* =========================================================
    Init
 ========================================================= */
@@ -1491,6 +1471,7 @@ async function init() {
   bindPreviewFields();
   bindChronicUI();
   syncChronicToPrint();
+
 
   initStickyDefault("physician");
   initStickyDefault("license");
@@ -1536,13 +1517,19 @@ async function init() {
     });
   }
 
-  if (btnPrint) {
+  // if (btnPrint) {
+  //   btnPrint.addEventListener("click", () => {
+  //     const mode = printMode?.value || "opd";
+  //     syncAllPrint(mode);
+  //     saveDraft();
+  //     document.body.dataset.printMode = mode;
+  //     window.print();   // ✅ reliable
+  //   });
+  // }
+
+    if (btnPrint) {
     btnPrint.addEventListener("click", () => {
-      const mode = printMode?.value || "opd";
-      syncAllPrint(mode);
-      saveDraft();
-      document.body.dataset.printMode = mode;
-      window.print();   // ✅ reliable
+      printOnly("printArea");
     });
   }
 

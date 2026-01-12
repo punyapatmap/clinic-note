@@ -24,7 +24,7 @@
       "investigation": "None",
       "plan": "- Symptomatic treatment\n- Advise fluids/rest\n- Return if SOB, persistent fever, poor intake"
     },
-    "dxList": [{ "text": "URI / Common cold", "type": "Primary" }],
+    "dxList": [{ "icd10": "J06.9", "type": "Primary" }],
     "meds": [
       {
         "drug": "Paracetamol",
@@ -38,7 +38,7 @@
   },
   "Trauma": {
     "fields": {
-      "cc": "เจ็บปวดรวดร้าว",
+      "cc": "ประสบอุบัติเหตุจราจร",
       "hpi": "- ได้รับอุบัติเหตุ\n- ไม่มีหอบเหนื่อย\n- จำเหตุการณ์ได้\n",
       "ros": "- ไม่มีเจ็บหน้าอก\n- ไม่มีศีรษะกระแทก\n- ไม่มีปวดศีรษะ-อาเจียนรุนแรง",
       "vitals": "T, BP, PR, RR, SpO2",
@@ -46,7 +46,7 @@
       "investigation": "None",
       "plan": "- Symptomatic treatment\n- Advise fluids/rest\n- Return if SOB, persistent fever, poor intake"
     },
-    "dxList": [{ "text": "URI / Common cold", "type": "Primary" }],
+    "dxList": [ ],
     "meds": [
       {
         "drug": "Ibuprofen",

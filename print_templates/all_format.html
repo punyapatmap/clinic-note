@@ -1,0 +1,126 @@
+  <div class="twoCol">
+    <!-- LEFT (main note) -->
+    <div class="mainCol">
+      <!-- “history” section row like your screenshot -->
+      <div class="row">
+        <div class="rowLabel"><span class="u">ประวัติอดีต</span></div>
+        <div class="rowBody pre" data-bind="pmh"></div>
+        
+        <div class="rowLabel"><span class="u">Current Meds</span></div>
+        <div class="rowBody pre" data-bind="homeMeds"></div>
+    </div>
+
+    <div class="row">
+        <div class="rowLabel"><span class="u">ประวัติเพิ่มเติม</span></div>
+        <div class="rowBody pre" data-bind="hpi"></div>
+      </div>
+
+      <div class="row">
+        <div class="rowLabel"><span class="u">ตรวจร่างกาย</span></div>
+        <div class="rowBody pre" data-bind="pe"></div>
+      </div>
+
+      <div class="row">
+        <div class="rowLabel"><span class="u">วินิจฉัย</span></div>
+        <div class="rowBody">
+          <ol class="dxListPrint" id="dxPrintList"></ol>
+        </div>
+      </div>
+
+      <div class="sigMini">
+        <div><span data-bind="physician"></span> <span data-bind="license"></span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT (side column) -->
+    <aside class="sideCol">
+      <div class="sideBlock avoidBreak">
+        <div class="sideTitle u">การส่งตรวจเพิ่มเติม</div>
+        <div class="sideBody pre"><span data-bind="investigation"></span></div>
+      </div>
+      
+      <div class="sideBlock avoidBreak">
+        <div class="sideTitle u">การรักษาเพิ่มเติม</div>
+        <div class="sideBody pre"><span data-bind="plan"></span></div>
+      </div>
+
+      <div class="sideBlock avoidBreak">
+        <div class="sideTitle u">Home Medication</div>
+        <table class="sideMedTable" id="medPrintTable">
+          <tbody id="medPrintTbody"></tbody>
+        </table>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- Admission -->
+<div id="printArea-admit" class="note noteA4" style="display:none">
+  <div class="twoCol">
+    <div class="mainCol">
+      <div class="row">
+        <div class="rowLabel"><span class="u">Admission Dx</span></div>
+        <div class="rowBody">
+          <ol class="dxListPrint" id="dxPrintList_admit"></ol>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="rowLabel"><span class="u">HPI</span></div>
+        <div class="rowBody pre" data-bind="hpi"></div>
+      </div>
+
+      <div class="row">
+        <div class="rowLabel"><span class="u">PE</span></div>
+        <div class="rowBody pre" data-bind="pe"></div>
+      </div>
+
+      <div class="row">
+        <div class="rowLabel"><span class="u">Plan</span></div>
+        <div class="rowBody pre" data-bind="plan"></div>
+      </div>
+
+      <div class="sigMini">
+        <div><span data-bind="physician"></span> <span data-bind="license"></span></div>
+      </div>
+    </div>
+
+    <aside class="sideCol">
+      <div class="sideBlock avoidBreak">
+        <div class="sideTitle u">Orders</div>
+        <table class="sideMedTable">
+          <tbody id="medPrintTbody_admit"></tbody>
+        </table>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- Medical Certificate -->
+<div id="printArea-mc" class="note noteA4" style="display:none">
+  <h3 style="margin:0 0 6mm 0;">Medical Certificate</h3>
+
+  <div class="row" style="margin-bottom:5mm;">
+    <div class="rowLabel"><span class="u">Name</span></div>
+    <div class="rowBody"><span data-bind="ptName"></span></div>
+  </div>
+
+  <div class="row" style="margin-bottom:5mm;">
+    <div class="rowLabel"><span class="u">HN</span></div>
+    <div class="rowBody"><span data-bind="hn"></span></div>
+  </div>
+
+  <div class="row" style="margin-bottom:5mm;">
+    <div class="rowLabel"><span class="u">Diagnosis</span></div>
+    <div class="rowBody" id="mcDxText">-</div>
+  </div>
+
+  <div class="row" style="margin-bottom:8mm;">
+    <div class="rowLabel"><span class="u">Date</span></div>
+    <div class="rowBody"><span data-bind="visitDt"></span></div>
+  </div>
+
+  <div class="sigMini">
+    <div><span data-bind="physician"></span> <span data-bind="license"></span></div>
+  </div>
+</div>

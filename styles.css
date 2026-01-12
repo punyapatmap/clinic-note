@@ -8,6 +8,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "SarabunLocal";
   src: url("./fonts/Sarabun-Bold.woff2") format("woff2");
@@ -19,312 +20,652 @@
 /* =========================
    App UI (screen)
    ========================= */
-:root{
-  --bg:#0b0c10;
-  --panel:#11131a;
-  --text:#e9ecf1;
-  --muted:#a9b2c3;
-  --line:#2a2f3a;
+:root {
+  --bg: #0b0c10;
+  --panel: #11131a;
+  --text: #e9ecf1;
+  --muted: #a9b2c3;
+  --line: #2a2f3a;
 }
 
-*{ box-sizing:border-box; }
+* {
+  box-sizing: border-box;
+}
 
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: SarabunLocal, Sarabun, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
 }
 
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 18px;
-  border-bottom:1px solid var(--line);
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
 }
 
-.topbar h1{ margin:0; font-size:18px; }
-.sub{ color:var(--muted); font-size:12px; margin-top:2px; }
-
-.actions{ display:flex; gap:10px; }
-
-button{
-  border:1px solid var(--line);
-  background:#1a1f2b;
-  color:var(--text);
-  padding:10px 12px;
-  border-radius:10px;
-  cursor:pointer;
-}
-button.primary{
-  background:#2a6df4;
-  border-color:#2a6df4;
+.topbar h1 {
+  margin: 0;
+  font-size: 18px;
 }
 
-.layout{
-  display:grid;
+.sub {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: 1px solid var(--line);
+  background: #1a1f2b;
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button.primary {
+  background: #2a6df4;
+  border-color: #2a6df4;
+}
+
+.layout {
+  display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap:12px;
-  padding:12px;
+  gap: 12px;
+  padding: 12px;
 }
 
-.panel{
+.panel {
   background: var(--panel);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
   min-height: calc(100vh - 90px);
 }
 
-.panel.preview{ overflow:auto; }
+.panel.preview {
+  overflow: auto;
+}
 
-h2{ margin:0 0 10px 0; font-size:16px; }
-h3{ margin:16px 0 8px; font-size:14px; }
+h2 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
 
-.hint{ color:var(--muted); font-size:12px; margin-bottom:8px; }
+h3 {
+  margin: 16px 0 8px;
+  font-size: 14px;
+}
 
-.grid2{
-  display:grid;
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.grid2 {
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  gap:10px;
+  gap: 10px;
 }
 
-label{
-  font-size:12px;
-  color:var(--muted);
-  display:flex;
-  flex-direction:column;
-  gap:6px;
+/* single-line patient header */
+.patient-row {
+  grid-column: 1 / -1;   /* span full width of grid */
+  display: flex;
+  gap: 10px;
 }
 
-input, textarea, select{
-  width:100%;
-  padding:10px;
-  border-radius:10px;
-  border:1px solid var(--line);
-  background:#0f1320;
-  color:var(--text);
-  font-family:inherit;
-  font-size:13px;
+.patient-row label {
+  flex: 1;
+  min-width: 0;
 }
 
-textarea{ resize:vertical; }
-.block{ margin-top:10px; }
+/* optional tuning */
+.patient-row .hn      { flex: 0.8; }
+.patient-row .name    { flex: 2; }
+.patient-row .age     { flex: 1; }
+.patient-row .visit   { flex: 1.5; }
 
-.tableWrap{
-  overflow:auto;
-  border:1px solid var(--line);
-  border-radius:12px;
+.cc-vital-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+
+  grid-column: 1 / -1;
 }
 
-table{ width:100%; border-collapse:collapse; }
-th, td{
-  border-bottom:1px solid var(--line);
-  padding:8px;
-  vertical-align:top;
-}
-th{
-  font-size:12px;
-  color:var(--muted);
-  text-align:left;
-  background:#0f1320;
-  position:sticky;
-  top:0;
+.cc-block {
+  flex: 1;           /* 50% */
+  min-width: 0;
 }
 
-td input{ padding:8px; border-radius:10px; }
-
-.footerRow{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:10px;
-  margin-top:12px;
+.vital-group {
+  flex: 1;           /* 50% */
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
 }
+
+.vital-group label {
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  min-width: 0;
+}
+
+.vital-group input {
+  width: 100%;
+}
+
+label {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #0f1320;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.block {
+  margin-top: 10px;
+}
+
+.tableWrap {
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 8px;
+  vertical-align: top;
+}
+
+th {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: left;
+  background: #0f1320;
+  position: sticky;
+  top: 0;
+}
+
+td input {
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.footerRow {
+  display: flex;
+  justify-content: flex-end; /* push to the right */
+  gap: 12px;
+
+  font-size: 11.5px;
+  line-height: 1.3;
+}
+
+.footerRow label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* =========================
+   Designs fancy forms
+   ========================= */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: #0f1320;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.bulletList {
+  margin: 0;
+  padding-left: 5mm;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.bulletList li {
+  margin: 0 0 1.5mm 0;
+}
+
 
 /* =========================
    A4 NOTE TEMPLATE (screen preview)
    ========================= */
-.note{
-  background:#fff;
-  color:#111;
-  border-radius:10px;
+.note {
+  background: #fff;
+  color: #111;
+  border-radius: 10px;
   max-width: 840px;
-  margin:0 auto;
+  margin: 0 auto;
+  position: relative;
 }
 
 /* IMPORTANT: lock page to A4 physical size */
-.noteA4{
+.noteA4 {
   width: 210mm;
   min-height: 297mm;
 
   /* You can tweak these to match Google Docs ruler positions */
-  padding: 140mm 25mm 25mm 30mm; /* top right bottom left */
+  padding: 140mm 25mm 25mm 10mm;
+  /* top right bottom left */
 
   box-sizing: border-box;
-  background:#fff;
+  background: #fff;
+}
+
+.noteAdmitA4 {
+  width: 210mm;
+  min-height: 297mm;
+
+  /* You can tweak these to match Google Docs ruler positions */
+  padding: 25mm 25mm 25mm 10mm;
+  /* top right bottom left */
+
+  box-sizing: border-box;
+  background: #fff;
 }
 
 /* Header */
-.noteHeader{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:flex-end;
+.noteHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-end;
   margin-bottom: 4mm;
 }
-.hospitalName{ font-weight:700; font-size:16px; }
-.docTitle{ font-size:13px; }
 
-.line{
-  border-top: 0.3mm solid #000;
+.hospitalName {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.docTitle {
+  font-size: 13px;
+}
+
+.line {
+  border-top: 0.3mm dashed #000;
   margin: 3mm 0 5mm;
 }
 
 /* Two column layout like your Google Doc screenshot */
-.twoCol{
-  display:grid;
+.twoCol {
+  display: grid;
 
   /* Adjust these 3 numbers to match the ruler perfectly */
-  grid-template-columns: 68% 32%;  /* left col / right col */
-  column-gap: 10mm;                  /* gap between columns */
+  grid-template-columns: 68% 32%;
+  /* left col / right col */
+  column-gap: 10mm;
+  /* gap between columns */
 
-  align-items:start;
+  align-items: start;
 }
 
 /* Left column rows: label + body with fixed indent */
-.mainCol .row{
-  display:grid;
-  grid-template-columns: 35mm 1fr; /* label width / body */
-  column-gap: 6mm;
+.mainCol .row {
+  display: grid;
+  grid-template-columns: 35mm 1fr;
+  /* label width / body */
+  column-gap: 3mm;
   margin-bottom: 6mm;
 }
 
-.rowLabel{
+.mainCol .rowAdmit {
+  display: grid;
+  grid-template-columns: 35mm 1.5fr;
+  /* label width / body */
+  column-gap: 3mm;
+  margin-bottom: 6mm;
+}
+
+.rowLabel {
   font-size: 12px;
 }
 
-.rowBody{
+.rowLabelAdmit {
+  font-size: 12px;
+}
+
+
+.rowBody {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.rowBodyDx {
   font-size: 12px;
   line-height: 1.35;
 }
 
 /* Keep line breaks from textarea */
-.pre{ white-space: pre-wrap; }
+.pre {
+  white-space: pre-wrap;
+}
 
 /* Underline that prints like Docs (more stable than text-decoration) */
-.u{
-  display:inline-block;
-  font-weight:700;
+.u {
+  display: inline-block;
+  font-weight: 700;
   border-bottom: 0.4mm solid #000;
   padding-bottom: 0.6mm;
 }
 
 /* Diagnosis styling */
-.dxLine{
+.dxLine {
   font-size: 12.5px;
 }
 
 /* Right column blocks */
-.sideCol{
-  padding-left: 0mm; /* keep clean; gap already handled by twoCol */
+.sideCol {
+  padding-left: 0mm;
+  /* keep clean; gap already handled by twoCol */
 }
-.sideBlock{
+
+.sideBlock {
   margin-bottom: 8mm;
 }
-.sideTitle{
+
+.sideTitle {
   font-size: 12px;
   margin-bottom: 2mm;
 }
-.sideBody{
+
+.sideBody {
   font-size: 12px;
   line-height: 1.35;
 }
 
 /* Medication table on the right (simple list style) */
-.sideMedTable{
-  width:100%;
-  border-collapse:collapse;
-  font-size:12px;
+.sideMedTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
 }
-.sideMedTable td{
+
+.sideMedTable td {
   padding: 1mm 0;
   vertical-align: top;
 }
 
-/* Signature */
-.sigMini{
-  margin-top: 10mm;
+/* Signature pinned to page corner */
+.sigMini {
+  position: absolute;
+  left: 20mm;
+  /* 3 cm from right */
+  bottom: 22mm;
+  /* 4 cm from bottom */
   font-size: 11.5px;
+  line-height: 1.3;
+  text-align: left;
 }
 
 /* Avoid breaking important blocks across pages */
-.avoidBreak{
+.avoidBreak {
   break-inside: avoid;
   page-break-inside: avoid;
 }
 
-.warn { outline: 2px solid #f5a623; }
+.warn {
+  outline: 2px solid #f5a623;
+}
 
 /* =========================
    PRINT
    ========================= */
+
+/* =========================
+   PRINT
+   ========================= */
+
 @media print {
-  @page{
+
+  @page {
     size: A4;
-    margin: 0; /* because noteA4 already has padding */
+    margin: 0; /* note already has padding */
   }
 
-  body{
-    background:#fff;
-    color:#000;
+    /* --- Medical Certificate: Landscape ---
+  @page mcLandscape {
+    size: A4 landscape;
+    margin: 0;
+  } */
+
+  /* .mcSimpleA4 {
+    page: mcLandscape;
+    width: 297mm;
+    min-height: 210mm;
+    position: relative;
+    padding: 18mm;
+    background: #fff;
+    color: #000;
+    box-sizing: border-box;
+    font-size: 16px;
+  } */
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
   }
 
-  /* Hide form and any UI */
-  .no-print{ display:none !important; }
-
-  /* Remove app layout so ONLY the note prints nicely */
-  .layout{ display:block; padding:0; }
-  .panel{
-    background:transparent;
-    border:none;
-    border-radius:0;
-    padding:0;
-    min-height:auto;
+  /* Hide UI / form */
+  .no-print,
+  .layout .panel.no-print,
+  .topbar {
+    display: none !important;
   }
-  .panel.preview{ overflow:visible; }
+
+  /* Ensure preview/print area uses full page width */
+  .layout,
+  .panel,
+  .panel.preview {
+    display: block !important;
+    position: static !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
 
   /* Make note fill page without rounded corners */
-  .note{
-    border-radius:0;
-    max-width:none;
-    margin:0;
+  .note {
+    border-radius: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  /* Dx list printing styles should be print-only */
+  .dxListPrint {
+    margin: 0 !important;
+    padding-left: 3mm !important; /* number indent */
+    font-size: 12.5px !important;
+  }
+
+  .dxListPrint li {
+    margin: 0 0 0 0 !important;
   }
 }
 
-.dxListPrint{
-  margin: 0;
-  padding-left: 5mm;     /* controls number indent */
-  font-size: 12.5px;
-}
-.dxListPrint li{
-  margin: 0 0 1.5mm 0;
-}
+/* =========================
+   MC helpers (screen + print)
+   ========================= */
 
-/* fix the preview side static, do not move with the scroll */
-/* Make only the form scroll; keep preview fixed */
-.layout{
-  height: calc(100vh - 60px); /* adjust if your topbar height differs */
-  overflow: hidden;
-}
+/* =========================
+   PRINT
+   ========================= */
 
-.panel.no-print{
-  overflow: auto;            /* left side scroll */
-}
+@media print {
 
-.panel.preview{
-  position: sticky;
-  top: 12px;                 /* aligns with your layout padding */
-  height: calc(100vh - 60px - 24px);
-  overflow: auto;            /* preview itself can scroll inside if needed */
+  /* ---------- Default page (OPD, notes, etc.) ---------- */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  /* Hide UI */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Flatten app layout */
+  .layout {
+    display: block;
+    padding: 0;
+  }
+
+  .panel {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .panel.preview {
+    overflow: visible;
+  }
+
+  /* ---------- Medical Certificate (Landscape) ---------- */
+  @page mcLandscape {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  .mcSimpleA4 {
+    page: mcLandscape;          /* 🔑 THIS forces landscape */
+    width: 297mm;
+    height: 210mm;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    background: #fff;
+    color: #000;
+    font-size: 14pt;
+  }
+
+  /* Every row: fixed vertical rhythm (0.8 cm = 8 mm) */
+  .mcSimpleA4.mcFixed .mcLine {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 8mm;
+    line-height: 8mm;
+    white-space: nowrap;
+  }
+
+  /* First line starts 3.5 cm from top = 35mm */
+  .mcL1 { top: 35mm; }
+  .mcL2 { top: calc(35mm + 8mm * 1); }
+  .mcL3 { top: calc(35mm + 8mm * 2); }
+  .mcL4 { top: calc(35mm + 8mm * 3); }
+  .mcL5 { top: calc(35mm + 8mm * 4); } /* Dx */
+  .mcL6 { top: calc(35mm + 8mm * 5); } /* FitNote */
+  .mcL7 { top: calc(35mm + 8mm * 6); } /* Advice */
+  .mcL8 { top: calc(35mm + 8mm * 7); } /* Time */
+  .mcL9 { top: calc(35mm + 8mm * 8); } /* blank */
+  .mcL10 { top: calc(35mm + 8mm * 9); } /* Rest/From/To */
+
+  /* Horizontal anchors (cm → mm)
+     4 cm = 40mm, 4.5 cm = 45mm, 8 cm = 80mm
+  */
+
+  /* HN: 4cm from left */
+  .mcHN { position: absolute; left: 50mm; }
+
+  /* visitDt: 15.5cm from right */
+  .mcVisitDtR { position: absolute; left: 155mm; }
+
+  /* Name: start 8cm from left */
+  .mcName { position: absolute; left: 55mm; }
+
+  /* Physician + License: start 8cm from left */
+  .mcPhys { position: absolute; left: 80mm; }
+  .mcLic  { position: absolute; left: 80mm; }
+
+  /* Dx + FitNote: 4cm from left */
+  .mcDx  { position: absolute; left: 40mm; }
+
+  .mcFit {
+    position: absolute;
+    left: 40mm;
+    right: 25mm;          /* 2.5 cm from right */
+    white-space: normal;  /* allow wrap */
+    overflow: hidden;     /* never spill outside reserved space */
+    display: block;
+
+    /* reserve exactly 2 lines */
+    line-height: 8mm;
+    height: 16mm;         /* 2 lines x 8mm */
+  }
+
+  /* Time visit: 8cm from right */
+  .mcTimeR { position: absolute; right: 95mm; }
+
+  /* RestDays block:
+     - DateDuration (rest days) 8cm from left
+     - fromDate 8cm from right
+     - toDate 4.5cm from right
+  */
+  .mcRest { position: absolute; left: 80mm; }
+  .mcFromR { position: absolute; right: 95mm; }
+  .mcToR { position: absolute; right: 45mm; }
 }

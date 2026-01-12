@@ -45,5 +45,17 @@
     "route": ["po"],
     "forms": ["Tab"],
     "defaultSig": { "dose": "1 tab", "freq": "q 4-6 hrs", "duration": "10", "instruction": "prn for fever & pain" }
+  },{
+  "name": "ใบรับรองแพทย์ (Medical Certificate)",
+  "class": "documents",
+  "dose": [""],
+  "route": [""],
+  "forms": [""],
+  "defaultSig": {
+    "dose": "",
+    "freq": "",
+    "duration": "",
+    "instruction": ""
   }
+}
 ]

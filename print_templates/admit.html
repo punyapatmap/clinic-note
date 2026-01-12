@@ -1,0 +1,91 @@
+<div id="printArea-admit" class="note noteAdmitA4">
+  <div class="noteHeader" style="margin-bottom:4mm;">
+    <div>
+      <div class="hospitalName"><span class="u">DOCTOR'S ADMISSION NOTE</span></div>
+      <div class="docTitle"> Date of Admission <span data-bind="visitDt"></span></div>
+    </div>
+    <div style="text-align:right;font-size:12px;">
+      Patient's Name: <span data-bind="ptName"></span> Age: <span data-bind="ageSex"></span> HN: <span
+        data-bind="hn"></span> <br />
+    </div>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="mainCol">
+
+    <div class="row">
+      <div class="rowLabel"><span" class="u">CHIEF COMPLAINT</span></div>
+      <div class="rowBody pre" data-bind="cc"></div>
+    </div>
+
+    <div class="row">
+      <div class="rowLabel"><span class="u">PRESENT ILLNESS</span></div>
+      <div class="rowBody pre" data-bind="hpi"></div>
+    </div>
+
+    <div class="row">
+      <div class="rowLabel"><span class="u">PAST HISTORY</span></div>
+      <div class="rowBody pre" data-bind="pmh"></div>
+    </div>
+
+    <div class="row">
+      <div class="rowLabel"><span class="u">UNDERLYING DISEASE</span></div>
+      <div class="rowBody pre" data-bind="allergy"></div>
+    </div>
+
+    <div class="row">
+      <div class="rowLabel"><span class="u">FAMILY HISTORY</span></div>
+      <div class="rowBody pre" data-bind="contact"></div>
+    </div>
+
+      <div class="row">
+    <div class="rowLabel"><span class="u">PHYSICAL EXAMINATION</span></div>
+    <div class="rowBody pre" data-bind="pe"></div>
+  </div>
+
+  </div> <!-- End of main column-->
+
+
+
+  <div class="mainCol">
+
+  <div class="row">
+    <div class="rowLabel"><span class="u">DIAGNOSIS</span></div>
+    <div class="rowBody">
+      <ol class="dxListPrint" id="dxPrintList_admit"></ol>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="rowLabel"><span class="u">PLAN OF MANAGEMENT</span></div>
+    <div class="rowBody">
+      <ol class="dxListPrint" id="plan"></ol>
+      <!-- <table class="sideMedTable" style="width:100%;">
+        <tbody id="medPrintTbody_admit"></tbody>
+      </table> -->
+    </div>
+  </div>
+
+  </div>
+
+  <!-- <div class="row">
+    <div class="rowLabel"><span class="u">Plan</span></div>
+    <div class="rowBody pre" data-bind="plan"></div>
+  </div>
+
+  <div class="row avoidBreak">
+    <div class="rowLabel"><span class="u">Orders</span></div>
+    <div class="rowBody">
+      <table class="sideMedTable" style="width:100%;">
+        <tbody id="medPrintTbody_admit"></tbody>
+      </table>
+    </div>
+  </div> -->
+
+  <div class="sigMini">
+    <div> Signature <span data-bind="physician"></span> <span data-bind="license"></span> 
+      Date of Record <span data-bind="visitDt"></span> 
+      Time <span data-bind="certTime"></span> น.</div>
+  </div>
+</div>

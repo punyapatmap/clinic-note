@@ -1,0 +1,57 @@
+<div id="printArea-mc" class="mcSimpleA4 mcFixed">
+  <!-- Line 1 -->
+  <div class="mcLine mcL1">
+    <span class="mcHN" data-bind="hn"></span>
+    <span class="mcVisitDtR" data-bind="visitDt"></span>
+  </div>
+
+  <!-- Line 2 -->
+  <div class="mcLine mcL2">
+    <span class="mcPhys" data-bind="physician"></span>
+  </div>
+
+  <!-- Line 3 -->
+  <div class="mcLine mcL3">
+    <span class="mcLic" data-bind="license"></span>
+  </div>
+
+  <!-- Line 4 -->
+  <div class="mcLine mcL4">
+    <span class="mcName" data-bind="ptName"></span>
+    <span class="mcVisitDtR" data-bind="visitDt"></span>
+  </div>
+
+  <!-- Line 5: Dx + FitNote -->
+  <div class="mcLine mcL5">
+    <span id="mcDxShort" class="mcDx"></span>
+  </div>
+  <div class="mcLine mcL6">
+    <span id="mcFitNote" class="mcFit"></span>
+  </div>
+
+  <!-- Line 7: Advice -->
+  <div class="mcLine mcL7">
+    <span class="mcAdvice" data-bind="mcAdvice"></span>
+  </div>
+
+  <!-- Line 8: Time -->
+  <div class="mcLine mcL8">
+    <span class="mcTimeR">
+      <span data-bind="certTime"></span> น.
+    </span>
+  </div>
+
+  <!-- Line 9: Time -->
+  <div class="mcLine mcL9">
+    <span class="mcTimeR">  </span>
+  </div>
+
+
+  <!-- Line 10: Rest + From/To -->
+  <div class="mcLine mcL10">
+    <span class="mcRest" data-bind="mcRestDays"></span>
+
+    <span class="mcFromR" data-bind="mcFrom"></span>
+    <span class="mcToR" data-bind="mcTo"></span>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div id="printArea-opd" class="note noteA4">
+  <div class="twoCol">
+    <!-- LEFT (main note) -->
+    <div class="mainCol">
+    
+    <div class="row">
+          <div class="rowLabel"><span class="u">ประวัติอดีต/โรคประจำตัว</span></div>
+            <ul class="rowBody pre" id="chronicPrintList"></ul>
+          </div>
+
+    <div class="row">
+        <div class="rowLabel"><span class="u">ประวัติเพิ่มเติม</span></div>
+        <div class="rowBody pre" data-bind="hpi"></div>
+      </div>
+
+      <div class="row">
+        <div class="rowLabel"><span class="u">ตรวจร่างกาย</span></div>
+        <div class="rowBody pre" data-bind="pe"></div>
+      </div>
+
+      <div class="row">
+        <div class="rowLabel"><span class="u">วินิจฉัย</span></div>
+        <div class="rowBody">
+           <ol class="dxListPrint" id="dxPrintList_admit"></ol>
+            <!-- <ol id="dxPrintList_admit"></ol> -->
+        </div>
+      </div>
+
+      <div class="sigMini">
+        <div><span data-bind="physician"></span> <span data-bind="license"></span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT (side column) -->
+    <aside class="sideCol">
+      <div class="sideBlock avoidBreak">
+        <div class="sideTitle u">การส่งตรวจเพิ่มเติม</div>
+        <div class="sideBody pre"><span data-bind="investigation"></span></div>
+      </div>
+      
+      <div class="sideBlock avoidBreak">
+        <div class="sideTitle u">การรักษาเพิ่มเติม</div>
+        <div class="sideBody pre"><span data-bind="plan"></span></div>
+      </div>
+
+      <div class="sideBlock avoidBreak">
+        <div class="sideTitle u">Home Medication</div>
+        <table class="sideMedTable" id="medPrintTable">
+          <tbody id="medPrintTbody"></tbody>
+        </table>
+      </div>
+    </aside>
+  </div>
+</div>
