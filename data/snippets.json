@@ -1,0 +1,38 @@
+[
+  {
+    "key": "uri1",
+    "text": "ไข้ ไอเจ็บคอ ร่วมกับมีเสมหะมา 1 วัน",
+    "tags": ["hx", "uri", "resp"]
+  },
+  {
+    "key": "uri2",
+    "text": "น้ำมูกใส จาม คัดจมูกมา 2 วัน",
+    "tags": ["hx", "uri", "resp"]
+  },
+  {
+    "key": "age1",
+    "text": "ถ่ายเหลวหลายครั้ง ไม่มีถ่ายเป็นเลือดมา 1 วัน",
+    "tags": ["hx", "gi"]
+  },
+  {
+    "key": "age2",
+    "text": "ถ่ายเหลวหลายครั้ง ร่วมกับมีอาเจียน ไม่มีไข้ ไม่มีถ่ายเป็นมูกเลือด",
+    "tags": ["hpi", "gi"]
+  },
+  {
+    "key": "lab1",
+    "text": "CBC, BUN, Cr, Electrolytes",
+    "tags": ["lab"]
+  },  
+  {
+    "key": "pe1",
+    "text": "GA: not pale, no Jaundice, no edema\nRS: no tachypnea",
+    "tags": ["pe"]
+  }
+  ,  
+  {
+    "key": "pe2",
+    "text": "GA: not pale, no Jaundice, no edema\nCVS: pulseful and regular, normal S1S2, no murmur\nRS: clear BL",
+    "tags": ["pe"]
+  }
+]

@@ -1,7 +1,41 @@
 /* =========================
+   Snippet-box
+   ========================= */
+
+.snippet-box{
+  position: absolute;
+  z-index: 9999;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 6px;
+  color: #000;
+  border-radius: 10px;
+  min-width: 360px;
+  max-width: 520px;
+  max-height: 220px;
+  overflow: auto;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+.snippet-box.hidden{ display:none; }
+
+.snip-item{
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.snip-item:hover{ background: rgba(0,0,0,.06); }
+.snip-item.active{ outline: 2px solid rgba(0,0,0,.25); }
+
+.snip-key{ font-weight: 700; margin-right: 6px; }
+.snip-text{ display:inline; }
+.snip-hint{ opacity: .7; font-size: 12px; padding: 6px 8px 2px; }
+
+
+/* =========================
    Fonts (local Sarabun)
    ========================= */
-@font-face {
+/* @font-face {
   font-family: "SarabunLocal";
   src: url("./fonts/Sarabun-Regular.woff2") format("woff2");
   font-weight: 400;
@@ -12,6 +46,25 @@
 @font-face {
   font-family: "SarabunLocal";
   src: url("./fonts/Sarabun-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* =========================
+   Fonts (local Trirong)
+   ========================= */
+@font-face {
+  font-family: "TrirongLocal";
+  src: url("./fonts/Trirong-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TrirongLocal";
+  src: url("./fonts/Trirong-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -34,7 +87,8 @@
 
 body {
   margin: 0;
-  font-family: SarabunLocal, Sarabun, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-family: "TrirongLocal", serif;
+  /* font-family: SarabunLocal, Sarabun, system-ui, -apple-system, "Segoe UI", Arial, sans-serif; */
   background: var(--bg);
   color: var(--text);
 }
@@ -399,6 +453,13 @@ td input {
   padding-bottom: 0.6mm;
 }
 
+/* Bold text (print-stable, no underline) */
+.b {
+  display: inline-block;
+  font-weight: 800;
+}
+
+
 /* Diagnosis styling */
 .dxLine {
   font-size: 12.5px;
@@ -668,4 +729,54 @@ td input {
   .mcRest { position: absolute; left: 80mm; }
   .mcFromR { position: absolute; right: 95mm; }
   .mcToR { position: absolute; right: 45mm; }
+}
+
+button.mini{
+  margin-top: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.modal.hidden{ display:none; }
+
+.modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;
+  z-index: 10000;
+}
+
+.modal-card{
+  width: min(720px, calc(100vw - 24px));
+  background: #fff;
+  color: #000;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+}
+
+.modal-head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.modal-title{ font-weight: 700; }
+
+button.icon{
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal-actions{
+  display:flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
 }

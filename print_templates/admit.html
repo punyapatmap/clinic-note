@@ -15,34 +15,38 @@
   <div class="mainCol">
 
     <div class="row">
-      <div class="rowLabel"><span" class="u">CHIEF COMPLAINT</span></div>
+      <div class="rowLabel">
+        <span" class="u">CHIEF COMPLAINT</span>
+      </div>
       <div class="rowBody pre" data-bind="cc"></div>
     </div>
 
     <div class="row">
-      <div class="rowLabel"><span class="u">PRESENT ILLNESS</span></div>
+      <div class="rowLabel"><span class="b">PRESENT ILLNESS</span></div>
       <div class="rowBody pre" data-bind="hpi"></div>
     </div>
 
     <div class="row">
-      <div class="rowLabel"><span class="u">PAST HISTORY</span></div>
-      <div class="rowBody pre" data-bind="pmh"></div>
+      <div class="rowLabel"><span class="b">PAST HISTORY</span></div>
+      <div class="rowBody">
+        <ol class="dxListPrint" id="chronicPrintList"></ol>
+      </div>
     </div>
 
     <div class="row">
-      <div class="rowLabel"><span class="u">UNDERLYING DISEASE</span></div>
+      <div class="rowLabel"><span class="b">UNDERLYING DISEASE</span></div>
       <div class="rowBody pre" data-bind="allergy"></div>
     </div>
 
     <div class="row">
-      <div class="rowLabel"><span class="u">FAMILY HISTORY</span></div>
+      <div class="rowLabel"><span class="b">FAMILY HISTORY</span></div>
       <div class="rowBody pre" data-bind="contact"></div>
     </div>
 
-      <div class="row">
-    <div class="rowLabel"><span class="u">PHYSICAL EXAMINATION</span></div>
-    <div class="rowBody pre" data-bind="pe"></div>
-  </div>
+    <div class="row">
+      <div class="rowLabel"><span class="b">PHYSICAL EXAMINATION</span></div>
+      <div class="rowBody pre" data-bind="pe"></div>
+    </div>
 
   </div> <!-- End of main column-->
 
@@ -50,22 +54,22 @@
 
   <div class="mainCol">
 
-  <div class="row">
-    <div class="rowLabel"><span class="u">DIAGNOSIS</span></div>
-    <div class="rowBody">
-      <ol class="dxListPrint" id="dxPrintList_admit"></ol>
+    <div class="row">
+      <div class="rowLabel"><span class="b">DIAGNOSIS</span></div>
+      <div class="rowBody">
+        <ol class="dxListPrint" id="dxPrintList_admit"></ol>
+      </div>
     </div>
-  </div>
 
     <div class="row">
-    <div class="rowLabel"><span class="u">PLAN OF MANAGEMENT</span></div>
-    <div class="rowBody">
-      <ol class="dxListPrint" id="plan"></ol>
-      <!-- <table class="sideMedTable" style="width:100%;">
+      <div class="rowLabel"><span class="u">PLAN OF MANAGEMENT</span></div>
+      <div class="rowBody">
+        <ol class="dxListPrint" id="plan"></ol>
+        <!-- <table class="sideMedTable" style="width:100%;">
         <tbody id="medPrintTbody_admit"></tbody>
       </table> -->
+      </div>
     </div>
-  </div>
 
   </div>
 
@@ -84,8 +88,8 @@
   </div> -->
 
   <div class="sigMini">
-    <div> Signature <span data-bind="physician"></span> <span data-bind="license"></span> 
-      Date of Record <span data-bind="visitDt"></span> 
+    <div> Signature <span data-bind="physician"></span> <span data-bind="license"></span>
+      Date of Record <span data-bind="visitDt"></span>
       Time <span data-bind="certTime"></span> น.</div>
   </div>
 </div>

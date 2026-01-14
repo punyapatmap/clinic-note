@@ -1,0 +1,430 @@
+[
+  {
+    "id": "A009",
+    "icd10": "A009",
+    "en": "Cholera, unspecified",
+    "th": "อหิวาตกโรค",
+    "synonyms": [
+      "A009",
+      "Cholera, unspecified",
+      "cholera, unspecified",
+      "อหิวาตกโรค"
+    ],
+    "mc": {
+      "th_short": "อหิวาตกโรค",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับอหิวาตกโรค",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A039",
+    "icd10": "A039",
+    "en": "Shigellosis, unspecified",
+    "th": "โรคบิดจากเชื้อชิเกลลา",
+    "synonyms": [
+      "A039",
+      "Shigellosis, unspecified",
+      "shigellosis, unspecified",
+      "โรคบิดจากเชื้อชิเกลลา"
+    ],
+    "mc": {
+      "th_short": "โรคบิดจากเชื้อชิเกลลา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับโรคบิดจากเชื้อชิเกลลา",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A059",
+    "icd10": "A059",
+    "en": "Bacterial food-borne intoxication, unspecified",
+    "th": "อาหารเป็นพิษจากเชื้อแบคทีเรีย",
+    "synonyms": [
+      "A059",
+      "Bacterial food-borne intoxication, unspecified",
+      "bacterial food-borne intoxication, unspecified",
+      "อาหารเป็นพิษจากเชื้อแบคทีเรีย"
+    ],
+    "mc": {
+      "th_short": "อาหารเป็นพิษจากเชื้อแบคทีเรีย",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับอาหารเป็นพิษจากเชื้อแบคทีเรีย",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A090",
+    "icd10": "A090",
+    "en": "Other and unspecified gastroenteritis and colitis",
+    "th": "ท้องร่วง",
+    "synonyms": [
+      "A090",
+      "Other and unspecified gastroenteritis and colitis",
+      "other and unspecified gastroenteritis and colitis",
+      "ท้องร่วง",
+      "AGE",
+      "acute gastroenteritis",
+      "ท้องเสีย",
+      "อาเจียนท้องเสีย"
+    ],
+    "mc": {
+      "th_short": "ท้องร่วง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับท้องร่วง",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A099",
+    "icd10": "A099",
+    "en": "Diarrhea Gastroenteritis and colitis of unspecified origin",
+    "th": "อุจจาระร่วง",
+    "synonyms": [
+      "A099",
+      "Diarrhea Gastroenteritis and colitis of unspecified origin",
+      "diarrhea gastroenteritis and colitis of unspecified origin",
+      "อุจจาระร่วง"
+    ],
+    "mc": {
+      "th_short": "อุจจาระร่วง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับอุจจาระร่วง",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A539",
+    "icd10": "A539",
+    "en": "Syphilis, unspecified",
+    "th": "ซิฟิลิส",
+    "synonyms": [
+      "A539",
+      "Syphilis, unspecified",
+      "syphilis, unspecified",
+      "ซิฟิลิส"
+    ],
+    "mc": {
+      "th_short": "ซิฟิลิส",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับซิฟิลิส",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A549",
+    "icd10": "A549",
+    "en": "Gonococcal infection, unspecified",
+    "th": "หนองใน",
+    "synonyms": [
+      "A549",
+      "Gonococcal infection, unspecified",
+      "gonococcal infection, unspecified",
+      "หนองใน"
+    ],
+    "mc": {
+      "th_short": "หนองใน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหนองใน",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A55",
+    "icd10": "A55",
+    "en": "Chlamydial lymphogranuloma (venereum)",
+    "th": "ฝีมะม่วง",
+    "synonyms": [
+      "A55",
+      "Chlamydial lymphogranuloma (venereum)",
+      "chlamydial lymphogranuloma (venereum)",
+      "ฝีมะม่วง"
+    ],
+    "mc": {
+      "th_short": "ฝีมะม่วง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฝีมะม่วง",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A57",
+    "icd10": "A57",
+    "en": "Chancroid",
+    "th": "แผลริมอ่อน",
+    "synonyms": [
+      "A57",
+      "Chancroid",
+      "chancroid",
+      "แผลริมอ่อน"
+    ],
+    "mc": {
+      "th_short": "แผลริมอ่อน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับแผลริมอ่อน",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A609",
+    "icd10": "A609",
+    "en": "Anogenital herpesviral infection, unspecified",
+    "th": "เริมที่อวัยวะเพศ",
+    "synonyms": [
+      "A609",
+      "Anogenital herpesviral infection, unspecified",
+      "anogenital herpesviral infection, unspecified",
+      "เริมที่อวัยวะเพศ"
+    ],
+    "mc": {
+      "th_short": "เริมที่อวัยวะเพศ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเริมที่อวัยวะเพศ",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A630",
+    "icd10": "A630",
+    "en": "Anogenital (venereal) warts",
+    "th": "หูดหงอนไก่",
+    "synonyms": [
+      "A630",
+      "Anogenital (venereal) warts",
+      "anogenital (venereal) warts",
+      "หูดหงอนไก่"
+    ],
+    "mc": {
+      "th_short": "หูดหงอนไก่",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหูดหงอนไก่",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "A920",
+    "icd10": "A920",
+    "en": "Chikungunya virus disease",
+    "th": "ไข้ชิกุนคุนยา",
+    "synonyms": [
+      "A920",
+      "Chikungunya virus disease",
+      "chikungunya virus disease",
+      "ไข้ชิกุนคุนยา"
+    ],
+    "mc": {
+      "th_short": "ไข้ชิกุนคุนยา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับไข้ชิกุนคุนยา",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B009",
+    "icd10": "B009",
+    "en": "Herpes simplex Herpesviral infection, unspecified",
+    "th": "เริม",
+    "synonyms": [
+      "B009",
+      "Herpes simplex Herpesviral infection, unspecified",
+      "herpes simplex herpesviral infection, unspecified",
+      "เริม"
+    ],
+    "mc": {
+      "th_short": "เริม",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเริม",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B029",
+    "icd10": "B029",
+    "en": "Zoster without complication",
+    "th": "งูสวัด",
+    "synonyms": [
+      "B029",
+      "Zoster without complication",
+      "zoster without complication",
+      "งูสวัด"
+    ],
+    "mc": {
+      "th_short": "งูสวัด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับงูสวัด",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B059",
+    "icd10": "B059",
+    "en": "Measles without complication",
+    "th": "หัด",
+    "synonyms": [
+      "B059",
+      "Measles without complication",
+      "measles without complication",
+      "หัด"
+    ],
+    "mc": {
+      "th_short": "หัด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหัด",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B069",
+    "icd10": "B069",
+    "en": "Rubella without complication",
+    "th": "หัดเยอรมัน",
+    "synonyms": [
+      "B069",
+      "Rubella without complication",
+      "rubella without complication",
+      "หัดเยอรมัน"
+    ],
+    "mc": {
+      "th_short": "หัดเยอรมัน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหัดเยอรมัน",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B07",
+    "icd10": "B07",
+    "en": "Viral warts",
+    "th": "หูด ตาปลา",
+    "synonyms": [
+      "B07",
+      "Viral warts",
+      "viral warts",
+      "หูด ตาปลา"
+    ],
+    "mc": {
+      "th_short": "หูด ตาปลา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหูด ตาปลา",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B088",
+    "icd10": "B088",
+    "en": "Other specified viral infections characterized by",
+    "th": "โรคมือ เทา ปาก",
+    "synonyms": [
+      "B088",
+      "Other specified viral infections characterized by",
+      "other specified viral infections characterized by",
+      "โรคมือ เทา ปาก"
+    ],
+    "mc": {
+      "th_short": "โรคมือ เทา ปาก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับโรคมือ เทา ปาก",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B24",
+    "icd10": "B24",
+    "en": "AIDS Unspecified human immunodeficiency virus",
+    "th": "",
+    "synonyms": [
+      "B24",
+      "AIDS Unspecified human immunodeficiency virus",
+      "aids unspecified human immunodeficiency virus"
+    ],
+    "mc": {
+      "th_short": "",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับ",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B360",
+    "icd10": "B360",
+    "en": "Pitiyriasis Versicolor",
+    "th": "เกลื้อน",
+    "synonyms": [
+      "B360",
+      "Pitiyriasis Versicolor",
+      "pitiyriasis versicolor",
+      "เกลื้อน"
+    ],
+    "mc": {
+      "th_short": "เกลื้อน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเกลื้อน",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B509",
+    "icd10": "B509",
+    "en": "PF ไม่มีภาวะแทรกซ้อน Plasmodium falciparum malaria, unspecified",
+    "th": "มาลาเรีย",
+    "synonyms": [
+      "B509",
+      "PF ไม่มีภาวะแทรกซ้อน Plasmodium falciparum malaria, unspecified",
+      "pf ไม่มีภาวะแทรกซ้อน plasmodium falciparum malaria, unspecified",
+      "มาลาเรีย"
+    ],
+    "mc": {
+      "th_short": "มาลาเรีย",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับมาลาเรีย",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B519",
+    "icd10": "B519",
+    "en": "PV ไม่มีภาวะแทรกซ้อน Plasmodium vivax malaria without",
+    "th": "มาลาเรีย",
+    "synonyms": [
+      "B519",
+      "PV ไม่มีภาวะแทรกซ้อน Plasmodium vivax malaria without",
+      "pv ไม่มีภาวะแทรกซ้อน plasmodium vivax malaria without",
+      "มาลาเรีย"
+    ],
+    "mc": {
+      "th_short": "มาลาเรีย",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับมาลาเรีย",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B538",
+    "icd10": "B538",
+    "en": "Other parasitologically confirmed malaria, not",
+    "th": "มาลาเรียหลายเชื้อ",
+    "synonyms": [
+      "B538",
+      "Other parasitologically confirmed malaria, not",
+      "other parasitologically confirmed malaria, not",
+      "มาลาเรียหลายเชื้อ"
+    ],
+    "mc": {
+      "th_short": "มาลาเรียหลายเชื้อ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับมาลาเรียหลายเชื้อ",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B54",
+    "icd10": "B54",
+    "en": "Unspecified malaria",
+    "th": "มาลาเรียไม่ระบุเชื้อ",
+    "synonyms": [
+      "B54",
+      "Unspecified malaria",
+      "unspecified malaria",
+      "มาลาเรียไม่ระบุเชื้อ"
+    ],
+    "mc": {
+      "th_short": "มาลาเรียไม่ระบุเชื้อ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับมาลาเรียไม่ระบุเชื้อ",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  },
+  {
+    "id": "B86",
+    "icd10": "B86",
+    "en": "Scabies",
+    "th": "หิด",
+    "synonyms": [
+      "B86",
+      "Scabies",
+      "scabies",
+      "หิด"
+    ],
+    "mc": {
+      "th_short": "หิด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหิด",
+      "fit_note": "พักผ่อน ดื่มน้ำมากพอ รับประทานยาตามแพทย์สั่ง และหากอาการแย่ลงให้กลับมาพบแพทย์"
+    }
+  }
+]

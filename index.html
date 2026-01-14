@@ -6,9 +6,45 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Clinical Note Generator (TH/EN)</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <div id="snippetBox" class="snippet-box hidden"> </div>
+  <div id="snipModal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div class="modal-title">Add snippet</div>
+      <button id="btnSnipClose" type="button" class="icon">✕</button>
+    </div>
+
+    <div class="grid2">
+      <label class="block">
+        Key (e.g. uri1)
+        <input id="snipKey" placeholder="uri1" />
+      </label>
+
+      <label class="block">
+        Tags (comma separated)
+        <input id="snipTags" placeholder="hx, uri, resp" />
+      </label>
+    </div>
+
+    <label class="block">
+      Expanded text
+      <textarea id="snipText" rows="4" placeholder="..."></textarea>
+    </label>
+
+    <div class="modal-actions">
+      <button id="btnSaveSnippet" type="button" class="primary">Save</button>
+      <button id="btnSnipCancel" type="button">Cancel</button>
+      <span id="snipStatus" class="hint"></span>
+    </div>
+  </div>
+</div>
+
   <header class="topbar no-print">
     <div>
       <h1>Clinical Note Generator</h1>
@@ -141,11 +177,13 @@
         <label class="block">
           HPI (ประวัติปัจจุบัน)
           <textarea id="hpi" rows="6"></textarea>
+          <button id="btnAddSnippetHx" type="button" class="mini">+ Add snippet</button>
         </label>
 
         <label class="block">
           Physical Exam (ตรวจร่างกาย)
           <textarea id="pe" rows="6"></textarea>
+          <button id="btnAddSnippetPE" type="button" class="mini">+ Add snippet</button>
         </label>
 
       </div>
@@ -238,6 +276,39 @@
   </main>
 
   <script src="app.js"></script>
+
+  <div id="snipModal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div class="modal-title">Add snippet</div>
+      <button id="btnSnipClose" type="button" class="icon">✕</button>
+    </div>
+
+    <div class="grid2">
+      <label class="block">
+        Key (e.g. uri1)
+        <input id="snipKey" placeholder="uri1" />
+      </label>
+
+      <label class="block">
+        Tags (comma separated)
+        <input id="snipTags" placeholder="hx, uri, resp" />
+      </label>
+    </div>
+
+    <label class="block">
+      Expanded text
+      <textarea id="snipText" rows="4" placeholder="..."></textarea>
+    </label>
+
+    <div class="modal-actions">
+      <button id="btnSaveSnippet" type="button" class="primary">Save</button>
+      <button id="btnSnipCancel" type="button">Cancel</button>
+      <span id="snipStatus" class="hint"></span>
+    </div>
+  </div>
+</div>
+
 </body>
 
 </html>

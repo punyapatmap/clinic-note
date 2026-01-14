@@ -1,0 +1,1604 @@
+[
+  {
+    "id": "E109",
+    "icd10": "E109",
+    "en": "Insulin-dependent diabetes mellitus, without",
+    "en_short": "T1DM",
+    "th": "เบาหวานชนิดที่ 1",
+    "synonyms": [
+      "E109",
+      "Insulin-dependent diabetes mellitus, without",
+      "insulin-dependent diabetes mellitus, without",
+      "เบาหวานชนิดที่ 1"
+    ],
+    "mc": {
+      "th_short": "เบาหวานชนิดที่ 1",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเบาหวานชนิดที่ 1",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "E119",
+    "icd10": "E119",
+    "en": "Non-insulin-dependent diabetes mellitus,",
+    "en_short": "T2DM",
+    "th": "เบาหวานชนิดที่ 2",
+    "synonyms": [
+      "E119",
+      "Non-insulin-dependent diabetes mellitus,",
+      "non-insulin-dependent diabetes mellitus,",
+      "เบาหวานชนิดที่ 2"
+    ],
+    "mc": {
+      "th_short": "เบาหวานชนิดที่ 2",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเบาหวานชนิดที่ 2",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "E149",
+    "icd10": "E149",
+    "en": "Diabetes mellitus, without complications",
+    "th": "เบาหวานไม่ทราบชนิด",
+    "synonyms": [
+      "E149",
+      "Diabetes mellitus, without complications",
+      "diabetes mellitus, without complications",
+      "เบาหวานไม่ทราบชนิด"
+    ],
+    "mc": {
+      "th_short": "เบาหวานไม่ทราบชนิด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเบาหวานไม่ทราบชนิด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "E162",
+    "icd10": "E162",
+    "en": "no DM Hypoglycaemia, unspecified",
+    "th": "ภาวะน้ าตาลในเลือดต่่ำ (",
+    "synonyms": [
+      "E162",
+      "no DM) Hypoglycaemia, unspecified",
+      "no dm) hypoglycaemia, unspecified",
+      "ภาวะน้ าตาลในเลือดต่ำ ("
+    ],
+    "mc": {
+      "th_short": "ภาวะน้ำตาลในโลหิตต่ำ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับภาวะน้ำตาลในเลือดต่ำ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "F329",
+    "icd10": "F329",
+    "en": "Depressive episode, unspecified",
+    "th": "ภาวะซึมเศร้า",
+    "synonyms": [
+      "F329",
+      "Depressive episode, unspecified",
+      "depressive episode, unspecified",
+      "ภาวะซึมเศร้า"
+    ],
+    "mc": {
+      "th_short": "ภาวะซึมเศร้า",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับภาวะซึมเศร้า",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "F419",
+    "icd10": "F419",
+    "en": "Anxiety disorder, unspecified",
+    "th": "โรควิตกกังวล",
+    "synonyms": [
+      "F419",
+      "Anxiety disorder, unspecified",
+      "anxiety disorder, unspecified",
+      "โรควิตกกังวล"
+    ],
+    "mc": {
+      "th_short": "โรควิตกกังวล",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับโรควิตกกังวล",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "F453",
+    "icd10": "F453",
+    "en": "hyperventilation Somatoform autonomic dysfunction",
+    "th": "",
+    "synonyms": [
+      "F453",
+      "hyperventilation Somatoform autonomic dysfunction",
+      "hyperventilation somatoform autonomic dysfunction"
+    ],
+    "mc": {
+      "th_short": "ภาวะหายใจเร็วมือจีบเกร็ง (Hyperventilation)",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับภาวะหายใจเร็วมือจีบเกร็ง",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "G409",
+    "icd10": "G409",
+    "en": "Epilepsy, unspecified",
+    "th": "ลมบ้าหมู",
+    "synonyms": [
+      "G409",
+      "Epilepsy, unspecified",
+      "epilepsy, unspecified",
+      "ลมบ้าหมู"
+    ],
+    "mc": {
+      "th_short": "ลมบ้าหมู",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับลมบ้าหมู",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "G430",
+    "icd10": "G430",
+    "en": "Migraine without aura [common migraine]",
+    "th": "ไมเกรนธรรมดาไม่มีสัญญาณบอกเหตุ",
+    "synonyms": [
+      "G430",
+      "Migraine without aura [common migraine]",
+      "migraine without aura [common migraine]",
+      "ไมเกรนธรรมดาไม่มีสัญญาณบอกเหตุ"
+    ],
+    "mc": {
+      "th_short": "ไมเกรนธรรมดาไม่มีสัญญาณบอกเหตุ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับไมเกรนธรรมดาไม่มีสัญญาณบอกเหตุ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "G431",
+    "icd10": "G431",
+    "en": "Migraine with aura [classical migraine]",
+    "th": "ไมเกรนที่มีสัญญาณบอกเหตุ",
+    "synonyms": [
+      "G431",
+      "Migraine with aura [classical migraine]",
+      "migraine with aura [classical migraine]",
+      "ไมเกรนที่มีสัญญาณบอกเหตุ"
+    ],
+    "mc": {
+      "th_short": "ไมเกรนที่มีสัญญาณบอกเหตุ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับไมเกรนที่มีสัญญาณบอกเหตุ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "G439",
+    "icd10": "G439",
+    "en": "Migraine, unspecified",
+    "th": "ไมเกรน ไม่ระบุรายละเอียด",
+    "synonyms": [
+      "G439",
+      "Migraine, unspecified",
+      "migraine, unspecified",
+      "ไมเกรน ไม่ระบุรายละเอียด"
+    ],
+    "mc": {
+      "th_short": "ไมเกรน ไม่ระบุรายละเอียด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับไมเกรน ไม่ระบุรายละเอียด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "G440",
+    "icd10": "G440",
+    "en": "Cluster headache syndrome",
+    "th": "ปวดศีรษะแบบคลัสเตอร์",
+    "synonyms": [
+      "G440",
+      "Cluster headache syndrome",
+      "cluster headache syndrome",
+      "ปวดศรีษะแบบคลัสเตอร์"
+    ],
+    "mc": {
+      "th_short": "ปวดศีรษะแบบคลัสเตอร์",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปวดศรีษะแบบคลัสเตอร์",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "G442",
+    "icd10": "G442",
+    "en": "Tension-type headache",
+    "th": "ปวดศรีษะจากความเครียด",
+    "synonyms": [
+      "G442",
+      "Tension-type headache",
+      "tension-type headache",
+      "ปวดศีรษะจากความเครียด"
+    ],
+    "mc": {
+      "th_short": "ปวดศีรษะแบบบีบรัด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปวดศรีษะจากความเครียด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "G443",
+    "icd10": "G443",
+    "en": "Chronic post-traumatic headache",
+    "th": "ปวดศรีษะเรื้อรังจากอุบัติเหตุ",
+    "synonyms": [
+      "G443",
+      "Chronic post-traumatic headache",
+      "chronic post-traumatic headache",
+      "ปวดศรีษะเรื้อรังจากอุบัติเหตุ"
+    ],
+    "mc": {
+      "th_short": "ปวดศรีษะเรื้อรังจากอุบัติเหตุ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปวดศรีษะเรื้อรังจากอุบัติเหตุ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H000",
+    "icd10": "H000",
+    "en": "Hordeolum and other deep inflammation",
+    "th": "กุ้งยิง",
+    "synonyms": [
+      "H000",
+      "Hordeolum and other deep inflammation",
+      "hordeolum and other deep inflammation",
+      "กุ้งยิง"
+    ],
+    "mc": {
+      "th_short": "กุ้งยิง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับกุ้งยิง",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H010",
+    "icd10": "H010",
+    "en": "Blepharitis",
+    "th": "หนังตาอักเสบ",
+    "synonyms": [
+      "H010",
+      "Blepharitis",
+      "blepharitis",
+      "หนังตาอักเสบ"
+    ],
+    "mc": {
+      "th_short": "หนังตาอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหนังตาอักเสบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H101",
+    "icd10": "H101",
+    "en": "Acute atopic conjunctivitis",
+    "th": "เยื่อบุตาอักเสบเฉียบพลันจากภูมิแพ้",
+    "synonyms": [
+      "H101",
+      "Acute atopic conjunctivitis",
+      "acute atopic conjunctivitis",
+      "เยื่อบุตาอักเสบเฉียบพลันจากภูมิแพ้"
+    ],
+    "mc": {
+      "th_short": "เยื่อบุตาอักเสบเฉียบพลันจากภูมิแพ้",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเยื่อบุตาอักเสบเฉียบพลันจากภูมิแพ้",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H103",
+    "icd10": "H103",
+    "en": "Acute conjunctivitis",
+    "th": "เยื่อตาอักเสบเฉียบพลัน(มีขี้ตาตาแดงเป็นมาไม่",
+    "synonyms": [
+      "H103",
+      "Acute conjunctivitis, unspecified",
+      "acute conjunctivitis, unspecified",
+      "เยื่อตาอักเสบเฉียบพลัน(มีขี้ตาตาแดงเป็นมาไม่"
+    ],
+    "mc": {
+      "th_short": "เยื่อตาอักเสบเฉียบพลัน(มีขี้ตาตาแดงเป็นมาไม่",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเยื่อตาอักเสบเฉียบพลัน(มีขี้ตาตาแดงเป็นมาไม่",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H109",
+    "icd10": "H109",
+    "en": "Conjunctivitis",
+    "th": "เยื่อตาอักเสบ (ตาแดงไม่มีขี้ตาคันตา)",
+    "synonyms": [
+      "H109",
+      "Conjunctivitis, unspecified",
+      "conjunctivitis, unspecified",
+      "เยื่อตาอักเสบ (ตาแดงไม่มีขี้ตาคันตา)",
+      "เยื่อตาอักเสบ"
+    ],
+    "mc": {
+      "th_short": "เยื่อตาอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเยื่อตาอักเสบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H110",
+    "icd10": "H110",
+    "en": "Pterygium",
+    "th": "ต้อเนื้อ",
+    "synonyms": [
+      "H110",
+      "Pterygium",
+      "pterygium",
+      "ต้อเนื้อ"
+    ],
+    "mc": {
+      "th_short": "ต้อเนื้อ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับต้อเนื้อ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H259",
+    "icd10": "H259",
+    "en": "Senile cataract",
+    "th": "ต้อกระจก",
+    "synonyms": [
+      "H259",
+      "Senile cataract, unspecified",
+      "senile cataract, unspecified",
+      "ต้อกระจก"
+    ],
+    "mc": {
+      "th_short": "ต้อกระจก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับต้อกระจก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H571",
+    "icd10": "H571",
+    "en": "Ocular pain",
+    "th": "ปวดตา",
+    "synonyms": [
+      "H571",
+      "Ocular pain",
+      "ocular pain",
+      "ปวดตา"
+    ],
+    "mc": {
+      "th_short": "ปวดตา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปวดตา",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H600",
+    "icd10": "H600",
+    "en": "Abscess of external ear",
+    "th": "ฝีที่หูชั้นนอก",
+    "synonyms": [
+      "H600",
+      "Abscess of external ear",
+      "abscess of external ear",
+      "ฝีที่หูชั้นนอก"
+    ],
+    "mc": {
+      "th_short": "ฝีที่หูชั้นนอก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฝีที่หูชั้นนอก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H601",
+    "icd10": "H601",
+    "en": "Cellulitis of external ear",
+    "th": "ใบหูชั้นนอกอักเสบ",
+    "synonyms": [
+      "H601",
+      "Cellulitis of external ear",
+      "cellulitis of external ear",
+      "ใบหูชั้นนอกอักเสบ"
+    ],
+    "mc": {
+      "th_short": "ใบหูชั้นนอกอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับใบหูชั้นนอกอักเสบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H609",
+    "icd10": "H609",
+    "en": "Otitis externa, unspecified",
+    "th": "หูชั้นนอกอักเสบ",
+    "synonyms": [
+      "H609",
+      "Otitis externa, unspecified",
+      "otitis externa, unspecified",
+      "หูชั้นนอกอักเสบ"
+    ],
+    "mc": {
+      "th_short": "หูชั้นนอกอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหูชั้นนอกอักเสบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H612",
+    "icd10": "H612",
+    "en": "Impacted cerumen",
+    "th": "ขี้หูอุดตันช่องรูหู",
+    "synonyms": [
+      "H612",
+      "Impacted cerumen",
+      "impacted cerumen",
+      "ขี้หูอุดตันช่องรูหู"
+    ],
+    "mc": {
+      "th_short": "ขี้หูอุดตันช่องรูหู",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับขี้หูอุดตันช่องรูหู",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H669",
+    "icd10": "H669",
+    "en": "Otitis media, unspecified",
+    "th": "หูชั้นกลางอักเสบ",
+    "synonyms": [
+      "H669",
+      "Otitis media, unspecified",
+      "otitis media, unspecified",
+      "หูชั้นกลางอักเสบ"
+    ],
+    "mc": {
+      "th_short": "หูชั้นกลางอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหูชั้นกลางอักเสบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H813",
+    "icd10": "H813",
+    "en": "vertigo (บ้านหมุน) Other peripheral vertigo",
+    "th": "",
+    "synonyms": [
+      "H813",
+      "vertigo (บ้านหมุน) Other peripheral vertigo",
+      "vertigo (บ้านหมุน) other peripheral vertigo"
+    ],
+    "mc": {
+      "th_short": "",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H920",
+    "icd10": "H920",
+    "en": "Otalgia",
+    "th": "ปวดหู",
+    "synonyms": [
+      "H920",
+      "Otalgia",
+      "otalgia",
+      "ปวดหู"
+    ],
+    "mc": {
+      "th_short": "ปวดหู",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปวดหู",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "H921",
+    "icd10": "H921",
+    "en": "Otorrhea",
+    "th": "มีน้ าหนวก",
+    "synonyms": [
+      "H921",
+      "Otorrhea",
+      "otorrhea",
+      "มีน้ าหนวก"
+    ],
+    "mc": {
+      "th_short": "มีน้ าหนวก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับมีน้ าหนวก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "I10",
+    "icd10": "I10",
+    "en": "Essential hypertension",
+    "th": "ความดันโลหิตสูงไม่ทราบสาเหตุ",
+    "synonyms": [
+      "I10",
+      "Essential (primary) hypertension",
+      "essential (primary) hypertension",
+      "ความดันโลหิตสูงไม่ทราบสาเหตุ"
+    ],
+    "mc": {
+      "th_short": "ความดันโลหิตสูงปฐมภูมิ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับความดันโลหิตสูงไม่ทราบสาเหตุ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "I738",
+    "icd10": "I738",
+    "en": "Other specified peripheral vascular diseases",
+    "th": "ชาปลายมือปลายเท้า",
+    "synonyms": [
+      "I738",
+      "Other specified peripheral vascular diseases",
+      "other specified peripheral vascular diseases",
+      "ชาปลายมือปลายเท้า"
+    ],
+    "mc": {
+      "th_short": "ชาปลายมือปลายเท้า",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับชาปลายมือปลายเท้า",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "I959",
+    "icd10": "I959",
+    "en": "Hypotension",
+    "th": "ความดันโลหิตต่ำ",
+    "synonyms": [
+      "I959",
+      "Hypotension, unspecified",
+      "hypotension, unspecified",
+      "ความดันโลหิตต่ า"
+    ],
+    "mc": {
+      "th_short": "ความดันโลหิตต่ า",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับความดันโลหิตต่ า",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K011",
+    "icd10": "K011",
+    "en": "Impacted teeth",
+    "th": "ฟันคุด",
+    "synonyms": [
+      "K011",
+      "Impacted teeth",
+      "impacted teeth",
+      "ฟันคุด"
+    ],
+    "mc": {
+      "th_short": "ฟันคุด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฟันคุด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K029",
+    "icd10": "K029",
+    "en": "Dental caries",
+    "th": "ฟันผุ",
+    "synonyms": [
+      "K029",
+      "Dental caries, unspecified",
+      "dental caries, unspecified",
+      "ฟันผุ"
+    ],
+    "mc": {
+      "th_short": "ฟันผุ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฟันผุ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K032",
+    "icd10": "K032",
+    "en": "Erosion of teeth",
+    "th": "ฟันสึกกร่อน",
+    "synonyms": [
+      "K032",
+      "Erosion of teeth",
+      "erosion of teeth",
+      "ฟันสึกกร่อน"
+    ],
+    "mc": {
+      "th_short": "ฟันสึกกร่อน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฟันสึกกร่อน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K050",
+    "icd10": "K050",
+    "en": "Acute gingivitis",
+    "th": "เหงือกอักเสบเฉียบพลัน",
+    "synonyms": [
+      "K050",
+      "Acute gingivitis",
+      "acute gingivitis",
+      "เหงือกอักเสบเฉียบพลัน"
+    ],
+    "mc": {
+      "th_short": "เหงือกอักเสบเฉียบพลัน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเหงือกอักเสบเฉียบพลัน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K051",
+    "icd10": "K051",
+    "en": "Chronic gingivitis",
+    "th": "เหงือกอักเสบเรื้อรัง",
+    "synonyms": [
+      "K051",
+      "Chronic gingivitis",
+      "chronic gingivitis",
+      "เหงือกอักเสบเรื้อรัง"
+    ],
+    "mc": {
+      "th_short": "เหงือกอักเสบเรื้อรัง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเหงือกอักเสบเรื้อรัง",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K060",
+    "icd10": "K060",
+    "en": "Gingival recession",
+    "th": "เหงือฝ่อร่น",
+    "synonyms": [
+      "K060",
+      "Gingival recession",
+      "gingival recession",
+      "เหงือฝ่อร่น"
+    ],
+    "mc": {
+      "th_short": "เหงือฝ่อร่น",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเหงือฝ่อร่น",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K0880",
+    "icd10": "K0880",
+    "en": "Toothache NOS (TM)",
+    "th": "ปวดฟัน",
+    "synonyms": [
+      "K0880",
+      "Toothache NOS (TM)",
+      "toothache nos (tm)",
+      "ปวดฟัน"
+    ],
+    "mc": {
+      "th_short": "ปวดฟัน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปวดฟัน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K0888",
+    "icd10": "K0888",
+    "en": "Other specified disorders of teeth",
+    "th": "ฟันโยก",
+    "synonyms": [
+      "K0888",
+      "Other specified disorders of teeth",
+      "other specified disorders of teeth",
+      "ฟันโยก"
+    ],
+    "mc": {
+      "th_short": "ฟันโยก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฟันโยก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K120",
+    "icd10": "K120",
+    "en": "Recurrent oral aphthae",
+    "th": "แผลแอ็ฟทัส",
+    "synonyms": [
+      "K120",
+      "Recurrent oral aphthae",
+      "recurrent oral aphthae",
+      "แผลแอ็ฟทัส"
+    ],
+    "mc": {
+      "th_short": "แผลแอ็ฟทัส",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับแผลแอ็ฟทัส",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K121",
+    "icd10": "K121",
+    "en": "Other forms of stomatitis",
+    "th": "แผลร้อนใน",
+    "synonyms": [
+      "K121",
+      "Other forms of stomatitis",
+      "other forms of stomatitis",
+      "แผลร้อนใน"
+    ],
+    "mc": {
+      "th_short": "แผลร้อนใน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับแผลร้อนใน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K140",
+    "icd10": "K140",
+    "en": "Glossitis",
+    "th": "ลิ้นอักเสบ",
+    "synonyms": [
+      "K140",
+      "Glossitis",
+      "glossitis",
+      "ลิ้นอักเสบ"
+    ],
+    "mc": {
+      "th_short": "ลิ้นอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับลิ้นอักเสบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K219",
+    "icd10": "K219",
+    "en": "Gastro-oesophageal reflux disease without esophagitis",
+    "th": "กรดไหลย้อน",
+    "synonyms": [
+      "K219",
+      "Gastro-oesophageal reflux disease without esophagitis",
+      "gastro-oesophageal reflux disease without esophagitis",
+      "กรดไหลย้อน"
+    ],
+    "mc": {
+      "th_short": "กรดไหลย้อน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับกรดไหลย้อน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K259",
+    "icd10": "K259",
+    "en": "Gastric ulcer: unspecified as acute or chronic,",
+    "th": "แผลกระเพราะอาหาร",
+    "synonyms": [
+      "K259",
+      "Gastric ulcer: unspecified as acute or chronic,",
+      "gastric ulcer: unspecified as acute or chronic,",
+      "แผลกระเพราะอาหาร"
+    ],
+    "mc": {
+      "th_short": "แผลกระเพราะอาหาร",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับแผลกระเพราะอาหาร",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K279",
+    "icd10": "K279",
+    "en": "Peptic ulcer, site unspecified: unspecified as",
+    "th": "แผลเพ็ปทิก",
+    "synonyms": [
+      "K279",
+      "Peptic ulcer, site unspecified: unspecified as",
+      "peptic ulcer, site unspecified: unspecified as",
+      "แผลเพ็ปทิก"
+    ],
+    "mc": {
+      "th_short": "แผลเพ็ปทิก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับแผลเพ็ปทิก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K297",
+    "icd10": "K297",
+    "en": "Gastritis, unspecified",
+    "th": "กระเพราะอาหารอักเสบ",
+    "synonyms": [
+      "K297",
+      "Gastritis, unspecified",
+      "gastritis, unspecified",
+      "กระเพราะอาหารอักเสบ"
+    ],
+    "mc": {
+      "th_short": "กระเพราะอาหารอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับกระเพราะอาหารอักเสบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K30",
+    "icd10": "K30",
+    "en": "Dyspepsia",
+    "th": "อาหารไม่ย่อย",
+    "synonyms": [
+      "K30",
+      "Dyspepsia",
+      "dyspepsia",
+      "อาหารไม่ย่อย"
+    ],
+    "mc": {
+      "th_short": "อาหารไม่ย่อย",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับอาหารไม่ย่อย",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K358",
+    "icd10": "K358",
+    "en": "Acute appendicitis, other and unspecified",
+    "th": "ไส้ติ่งอักเสบเฉียบพลัน",
+    "synonyms": [
+      "K358",
+      "Acute appendicitis, other and unspecified",
+      "acute appendicitis, other and unspecified",
+      "ไส้ติ่งอักเสบเฉียบพลัน"
+    ],
+    "mc": {
+      "th_short": "ไส้ติ่งอักเสบเฉียบพลัน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับไส้ติ่งอักเสบเฉียบพลัน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K409",
+    "icd10": "K409",
+    "en": "Unilateral or unspecified inguinal hernia,",
+    "th": "ไส้เลื่อนขาหนีบ",
+    "synonyms": [
+      "K409",
+      "Unilateral or unspecified inguinal hernia,",
+      "unilateral or unspecified inguinal hernia,",
+      "ไส้เลื่อนขาหนีบ"
+    ],
+    "mc": {
+      "th_short": "ไส้เลื่อนขาหนีบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับไส้เลื่อนขาหนีบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K590",
+    "icd10": "K590",
+    "en": "Constipation",
+    "th": "ท้องผูก",
+    "synonyms": [
+      "K590",
+      "Constipation",
+      "constipation",
+      "ท้องผูก"
+    ],
+    "mc": {
+      "th_short": "ท้องผูก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับท้องผูก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K659",
+    "icd10": "K659",
+    "en": "Peritonitis, unspecified",
+    "th": "เยื่อบุช่องท้องอักเสบ",
+    "synonyms": [
+      "K659",
+      "Peritonitis, unspecified",
+      "peritonitis, unspecified",
+      "เยื่อบุช่องท้องอักเสบ"
+    ],
+    "mc": {
+      "th_short": "เยื่อบุช่องท้องอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเยื่อบุช่องท้องอักเสบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K920",
+    "icd10": "K920",
+    "en": "Haematemesis",
+    "th": "อาเจียนเป็นเลือด",
+    "synonyms": [
+      "K920",
+      "Haematemesis",
+      "haematemesis",
+      "อาเจียนเป็นเลือด"
+    ],
+    "mc": {
+      "th_short": "อาเจียนเป็นเลือด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับอาเจียนเป็นเลือด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "K921",
+    "icd10": "K921",
+    "en": "Melaena",
+    "th": "อุจจาระเป็นเลือด",
+    "synonyms": [
+      "K921",
+      "Melaena",
+      "melaena",
+      "อุจจาระเป็นเลือด"
+    ],
+    "mc": {
+      "th_short": "อุจจาระเป็นเลือด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับอุจจาระเป็นเลือด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "N10",
+    "icd10": "N10",
+    "en": "Acute Acute tubulo-interstitial nephritis",
+    "th": "กรวยไตอักเสบเฉียบพลัน",
+    "synonyms": [
+      "N10",
+      "Acute Acute tubulo-interstitial nephritis",
+      "acute acute tubulo-interstitial nephritis",
+      "กรวยไตอักเสบเฉียบพลัน"
+    ],
+    "mc": {
+      "th_short": "กรวยไตอักเสบเฉียบพลัน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับกรวยไตอักเสบเฉียบพลัน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "N300",
+    "icd10": "N300",
+    "en": "Acute cystitis",
+    "th": "กระเพราะปัสสาวะอักเสบเฉียบพลัน",
+    "synonyms": [
+      "N300",
+      "Acute cystitis",
+      "acute cystitis",
+      "กระเพราะปัสสาวะอักเสบเฉียบพลัน"
+    ],
+    "mc": {
+      "th_short": "กระเพราะปัสสาวะอักเสบเฉียบพลัน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับกระเพราะปัสสาวะอักเสบเฉียบพลัน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "N309",
+    "icd10": "N309",
+    "en": "Cystitis, unspecified",
+    "th": "กระเพราะปัสสาวะอักเสบ",
+    "synonyms": [
+      "N309",
+      "Cystitis, unspecified",
+      "cystitis, unspecified",
+      "กระเพราะปัสสาวะอักเสบ"
+    ],
+    "mc": {
+      "th_short": "กระเพราะปัสสาวะอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับกระเพราะปัสสาวะอักเสบ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "N341",
+    "icd10": "N341",
+    "en": "Nonspecific urethritis",
+    "th": "หนองในเทียม",
+    "synonyms": [
+      "N341",
+      "Nonspecific urethritis",
+      "nonspecific urethritis",
+      "หนองในเทียม"
+    ],
+    "mc": {
+      "th_short": "หนองในเทียม",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหนองในเทียม",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "N390",
+    "icd10": "N390",
+    "en": "Urinary tract infection, site not specified",
+    "th": "การติดเชื้อในระบบทางเดินปัสสาวะ",
+    "synonyms": [
+      "N390",
+      "Urinary tract infection, site not specified",
+      "urinary tract infection, site not specified",
+      "การติดเชื้อในระบบทางเดินปัสสาวะ"
+    ],
+    "mc": {
+      "th_short": "การติดเชื้อในระบบทางเดินปัสสาวะ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับการติดเชื้อในระบบทางเดินปัสสาวะ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "N459",
+    "icd10": "N459",
+    "en": "Orchitis, epididymitis and epididymo-orchitis",
+    "th": "อัณฑะอักเสบ ไม่มีฝี",
+    "synonyms": [
+      "N459",
+      "Orchitis, epididymitis and epididymo-orchitis",
+      "orchitis, epididymitis and epididymo-orchitis",
+      "อัณฑะอักเสบ ไม่มีฝี"
+    ],
+    "mc": {
+      "th_short": "อัณฑะอักเสบ ไม่มีฝี",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับอัณฑะอักเสบ ไม่มีฝี",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "N946",
+    "icd10": "N946",
+    "en": "Dysmenorrhoea, unspecified",
+    "th": "ปวดประจ าเดือน",
+    "synonyms": [
+      "N946",
+      "Dysmenorrhoea, unspecified",
+      "dysmenorrhoea, unspecified",
+      "ปวดประจ าเดือน"
+    ],
+    "mc": {
+      "th_short": "ปวดประจ าเดือน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปวดประจ าเดือน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R000",
+    "icd10": "R000",
+    "en": "Tachycardia, unspecified",
+    "th": "หัวใจเต้นเร็ว",
+    "synonyms": [
+      "R000",
+      "Tachycardia, unspecified",
+      "tachycardia, unspecified",
+      "หัวใจเต้นเร็ว"
+    ],
+    "mc": {
+      "th_short": "หัวใจเต้นเร็ว",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหัวใจเต้นเร็ว",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R001",
+    "icd10": "R001",
+    "en": "Bradycardia, unspecified",
+    "th": "หัวใจเต้นช้า",
+    "synonyms": [
+      "R001",
+      "Bradycardia, unspecified",
+      "bradycardia, unspecified",
+      "หัวใจเต้นช้า"
+    ],
+    "mc": {
+      "th_short": "หัวใจเต้นช้า",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหัวใจเต้นช้า",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R002",
+    "icd10": "R002",
+    "en": "Palpitations",
+    "th": "ใจสั่น",
+    "synonyms": [
+      "R002",
+      "Palpitations",
+      "palpitations",
+      "ใจสั่น"
+    ],
+    "mc": {
+      "th_short": "ใจสั่น",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับใจสั่น",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R030",
+    "icd10": "R030",
+    "en": "Elevated blood pressure reading without",
+    "th": "พบความดันโลหิตสูง",
+    "synonyms": [
+      "R030",
+      "Elevated blood pressure reading without",
+      "elevated blood pressure reading without",
+      "พบความดันโลหิตสูง"
+    ],
+    "mc": {
+      "th_short": "พบความดันโลหิตสูง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับพบความดันโลหิตสูง",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R031",
+    "icd10": "R031",
+    "en": "Nonspecific low blood pressure reading",
+    "th": "พบความดันโลหิตต่ า",
+    "synonyms": [
+      "R031",
+      "Nonspecific low blood pressure reading",
+      "nonspecific low blood pressure reading",
+      "พบความดันโลหิตต่ า"
+    ],
+    "mc": {
+      "th_short": "พบความดันโลหิตต่ า",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับพบความดันโลหิตต่ า",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R040",
+    "icd10": "R040",
+    "en": "Epistaxis",
+    "th": "เลือดก าเดา",
+    "synonyms": [
+      "R040",
+      "Epistaxis",
+      "epistaxis",
+      "เลือดก าเดา"
+    ],
+    "mc": {
+      "th_short": "เลือดก าเดา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเลือดก าเดา",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R042",
+    "icd10": "R042",
+    "en": "Haemoptysis",
+    "th": "ไอเป็นเลือด",
+    "synonyms": [
+      "R042",
+      "Haemoptysis",
+      "haemoptysis",
+      "ไอเป็นเลือด"
+    ],
+    "mc": {
+      "th_short": "ไอเป็นเลือด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับไอเป็นเลือด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R05",
+    "icd10": "R05",
+    "en": "Cough",
+    "th": "ไอ",
+    "synonyms": [
+      "R05",
+      "Cough",
+      "cough",
+      "ไอ",
+      "ไอมีเสมหะ"
+    ],
+    "mc": {
+      "th_short": "ไอ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับไอ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R060",
+    "icd10": "R060",
+    "en": "Dyspnoea",
+    "th": "หายใจล าบาก",
+    "synonyms": [
+      "R060",
+      "Dyspnoea",
+      "dyspnoea",
+      "หายใจล าบาก"
+    ],
+    "mc": {
+      "th_short": "หายใจล าบาก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหายใจล าบาก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R064",
+    "icd10": "R064",
+    "en": "Hyperventilation",
+    "th": "หายใจเร็วผิดปกติจากสาเหตุทางจิต",
+    "synonyms": [
+      "R064",
+      "Hyperventilation",
+      "hyperventilation",
+      "หายใจเร็วผิดปกติจากสาเหตุทางจิต"
+    ],
+    "mc": {
+      "th_short": "หายใจเร็วผิดปกติจากสาเหตุทางจิต",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหายใจเร็วผิดปกติจากสาเหตุทางจิต",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R066",
+    "icd10": "R066",
+    "en": "Hiccough",
+    "th": "สะอึก",
+    "synonyms": [
+      "R066",
+      "Hiccough",
+      "hiccough",
+      "สะอึก"
+    ],
+    "mc": {
+      "th_short": "สะอึก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับสะอึก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R067",
+    "icd10": "R067",
+    "en": "Sneezing",
+    "th": "จาม",
+    "synonyms": [
+      "R067",
+      "Sneezing",
+      "sneezing",
+      "จาม"
+    ],
+    "mc": {
+      "th_short": "จาม",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับจาม",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R070",
+    "icd10": "R070",
+    "en": "Pain in throat",
+    "th": "เจ็บคอ",
+    "synonyms": [
+      "R070",
+      "Pain in throat",
+      "pain in throat",
+      "เจ็บคอ"
+    ],
+    "mc": {
+      "th_short": "เจ็บคอ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเจ็บคอ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R074",
+    "icd10": "R074",
+    "en": "Chest pain, unspecified",
+    "th": "เจ็บหน้าอก",
+    "synonyms": [
+      "R074",
+      "Chest pain, unspecified",
+      "chest pain, unspecified",
+      "เจ็บหน้าอก"
+    ],
+    "mc": {
+      "th_short": "เจ็บหน้าอก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเจ็บหน้าอก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R11",
+    "icd10": "R11",
+    "en": "Nausea and vomiting",
+    "th": "คลื่นไส้อาเจียน",
+    "synonyms": [
+      "R11",
+      "Nausea and vomiting",
+      "nausea and vomiting",
+      "คลื่นไส้อาเจียน"
+    ],
+    "mc": {
+      "th_short": "คลื่นไส้อาเจียน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับคลื่นไส้อาเจียน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R12",
+    "icd10": "R12",
+    "en": "Heartburn",
+    "th": "แสบร้อนหน้าอก",
+    "synonyms": [
+      "R12",
+      "Heartburn",
+      "heartburn",
+      "แสบร้อนหน้าอก"
+    ],
+    "mc": {
+      "th_short": "แสบร้อนหน้าอก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับแสบร้อนหน้าอก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R14",
+    "icd10": "R14",
+    "en": "Flatulence and related conditions",
+    "th": "ท้องอืด",
+    "synonyms": [
+      "R14",
+      "Flatulence and related conditions",
+      "flatulence and related conditions",
+      "ท้องอืด"
+    ],
+    "mc": {
+      "th_short": "ท้องอืด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับท้องอืด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R17",
+    "icd10": "R17",
+    "en": "Unspecified jaundice",
+    "th": "ดีซ่าน",
+    "synonyms": [
+      "R17",
+      "Unspecified jaundice",
+      "unspecified jaundice",
+      "ดีซ่าน"
+    ],
+    "mc": {
+      "th_short": "ดีซ่าน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับดีซ่าน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R21",
+    "icd10": "R21",
+    "en": "Rash and other nonspecific skin eruption",
+    "th": "ผื่น",
+    "synonyms": [
+      "R21",
+      "Rash and other nonspecific skin eruption",
+      "rash and other nonspecific skin eruption",
+      "ผื่น"
+    ],
+    "mc": {
+      "th_short": "ผื่น",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผื่น",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R252",
+    "icd10": "R252",
+    "en": "Cramp and spasm",
+    "th": "ตะคริว",
+    "synonyms": [
+      "R252",
+      "Cramp and spasm",
+      "cramp and spasm",
+      "ตะคริว"
+    ],
+    "mc": {
+      "th_short": "ตะคริว",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับตะคริว",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R300",
+    "icd10": "R300",
+    "en": "Dysuria",
+    "th": "ปัสสาวะขัด",
+    "synonyms": [
+      "R300",
+      "Dysuria",
+      "dysuria",
+      "ปัสสาวะขัด"
+    ],
+    "mc": {
+      "th_short": "ปัสสาวะขัด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปัสสาวะขัด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R31",
+    "icd10": "R31",
+    "en": "Unspecified haematuria",
+    "th": "ปัสสาวะเป็นเลือด",
+    "synonyms": [
+      "R31",
+      "Unspecified haematuria",
+      "unspecified haematuria",
+      "ปัสสาวะเป็นเลือด"
+    ],
+    "mc": {
+      "th_short": "ปัสสาวะเป็นเลือด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปัสสาวะเป็นเลือด",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R33",
+    "icd10": "R33",
+    "en": "Retention of urine",
+    "th": "ปัสสาวะไม่ออก",
+    "synonyms": [
+      "R33",
+      "Retention of urine",
+      "retention of urine",
+      "ปัสสาวะไม่ออก"
+    ],
+    "mc": {
+      "th_short": "ปัสสาวะไม่ออก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปัสสาวะไม่ออก",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R42",
+    "icd10": "R42",
+    "en": "Dizziness and giddiness",
+    "th": "วิงเวียน",
+    "synonyms": [
+      "R42",
+      "Dizziness and giddiness",
+      "dizziness and giddiness",
+      "วิงเวียน"
+    ],
+    "mc": {
+      "th_short": "วิงเวียน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับวิงเวียน",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R448",
+    "icd10": "R448",
+    "en": "Symptom involve sensation",
+    "th": "เคืองตา",
+    "synonyms": [
+      "R448",
+      "Symptom involve sensation",
+      "symptom involve sensation",
+      "เคืองตา"
+    ],
+    "mc": {
+      "th_short": "เคืองตา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเคืองตา",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R509",
+    "icd10": "R509",
+    "en": "Fever, unspecified",
+    "th": "ไข้",
+    "synonyms": [
+      "R509",
+      "Fever, unspecified",
+      "fever, unspecified",
+      "ไข้",
+      "fever",
+      "ตัวร้อน"
+    ],
+    "mc": {
+      "th_short": "ไข้",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับไข้",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R51",
+    "icd10": "R51",
+    "en": "Headache",
+    "th": "ปวดศรีษะ",
+    "synonyms": [
+      "R51",
+      "Headache",
+      "headache",
+      "ปวดศรีษะ"
+    ],
+    "mc": {
+      "th_short": "ปวดศรีษะ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับปวดศรีษะ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R53",
+    "icd10": "R53",
+    "en": "Malaise and fatigue",
+    "th": "หนื่อยอ่อนเพลีย",
+    "synonyms": [
+      "R53",
+      "Malaise and fatigue",
+      "malaise and fatigue",
+      "หนื่อยอ่อนเพลีย"
+    ],
+    "mc": {
+      "th_short": "หนื่อยอ่อนเพลีย",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับหนื่อยอ่อนเพลีย",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R55",
+    "icd10": "R55",
+    "en": "Syncope and collapse",
+    "th": "เป็นลมหมดสติ",
+    "synonyms": [
+      "R55",
+      "Syncope and collapse",
+      "syncope and collapse",
+      "เป็นลมหมดสติ"
+    ],
+    "mc": {
+      "th_short": "เป็นลมหมดสติ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเป็นลมหมดสติ",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R560",
+    "icd10": "R560",
+    "en": "Febrile convulsions",
+    "th": "การชักจากไข้สูง",
+    "synonyms": [
+      "R560",
+      "Febrile convulsions",
+      "febrile convulsions",
+      "การชักจากไข้สูง"
+    ],
+    "mc": {
+      "th_short": "การชักจากไข้สูง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับการชักจากไข้สูง",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R630",
+    "icd10": "R630",
+    "en": "Anorexia",
+    "th": "เบื่ออาหาร",
+    "synonyms": [
+      "R630",
+      "Anorexia",
+      "anorexia",
+      "เบื่ออาหาร"
+    ],
+    "mc": {
+      "th_short": "เบื่ออาหาร",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเบื่ออาหาร",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  },
+  {
+    "id": "R739",
+    "icd10": "R739",
+    "en": "Hyperglycaemia, unspecified",
+    "th": "น้ าตาลในเลือดสูง",
+    "synonyms": [
+      "R739",
+      "Hyperglycaemia, unspecified",
+      "hyperglycaemia, unspecified",
+      "น้ าตาลในเลือดสูง"
+    ],
+    "mc": {
+      "th_short": "น้ าตาลในเลือดสูง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับน้ าตาลในเลือดสูง",
+      "fit_note": "พักผ่อน ติดตามอาการ และมาพบแพทย์ทันทีหากมีอาการรุนแรงหรือแย่ลง"
+    }
+  }
+]

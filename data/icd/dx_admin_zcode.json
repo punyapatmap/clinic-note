@@ -1,0 +1,240 @@
+[
+  {
+    "id": "Z000",
+    "icd10": "Z000",
+    "en": "General medical examination",
+    "th": "ตรวจร่างกายทั่วไป",
+    "synonyms": [
+      "Z000",
+      "General medical examination",
+      "general medical examination",
+      "ตรวจร่างกายทั่วไป"
+    ],
+    "mc": {
+      "th_short": "ตรวจร่างกายทั่วไป",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับตรวจร่างกายทั่วไป",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z012",
+    "icd10": "Z012",
+    "en": "Dental examination",
+    "th": "ตรวจฟัน",
+    "synonyms": [
+      "Z012",
+      "Dental examination",
+      "dental examination",
+      "ตรวจฟัน"
+    ],
+    "mc": {
+      "th_short": "ตรวจฟัน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับตรวจฟัน",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z013",
+    "icd10": "Z013",
+    "en": "Examination of blood pressure",
+    "th": "ขอวัดความดันโลหิต",
+    "synonyms": [
+      "Z013",
+      "Examination of blood pressure",
+      "examination of blood pressure",
+      "ขอวัดความดันโลหิต"
+    ],
+    "mc": {
+      "th_short": "ขอวัดความดันโลหิต",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับขอวัดความดันโลหิต",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z017",
+    "icd10": "Z017",
+    "en": "Laboratory examination",
+    "th": "ตรวจเลือดหรือปัสสาวะ",
+    "synonyms": [
+      "Z017",
+      "Laboratory examination",
+      "laboratory examination",
+      "ตรวจเลือดหรือปัสสาวะ"
+    ],
+    "mc": {
+      "th_short": "ตรวจเลือดหรือปัสสาวะ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับตรวจเลือดหรือปัสสาวะ",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z027",
+    "icd10": "Z027",
+    "en": "Issue of medical certificate",
+    "th": "ตรวจและออกใบรับรองแพทย์",
+    "synonyms": [
+      "Z027",
+      "Issue of medical certificate",
+      "issue of medical certificate",
+      "ตรวจและออกใบรับรองแพทย์"
+    ],
+    "mc": {
+      "th_short": "ตรวจและออกใบรับรองแพทย์",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับตรวจและออกใบรับรองแพทย์",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z131",
+    "icd10": "Z131",
+    "en": "Special screening examination for diabetes",
+    "th": "ตรวจคัดกรองเบาหวาน",
+    "synonyms": [
+      "Z131",
+      "Special screening examination for diabetes",
+      "special screening examination for diabetes",
+      "ตรวจคัดกรองเบาหวาน"
+    ],
+    "mc": {
+      "th_short": "ตรวจคัดกรองเบาหวาน",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับตรวจคัดกรองเบาหวาน",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z235",
+    "icd10": "Z235",
+    "en": "TT,DT กระต้นภูมิในวันที่แผลหายแล้ว Need for immunization against tetanus alone",
+    "th": "ฉีด",
+    "synonyms": [
+      "Z235",
+      "TT,DT กระต้นภูมิในวันที่แผลหายแล้ว Need for immunization against tetanus alone",
+      "tt,dt กระต้นภูมิในวันที่แผลหายแล้ว need for immunization against tetanus alone",
+      "ฉีด"
+    ],
+    "mc": {
+      "th_short": "ฉีด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฉีด",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z251",
+    "icd10": "Z251",
+    "en": "Need for immunization against influenza",
+    "th": "ฉีดวัคซีนไข้หวัดใหญ่",
+    "synonyms": [
+      "Z251",
+      "Need for immunization against influenza",
+      "need for immunization against influenza",
+      "ฉีดวัคซีนไข้หวัดใหญ่"
+    ],
+    "mc": {
+      "th_short": "ฉีดวัคซีนไข้หวัดใหญ่",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฉีดวัคซีนไข้หวัดใหญ่",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z304",
+    "icd10": "Z304",
+    "en": "Surveillance of contraceptive drugs",
+    "th": "รับถุงยาง/ยาคุมก าเนิด/ขอค าปรึกษาคุมก าเนิด",
+    "synonyms": [
+      "Z304",
+      "Surveillance of contraceptive drugs",
+      "surveillance of contraceptive drugs",
+      "รับถุงยาง/ยาคุมก าเนิด/ขอค าปรึกษาคุมก าเนิด"
+    ],
+    "mc": {
+      "th_short": "รับถุงยาง/ยาคุมก าเนิด/ขอค าปรึกษาคุมก าเนิด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับรับถุงยาง/ยาคุมก าเนิด/ขอค าปรึกษาคุมก าเนิด",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z480",
+    "icd10": "Z480",
+    "en": "Attention to surgical dressings and sutures",
+    "th": "มาตัดไหม",
+    "synonyms": [
+      "Z480",
+      "Attention to surgical dressings and sutures",
+      "attention to surgical dressings and sutures",
+      "มาตัดไหม"
+    ],
+    "mc": {
+      "th_short": "มาตัดไหม",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับมาตัดไหม",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z480",
+    "icd10": "Z480",
+    "en": "Attention to surgical dressings and sutures",
+    "th": "มาท าแผล",
+    "synonyms": [
+      "Z480",
+      "Attention to surgical dressings and sutures",
+      "attention to surgical dressings and sutures",
+      "มาท าแผล"
+    ],
+    "mc": {
+      "th_short": "มาท าแผล",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับมาท าแผล",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z758",
+    "icd10": "Z758",
+    "en": "Other problems related to medical facilities",
+    "th": "ส่งตัวไปตรวจทางห้องปฏิบัติการ",
+    "synonyms": [
+      "Z758",
+      "Other problems related to medical facilities",
+      "other problems related to medical facilities",
+      "ส่งตัวไปตรวจทางห้องปฏิบัติการ"
+    ],
+    "mc": {
+      "th_short": "ส่งตัวไปตรวจทางห้องปฏิบัติการ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับส่งตัวไปตรวจทางห้องปฏิบัติการ",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z768",
+    "icd10": "Z768",
+    "en": "Persons encountering health services in other",
+    "th": "ส่งตัวไปตามแพทย์นัด",
+    "synonyms": [
+      "Z768",
+      "Persons encountering health services in other",
+      "persons encountering health services in other",
+      "ส่งตัวไปตามแพทย์นัด"
+    ],
+    "mc": {
+      "th_short": "ส่งตัวไปตามแพทย์นัด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับส่งตัวไปตามแพทย์นัด",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  },
+  {
+    "id": "Z768",
+    "icd10": "Z768",
+    "en": "Persons encountering health services in other",
+    "th": "ขอยาให้คนอื่น",
+    "synonyms": [
+      "Z768",
+      "Persons encountering health services in other",
+      "persons encountering health services in other",
+      "ขอยาให้คนอื่น"
+    ],
+    "mc": {
+      "th_short": "ขอยาให้คนอื่น",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับขอยาให้คนอื่น",
+      "fit_note": "ปฏิบัติตามคำแนะนำของสถานพยาบาล และมาตามนัด/มาติดตามตามแผนการรักษา"
+    }
+  }
+]

@@ -16,6 +16,33 @@
 /* -------------------------
    Helpers
 ------------------------- */
+
+const GAS_URL = "https://script.google.com/macros/s/AKfycbyYphzuGjAehFjFYr4Y9F3wv9-4Qn2Te4ib_m8jZA9asipAd5O2Va4StYNIQP1Ds2e6Wg/exec";
+const GAS_KEY = "clinicnote-9f3a7c2e-1c6a-4e9a-bb81-8e5c0d7a91af"; // same as API_KEY in Code.gs
+
+async function loadTemplatesDB() {
+  try {
+    const url = `${GAS_URL}?action=templates&key=${encodeURIComponent(GAS_KEY)}`;
+    const res = await fetch(url, { cache: "no-store" });
+    const j = await res.json();
+    if (!j.ok) throw new Error(j.error || "templates load failed");
+
+    // turn array -> your templates object if you want
+    templates = {};
+    for (const row of j.data) {
+      if (row.id && row.data) templates[row.id] = row.data;
+    }
+
+    console.log("Loaded templates:", Object.keys(templates).length);
+  } catch (err) {
+    console.warn("Could not load templates from Sheets. Using blank only.", err);
+    templates = { blank: { fields: {}, dxList: [], meds: [] } };
+  }
+};
+
+/* -------------------------
+   Helpers
+------------------------- */
 const $ = (id) => document.getElementById(id);
 
 function escapeHtml(s) {
@@ -26,7 +53,7 @@ function escapeHtml(s) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
-}
+};
 
 /* -------------------------
    Field binding (simple text inputs/textarea/select)
@@ -109,6 +136,7 @@ async function loadSnippetsDB() {
 // ----------------------------
 // Snippet autocomplete UI
 // ----------------------------
+
 const snippetBox = document.getElementById("snippetBox");
 let snipState = {
   ta: null,

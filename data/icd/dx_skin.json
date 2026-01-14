@@ -1,0 +1,580 @@
+[
+  {
+    "id": "L020",
+    "icd10": "L020",
+    "en": "Cutaneous abscess, furuncle and carbuncle of",
+    "th": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของหน้า",
+    "synonyms": [
+      "L020",
+      "Cutaneous abscess, furuncle and carbuncle of",
+      "cutaneous abscess, furuncle and carbuncle of",
+      "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของหน้า"
+    ],
+    "mc": {
+      "th_short": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของหน้า",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของหน้า",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L021",
+    "icd10": "L021",
+    "en": "Cutaneous abscess, furuncle and carbuncle of",
+    "th": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของคอ",
+    "synonyms": [
+      "L021",
+      "Cutaneous abscess, furuncle and carbuncle of",
+      "cutaneous abscess, furuncle and carbuncle of",
+      "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของคอ"
+    ],
+    "mc": {
+      "th_short": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของคอ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของคอ",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L022",
+    "icd10": "L022",
+    "en": "Cutaneous abscess, furuncle and carbuncle of",
+    "th": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของล าตัว",
+    "synonyms": [
+      "L022",
+      "Cutaneous abscess, furuncle and carbuncle of",
+      "cutaneous abscess, furuncle and carbuncle of",
+      "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของล าตัว"
+    ],
+    "mc": {
+      "th_short": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของล าตัว",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของล าตัว",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L023",
+    "icd10": "L023",
+    "en": "Cutaneous abscess, furuncle and carbuncle of",
+    "th": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของก้นกบ",
+    "synonyms": [
+      "L023",
+      "Cutaneous abscess, furuncle and carbuncle of",
+      "cutaneous abscess, furuncle and carbuncle of",
+      "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของก้นกบ"
+    ],
+    "mc": {
+      "th_short": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของก้นกบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของก้นกบ",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L024",
+    "icd10": "L024",
+    "en": "Cutaneous abscess, furuncle and carbuncle of",
+    "th": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของแขน ขา",
+    "synonyms": [
+      "L024",
+      "Cutaneous abscess, furuncle and carbuncle of",
+      "cutaneous abscess, furuncle and carbuncle of",
+      "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของแขน ขา"
+    ],
+    "mc": {
+      "th_short": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของแขน ขา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัวของแขน ขา",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L029",
+    "icd10": "L029",
+    "en": "Cutaneous abscess, furuncle and carbuncle,",
+    "th": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัว ไม่ระบุ",
+    "synonyms": [
+      "L029",
+      "Cutaneous abscess, furuncle and carbuncle,",
+      "cutaneous abscess, furuncle and carbuncle,",
+      "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัว ไม่ระบุ"
+    ],
+    "mc": {
+      "th_short": "ฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัว ไม่ระบุ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับฝีที่ผิวหนัง ตุ่มหนอง และฝีฝักบัว ไม่ระบุ",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L030",
+    "icd10": "L030",
+    "en": "Cellulitis of finger and toe",
+    "th": "เซลล์เนื้อเยื่ออักเสบที่นิ้วมือ นิ้วเท้า",
+    "synonyms": [
+      "L030",
+      "Cellulitis of finger and toe",
+      "cellulitis of finger and toe",
+      "เซลล์เนื้อเยื่ออักเสบที่นิ้วมือ นิ้วเท้า"
+    ],
+    "mc": {
+      "th_short": "เซลล์เนื้อเยื่ออักเสบที่นิ้วมือ นิ้วเท้า",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเซลล์เนื้อเยื่ออักเสบที่นิ้วมือ นิ้วเท้า",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L031",
+    "icd10": "L031",
+    "en": "Cellulitis of other parts of limb",
+    "th": "เซลล์เนื้อเยื่ออักเสบที่แขน ขา",
+    "synonyms": [
+      "L031",
+      "Cellulitis of other parts of limb",
+      "cellulitis of other parts of limb",
+      "เซลล์เนื้อเยื่ออักเสบที่แขน ขา"
+    ],
+    "mc": {
+      "th_short": "เซลล์เนื้อเยื่ออักเสบที่แขน ขา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเซลล์เนื้อเยื่ออักเสบที่แขน ขา",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L032",
+    "icd10": "L032",
+    "en": "Cellulitis of face",
+    "th": "เซลล์เนื้อเยื่ออักเสบที่หน้า",
+    "synonyms": [
+      "L032",
+      "Cellulitis of face",
+      "cellulitis of face",
+      "เซลล์เนื้อเยื่ออักเสบที่หน้า"
+    ],
+    "mc": {
+      "th_short": "เซลล์เนื้อเยื่ออักเสบที่หน้า",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเซลล์เนื้อเยื่ออักเสบที่หน้า",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L033",
+    "icd10": "L033",
+    "en": "Cellulitis of trunk",
+    "th": "เซลล์เนื้อเยื่ออักเสบที่ล าตัว",
+    "synonyms": [
+      "L033",
+      "Cellulitis of trunk",
+      "cellulitis of trunk",
+      "เซลล์เนื้อเยื่ออักเสบที่ล าตัว"
+    ],
+    "mc": {
+      "th_short": "เซลล์เนื้อเยื่ออักเสบที่ล าตัว",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเซลล์เนื้อเยื่ออักเสบที่ล าตัว",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L039",
+    "icd10": "L039",
+    "en": "Cellulitis, unspecified",
+    "th": "เซลล์เนื้อเยื่ออักเสบ ไม่ระบุรายละเอียด",
+    "synonyms": [
+      "L039",
+      "Cellulitis, unspecified",
+      "cellulitis, unspecified",
+      "เซลล์เนื้อเยื่ออักเสบ ไม่ระบุรายละเอียด"
+    ],
+    "mc": {
+      "th_short": "เซลล์เนื้อเยื่ออักเสบ ไม่ระบุรายละเอียด",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเซลล์เนื้อเยื่ออักเสบ ไม่ระบุรายละเอียด",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L080",
+    "icd10": "L080",
+    "en": "Pyoderma",
+    "th": "ผิวหนังเป็นหนอง",
+    "synonyms": [
+      "L080",
+      "Pyoderma",
+      "pyoderma",
+      "ผิวหนังเป็นหนอง"
+    ],
+    "mc": {
+      "th_short": "ผิวหนังเป็นหนอง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผิวหนังเป็นหนอง",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L230",
+    "icd10": "L230",
+    "en": "Allergic contact dermatitis due to metals",
+    "th": "ผื่นแพ้จากโลหะ",
+    "synonyms": [
+      "L230",
+      "Allergic contact dermatitis due to metals",
+      "allergic contact dermatitis due to metals",
+      "ผื่นแพ้จากโลหะ"
+    ],
+    "mc": {
+      "th_short": "ผื่นแพ้จากโลหะ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผื่นแพ้จากโลหะ",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L232",
+    "icd10": "L232",
+    "en": "Allergic contact dermatitis due to cosmetics",
+    "th": "ผื่นแพ้เครื่องส าอางค์",
+    "synonyms": [
+      "L232",
+      "Allergic contact dermatitis due to cosmetics",
+      "allergic contact dermatitis due to cosmetics",
+      "ผื่นแพ้เครื่องส าอางค์"
+    ],
+    "mc": {
+      "th_short": "ผื่นแพ้เครื่องส าอางค์",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผื่นแพ้เครื่องส าอางค์",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L234",
+    "icd10": "L234",
+    "en": "Allergic contact dermatitis due to dyes",
+    "th": "ผื่นแพ้เครื่องสี",
+    "synonyms": [
+      "L234",
+      "Allergic contact dermatitis due to dyes",
+      "allergic contact dermatitis due to dyes",
+      "ผื่นแพ้เครื่องสี"
+    ],
+    "mc": {
+      "th_short": "ผื่นแพ้เครื่องสี",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผื่นแพ้เครื่องสี",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L235",
+    "icd10": "L235",
+    "en": "Allergic contact dermatitis due to other",
+    "th": "ผื่นแพ้เครื่องจากสารเคมี",
+    "synonyms": [
+      "L235",
+      "Allergic contact dermatitis due to other",
+      "allergic contact dermatitis due to other",
+      "ผื่นแพ้เครื่องจากสารเคมี"
+    ],
+    "mc": {
+      "th_short": "ผื่นแพ้เครื่องจากสารเคมี",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผื่นแพ้เครื่องจากสารเคมี",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L236",
+    "icd10": "L236",
+    "en": "Allergic contact dermatitis due to food in",
+    "th": "ผื่นแพ้จากอาหาร",
+    "synonyms": [
+      "L236",
+      "Allergic contact dermatitis due to food in",
+      "allergic contact dermatitis due to food in",
+      "ผื่นแพ้จากอาหาร"
+    ],
+    "mc": {
+      "th_short": "ผื่นแพ้จากอาหาร",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผื่นแพ้จากอาหาร",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L237",
+    "icd10": "L237",
+    "en": "Allergic contact dermatitis due to plants,",
+    "th": "ผื่นแพ้จากพืชยกเว้นอาหาร",
+    "synonyms": [
+      "L237",
+      "Allergic contact dermatitis due to plants,",
+      "allergic contact dermatitis due to plants,",
+      "ผื่นแพ้จากพืชยกเว้นอาหาร"
+    ],
+    "mc": {
+      "th_short": "ผื่นแพ้จากพืชยกเว้นอาหาร",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผื่นแพ้จากพืชยกเว้นอาหาร",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L239",
+    "icd10": "L239",
+    "en": "Allergic contact dermatitis, unspecified cause",
+    "th": "ผิวหนังอักเสบจากภูมิแพ้",
+    "synonyms": [
+      "L239",
+      "Allergic contact dermatitis, unspecified cause",
+      "allergic contact dermatitis, unspecified cause",
+      "ผิวหนังอักเสบจากภูมิแพ้"
+    ],
+    "mc": {
+      "th_short": "ผิวหนังอักเสบจากภูมิแพ้",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผิวหนังอักเสบจากภูมิแพ้",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L239",
+    "icd10": "L239",
+    "en": "Allergic contact dermatitis, unspecified cause",
+    "th": "ผิวอักเสบจากสัมผัสภูมิแพ้",
+    "synonyms": [
+      "L239",
+      "Allergic contact dermatitis, unspecified cause",
+      "allergic contact dermatitis, unspecified cause",
+      "ผิวอักเสบจากสัมผัสภูมิแพ้"
+    ],
+    "mc": {
+      "th_short": "ผิวอักเสบจากสัมผัสภูมิแพ้",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผิวอักเสบจากสัมผัสภูมิแพ้",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L240",
+    "icd10": "L240",
+    "en": "Irritant contact dermatitis due to detergents",
+    "th": "ผิวหนังอักเสบจากผงซักฟอก",
+    "synonyms": [
+      "L240",
+      "Irritant contact dermatitis due to detergents",
+      "irritant contact dermatitis due to detergents",
+      "ผิวหนังอักเสบจากผงซักฟอก"
+    ],
+    "mc": {
+      "th_short": "ผิวหนังอักเสบจากผงซักฟอก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผิวหนังอักเสบจากผงซักฟอก",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L243",
+    "icd10": "L243",
+    "en": "Irritant contact dermatitis due to cosmetics",
+    "th": "ผิวหนังอักเสบจากเครื่องส าอาง",
+    "synonyms": [
+      "L243",
+      "Irritant contact dermatitis due to cosmetics",
+      "irritant contact dermatitis due to cosmetics",
+      "ผิวหนังอักเสบจากเครื่องส าอาง"
+    ],
+    "mc": {
+      "th_short": "ผิวหนังอักเสบจากเครื่องส าอาง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผิวหนังอักเสบจากเครื่องส าอาง",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L245",
+    "icd10": "L245",
+    "en": "Irritant contact dermatitis due to other",
+    "th": "ผิวหนังอักเสบจากซีเมนต์/ยาฆ๋าแมลง",
+    "synonyms": [
+      "L245",
+      "Irritant contact dermatitis due to other",
+      "irritant contact dermatitis due to other",
+      "ผิวหนังอักเสบจากซีเมนต์/ยาฆ๋าแมลง"
+    ],
+    "mc": {
+      "th_short": "ผิวหนังอักเสบจากซีเมนต์/ยาฆ๋าแมลง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผิวหนังอักเสบจากซีเมนต์/ยาฆ๋าแมลง",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L247",
+    "icd10": "L247",
+    "en": "Irritant contact dermatitis due to plants, except",
+    "th": "ผิวหนังอักเสบจากพืชยกเว้นอาหาร",
+    "synonyms": [
+      "L247",
+      "Irritant contact dermatitis due to plants, except",
+      "irritant contact dermatitis due to plants, except",
+      "ผิวหนังอักเสบจากพืชยกเว้นอาหาร"
+    ],
+    "mc": {
+      "th_short": "ผิวหนังอักเสบจากพืชยกเว้นอาหาร",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผิวหนังอักเสบจากพืชยกเว้นอาหาร",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L249",
+    "icd10": "L249",
+    "en": "Irritant contact dermatitis, unspecified cause",
+    "th": "ผิวอักเสบจากการระคายเคือง",
+    "synonyms": [
+      "L249",
+      "Irritant contact dermatitis, unspecified cause",
+      "irritant contact dermatitis, unspecified cause",
+      "ผิวอักเสบจากการระคายเคือง"
+    ],
+    "mc": {
+      "th_short": "ผิวอักเสบจากการระคายเคือง",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผิวอักเสบจากการระคายเคือง",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L270",
+    "icd10": "L270",
+    "en": "Generalized skin eruption due to drugs and",
+    "th": "ผื่นทั่วตัวจากแพ้ยา",
+    "synonyms": [
+      "L270",
+      "Generalized skin eruption due to drugs and",
+      "generalized skin eruption due to drugs and",
+      "ผื่นทั่วตัวจากแพ้ยา"
+    ],
+    "mc": {
+      "th_short": "ผื่นทั่วตัวจากแพ้ยา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผื่นทั่วตัวจากแพ้ยา",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L271",
+    "icd10": "L271",
+    "en": "Localized skin eruption due to drugs and",
+    "th": "ผื่นเฉพาะที่จากแพ้ยา",
+    "synonyms": [
+      "L271",
+      "Localized skin eruption due to drugs and",
+      "localized skin eruption due to drugs and",
+      "ผื่นเฉพาะที่จากแพ้ยา"
+    ],
+    "mc": {
+      "th_short": "ผื่นเฉพาะที่จากแพ้ยา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผื่นเฉพาะที่จากแพ้ยา",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L290",
+    "icd10": "L290",
+    "en": "Pruritus ani",
+    "th": "คันทวารหนัก",
+    "synonyms": [
+      "L290",
+      "Pruritus ani",
+      "pruritus ani",
+      "คันทวารหนัก"
+    ],
+    "mc": {
+      "th_short": "คันทวารหนัก",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับคันทวารหนัก",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L293",
+    "icd10": "L293",
+    "en": "Anogenital pruritus, unspecified",
+    "th": "คันถุงอัณฑะ",
+    "synonyms": [
+      "L293",
+      "Anogenital pruritus, unspecified",
+      "anogenital pruritus, unspecified",
+      "คันถุงอัณฑะ"
+    ],
+    "mc": {
+      "th_short": "คันถุงอัณฑะ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับคันถุงอัณฑะ",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L309",
+    "icd10": "L309",
+    "en": "Dermatitis, unspecified",
+    "th": "ผิวอักเสบ",
+    "synonyms": [
+      "L309",
+      "Dermatitis, unspecified",
+      "dermatitis, unspecified",
+      "ผิวอักเสบ"
+    ],
+    "mc": {
+      "th_short": "ผิวอักเสบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับผิวอักเสบ",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L500",
+    "icd10": "L500",
+    "en": "Allergic urticaria",
+    "th": "ลมพิษจากภูมิแพ้",
+    "synonyms": [
+      "L500",
+      "Allergic urticaria",
+      "allergic urticaria",
+      "ลมพิษจากภูมิแพ้"
+    ],
+    "mc": {
+      "th_short": "ลมพิษจากภูมิแพ้",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับลมพิษจากภูมิแพ้",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L509",
+    "icd10": "L509",
+    "en": "Urticaria, unspecified",
+    "th": "ลมพิษไม่ระบุ",
+    "synonyms": [
+      "L509",
+      "Urticaria, unspecified",
+      "urticaria, unspecified",
+      "ลมพิษไม่ระบุ"
+    ],
+    "mc": {
+      "th_short": "ลมพิษไม่ระบุ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับลมพิษไม่ระบุ",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L600",
+    "icd10": "L600",
+    "en": "Ingrowing nail",
+    "th": "เล็บขบ",
+    "synonyms": [
+      "L600",
+      "Ingrowing nail",
+      "ingrowing nail",
+      "เล็บขบ"
+    ],
+    "mc": {
+      "th_short": "เล็บขบ",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับเล็บขบ",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  },
+  {
+    "id": "L84",
+    "icd10": "L84",
+    "en": "Corns and callosities",
+    "th": "ตาปลา",
+    "synonyms": [
+      "L84",
+      "Corns and callosities",
+      "corns and callosities",
+      "ตาปลา"
+    ],
+    "mc": {
+      "th_short": "ตาปลา",
+      "th_full": "ผู้ป่วยมีอาการสอดคล้องกับตาปลา",
+      "fit_note": "หลีกเลี่ยงการเกา รักษาความสะอาด และใช้ยาตามแพทย์สั่ง"
+    }
+  }
+]
