@@ -28,11 +28,14 @@
     "key": "pe1",
     "text": "GA: not pale, no Jaundice, no edema\nRS: no tachypnea",
     "tags": ["pe"]
-  }
-  ,  
+  },  
   {
     "key": "pe2",
     "text": "GA: not pale, no Jaundice, no edema\nCVS: pulseful and regular, normal S1S2, no murmur\nRS: clear BL",
     "tags": ["pe"]
+  },  {
+    "key": "amp-pos",
+    "text": "แจ้งผลตรวจ Amphetamine: Positive",
+    "tags": ["hx"]
   }
 ]

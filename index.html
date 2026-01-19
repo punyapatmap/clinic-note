@@ -4,46 +4,48 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Clinical Note Generator (TH/EN)</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <title>Clinical Note Generator (TH/EN)</title>
 </head>
 
 <body>
-  <div id="snippetBox" class="snippet-box hidden"> </div>
+  <div id="snippetBox" class="snippet-box hidden"> </div> <!-- snippet box for quick insert here -->
   <div id="snipModal" class="modal hidden" role="dialog" aria-modal="true">
-  <div class="modal-card">
-    <div class="modal-head">
-      <div class="modal-title">Add snippet</div>
-      <button id="btnSnipClose" type="button" class="icon">✕</button>
-    </div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title">Add snippet</div>
+        <button id="btnSnipClose" type="button" class="icon">✕</button>
+      </div>
 
-    <div class="grid2">
+      <div class="grid2">
+        <label class="block">
+          Key (e.g. uri1)
+          <input id="snipKey" placeholder="uri1" />
+        </label>
+
+        <label class="block">
+          Tags (comma separated)
+          <input id="snipTags" placeholder="hx, uri, resp" />
+        </label>
+      </div>
+
       <label class="block">
-        Key (e.g. uri1)
-        <input id="snipKey" placeholder="uri1" />
+        Expanded text
+        <textarea id="snipText" rows="4" placeholder="..."></textarea>
       </label>
 
-      <label class="block">
-        Tags (comma separated)
-        <input id="snipTags" placeholder="hx, uri, resp" />
-      </label>
-    </div>
-
-    <label class="block">
-      Expanded text
-      <textarea id="snipText" rows="4" placeholder="..."></textarea>
-    </label>
-
-    <div class="modal-actions">
-      <button id="btnSaveSnippet" type="button" class="primary">Save</button>
-      <button id="btnSnipCancel" type="button">Cancel</button>
-      <span id="snipStatus" class="hint"></span>
+      <div class="modal-actions">
+        <button id="btnSaveSnippet" type="button" class="primary">Save</button>
+        <button id="btnSnipCancel" type="button">Cancel</button>
+        <span id="snipStatus" class="hint"></span>
+      </div>
     </div>
   </div>
-</div>
 
   <header class="topbar no-print">
     <div>
@@ -62,10 +64,10 @@
           <option value="admit">Admission Note</option>
         </select>
       </label>
-
-      <button id="btnSaveCase" type="button">Save (HN)</button>
-      <button id="btnLoadLatest" type="button">Load latest (HN)</button>
-      <button id="btnFormat" type="button">Apply format</button>
+      <label style="display:flex;align-items:center;gap:8px;font-size:12px;">
+        <input type="checkbox" id="printMaskToggle">
+        Quoted text only
+      </label>
       <button id="btnPrint" type="button" class="primary">Print / Save as PDF</button>
     </div>
 
@@ -272,43 +274,11 @@
     <section class="panel preview">
       <div id="printHost"></div>
     </section>
-
   </main>
 
-  <script src="app.js"></script>
-
-  <div id="snipModal" class="modal hidden" role="dialog" aria-modal="true">
-  <div class="modal-card">
-    <div class="modal-head">
-      <div class="modal-title">Add snippet</div>
-      <button id="btnSnipClose" type="button" class="icon">✕</button>
-    </div>
-
-    <div class="grid2">
-      <label class="block">
-        Key (e.g. uri1)
-        <input id="snipKey" placeholder="uri1" />
-      </label>
-
-      <label class="block">
-        Tags (comma separated)
-        <input id="snipTags" placeholder="hx, uri, resp" />
-      </label>
-    </div>
-
-    <label class="block">
-      Expanded text
-      <textarea id="snipText" rows="4" placeholder="..."></textarea>
-    </label>
-
-    <div class="modal-actions">
-      <button id="btnSaveSnippet" type="button" class="primary">Save</button>
-      <button id="btnSnipCancel" type="button">Cancel</button>
-      <span id="snipStatus" class="hint"></span>
-    </div>
   </div>
-</div>
 
+  <script src="app.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Print Quoted Text Only Demo</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+            margin: 16px;
+            line-height: 1.4;
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 10px;
+            font: inherit;
+        }
+
+        .preview {
+            margin-top: 12px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+            white-space: pre-wrap;
+            min-height: 80px;
+        }
+
+        button {
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background: #f6f6f6;
+            cursor: pointer;
+        }
+
+        /* When toggle ON (print-mask applied):
+        - quoted text stays black
+        - non-quoted text becomes light gray */
+        .print-mask .print-keep {
+            color: #000;
+        }
+
+        .print-mask .print-hide {
+            color: #bbb;
+            /* readable gray on screen */
+        }
+
+
+        /* -------- Print mask styles -------- */
+        @media print {
+
+            /* hide controls, show only preview */
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            /* when mask is on: hide non-quoted parts but keep spacing */
+            .print-mask .print-hide {
+                color: transparent !important;
+            }
+
+            .print-mask .print-keep {
+                color: #000 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="no-print">
+        <h2>Print quoted text only</h2>
+
+        <div class="row">
+            <label style="display:flex;align-items:center;gap:8px;">
+                <input type="checkbox" id="quotedOnlyToggle" />
+                Quoted text only (print)
+            </label>
+
+            <button id="btnPrint" type="button">Print</button>
+            <button id="btnLoadExample" type="button">Load example</button>
+        </div>
+
+        <p style="margin:10px 0 6px;color:#555;">
+            Tip: Use either <b>"double quotes"</b> or <b>'single quotes'</b>.
+        </p>
+
+        <textarea id="src"></textarea>
+    </div>
+
+    <h3 class="no-print" style="margin-top:14px;">Preview (this is what will print)</h3>
+    <div id="preview" class="preview"></div>
+
+    <script src="quoteText.js"></script>
+</body>
+
+</html>

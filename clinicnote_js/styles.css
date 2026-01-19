@@ -1,0 +1,800 @@
+/* =========================
+   Fonts (local Sarabun)
+   ========================= */
+
+.trirong-thin {
+  font-family: "Trirong", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.trirong-extralight {
+  font-family: "Trirong", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.trirong-light {
+  font-family: "Trirong", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.trirong-regular {
+  font-family: "Trirong", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.trirong-medium {
+  font-family: "Trirong", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.trirong-semibold {
+  font-family: "Trirong", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.trirong-bold {
+  font-family: "Trirong", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.trirong-extrabold {
+  font-family: "Trirong", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.trirong-black {
+  font-family: "Trirong", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.trirong-thin-italic {
+  font-family: "Trirong", serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.trirong-extralight-italic {
+  font-family: "Trirong", serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.trirong-light-italic {
+  font-family: "Trirong", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.trirong-regular-italic {
+  font-family: "Trirong", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.trirong-medium-italic {
+  font-family: "Trirong", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.trirong-semibold-italic {
+  font-family: "Trirong", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.trirong-bold-italic {
+  font-family: "Trirong", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.trirong-extrabold-italic {
+  font-family: "Trirong", serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.trirong-black-italic {
+  font-family: "Trirong", serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+/* =========================
+   App UI (screen)
+   ========================= */
+:root {
+  --bg: #0b0c10;
+  --panel: #11131a;
+  --text: #e9ecf1;
+  --muted: #a9b2c3;
+  --line: #2a2f3a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trirong", SarabunLocal, Sarabun, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: 1px solid var(--line);
+  background: #1a1f2b;
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button.primary {
+  background: #2a6df4;
+  border-color: #2a6df4;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 12px;
+  padding: 12px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  min-height: calc(100vh - 90px);
+}
+
+.panel.preview {
+  overflow: auto;
+}
+
+h2 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+h3 {
+  margin: 16px 0 8px;
+  font-size: 14px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+label {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #0f1320;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.block {
+  margin-top: 10px;
+}
+
+.tableWrap {
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 8px;
+  vertical-align: top;
+}
+
+th {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: left;
+  background: #0f1320;
+  position: sticky;
+  top: 0;
+}
+
+td input {
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.footerRow {
+  font-size: 11.5px;
+  text-align: right;
+  line-height: 1.3;
+}
+
+
+/* =========================
+   Toggle switch (Print mask)
+   ========================= */
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* .printToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.printToggle input {
+  display: none;
+}
+
+.printToggle .slider {
+  width: 36px;
+  height: 20px;
+  background: #2a2f3a;
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.printToggle .slider::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 3px;
+  top: 3px;
+  background: #aaa;
+  border-radius: 50%;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.printToggle input:checked + .slider {
+  background: #2a6df4;
+}
+
+.printToggle input:checked + .slider::before {
+  transform: translateX(16px);
+  background: #fff;
+}
+
+.printToggle .labelText {
+  user-select: none;
+} */
+
+/* =========================
+   Designs fancy forms
+   ========================= */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: #0f1320;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.bulletList {
+  margin: 0;
+  padding-left: 5mm;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.bulletList li {
+  margin: 0 0 1.5mm 0;
+}
+
+
+/* =========================
+   A4 NOTE TEMPLATE (screen preview)
+   ========================= */
+.note {
+  background: #fff;
+  color: #111;
+  border-radius: 10px;
+  max-width: 840px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* IMPORTANT: lock page to A4 physical size */
+.noteA4 {
+  width: 210mm;
+  min-height: 297mm;
+
+  /* You can tweak these to match Google Docs ruler positions */
+  padding: 140mm 25mm 25mm 10mm;
+  /* top right bottom left */
+
+  box-sizing: border-box;
+  background: #fff;
+}
+
+/* Header */
+.noteHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-end;
+  margin-bottom: 4mm;
+}
+
+.hospitalName {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.docTitle {
+  font-size: 13px;
+}
+
+.line {
+  border-top: 0.3mm solid #000;
+  margin: 3mm 0 5mm;
+}
+
+/* Two column layout like your Google Doc screenshot */
+.twoCol {
+  display: grid;
+
+  /* Adjust these 3 numbers to match the ruler perfectly */
+  grid-template-columns: 68% 32%;
+  /* left col / right col */
+  column-gap: 10mm;
+  /* gap between columns */
+
+  align-items: start;
+}
+
+/* Left column rows: label + body with fixed indent */
+.mainCol .row {
+  display: grid;
+  grid-template-columns: 35mm 1fr;
+  /* label width / body */
+  column-gap: 3mm;
+  margin-bottom: 6mm;
+}
+
+.rowLabel {
+  font-size: 12px;
+}
+
+.rowBody {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* Keep line breaks from textarea */
+.pre {
+  white-space: pre-wrap;
+}
+
+/* Underline that prints like Docs (more stable than text-decoration) */
+.u {
+  display: inline-block;
+  font-weight: 700;
+  border-bottom: 0.4mm solid #000;
+  padding-bottom: 0.6mm;
+}
+
+/* Diagnosis styling */
+.dxLine {
+  font-size: 12.5px;
+}
+
+/* Right column blocks */
+.sideCol {
+  padding-left: 0mm;
+  /* keep clean; gap already handled by twoCol */
+}
+
+.sideBlock {
+  margin-bottom: 8mm;
+}
+
+.sideTitle {
+  font-size: 12px;
+  margin-bottom: 2mm;
+}
+
+.sideBody {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* Medication table on the right (simple list style) */
+.sideMedTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.sideMedTable td {
+  padding: 1mm 0;
+  vertical-align: top;
+}
+
+/* Signature pinned to page corner */
+.sigMini {
+  position: absolute;
+  left: 20mm;
+  /* 3 cm from right */
+  bottom: 22mm;
+  /* 4 cm from bottom */
+  font-size: 11.5px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+/* Avoid breaking important blocks across pages */
+.avoidBreak {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.warn {
+  outline: 2px solid #f5a623;
+}
+
+/* =========================
+   PRINT MASK MODE
+   ========================= */
+
+/* .print-mask .print-hide {
+  color: transparent !important;
+}
+
+.print-mask .print-keep {
+  color: #000 !important;
+} */
+
+/* optional: keep layout space even if transparent
+.print-mask .print-hide {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+} */
+
+/* =========================
+   PRINT
+   ========================= */
+@media print {
+  .print-mask .print-hide { color: transparent !important; }
+  .print-mask .print-keep { color: #000 !important; }
+
+  @page {
+    size: A4;
+    margin: 0;
+    /* because noteA4 already has padding */
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  /* Hide form and any UI */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Remove app layout so ONLY the note prints nicely */
+  .layout {
+    display: block;
+    padding: 0;
+  }
+
+  .panel {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .panel.preview {
+    overflow: visible;
+  }
+
+  /* Make note fill page without rounded corners */
+  .note {
+    border-radius: 0;
+    max-width: none;
+    margin: 0;
+  }
+}
+
+.dxListPrint {
+  margin: 0;
+  padding-left: 5mm;
+  /* controls number indent */
+  font-size: 12.5px;
+}
+
+.dxListPrint li {
+  margin: 0 0 1.5mm 0;
+}
+
+/* fix the preview side static, do not move with the scroll */
+/* Make only the form scroll; keep preview fixed */
+.layout {
+  height: calc(100vh - 60px);
+  /* adjust if your topbar height differs */
+  overflow: hidden;
+}
+
+.panel.no-print {
+  overflow: auto;
+  /* left side scroll */
+}
+
+.panel.preview {
+  position: sticky;
+  top: 12px;
+  /* aligns with your layout padding */
+  height: calc(100vh - 60px - 24px);
+  overflow: auto;
+  /* preview itself can scroll inside if needed */
+}
+
+/* --- Medical Certificate: Landscape --- */
+@page mcLandscape {
+  size: A4 landscape;
+  margin: 0;
+}
+
+.mcSimpleA4 {
+  page: mcLandscape;
+  width: 297mm;
+  /* A4 landscape width */
+  min-height: 210mm;
+  position: relative;
+  padding: 18mm;
+  background: #fff;
+  color: #000;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Medical Certificate simple A4 */
+/* .mcSimpleA4{
+  width:210mm;
+  min-height:297mm;
+  padding:18mm;
+  background:#fff;
+  color:#000;
+  box-sizing:border-box;
+  font-size:16px;
+} */
+
+.mcRight {
+  text-align: right;
+}
+
+.mcCenter {
+  width: 70%;
+  margin: 30mm auto 0 auto;
+}
+
+.mcLine {
+  margin: 3mm 0;
+}
+
+.mcRowBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  /* keeps text aligned nicely */
+}
+
+
+/* =========================
+  Snippets for clinicnote_js/styles.css
+   ========================= */
+
+.snip-badge {
+  display: inline-block;
+  font-size: 11px;
+  opacity: .8;
+  border: 1px solid var(--line);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin: 0 8px;
+  white-space: nowrap;
+}
+
+/* =========================
+  DxAuto-Complete Fancy version for clinicnote_js/styles.css
+   ========================= */
+
+.dxSuggestItem {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.dxSuggestItem.active {
+  background: rgba(42, 109, 244, 0.15);
+  box-shadow: inset 0 0 0 2px #2a6df4;
+}
+
+
+/* .dxSuggestItem.active {
+  outline: 2px solid #2a6df4;
+}
+
+.dxSuggestBox {
+  position: fixed;
+  position: absolute;
+  z-index: 9999;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
+}
+
+.dxSuggestBox.hidden {
+  display: none;
+}
+
+.dxSuggestItem {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.dxLine1 {
+  font-size: 13px;
+}
+
+.dxLine2 {
+  font-size: 12px;
+  opacity: .9;
+  margin-top: 2px;
+}
+
+.dxHint {
+  padding: 8px 12px;
+  font-size: 11px;
+  opacity: .8;
+  background: #0f1320;
+} */

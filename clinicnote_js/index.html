@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinical Note Generator (TH/EN)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar no-print">
+    <div>
+      <h1>Clinical Note Generator</h1>
+      <div class="sub">Type → Preview → Print/Save as PDF</div>
+    </div>
+    <div class="actions">
+      <label style="display:flex;align-items:center;gap:6px;font-size:12px;">
+        <select id="printMode">
+          <option value="opd">OPD Note</option>
+          <option value="mc">Medical Certificate</option>
+          <option value="admit">Admission Note</option>
+        </select>
+      </label>
+
+      <button id="btnSaveCase" type="button">Save (HN)</button>
+      <button id="btnLoadLatest" type="button">Load latest (HN)</button>
+      <button id="btnFormat" type="button">Apply format</button>
+      <button id="btnPrint" type="button" class="primary">Print / Save as PDF</button>
+    </div>
+
+  </header>
+
+  <main class="layout">
+    <!-- INPUT -->
+    <section class="panel no-print">
+      <label class="block">
+        Template
+        <select id="templateSelect">
+          <option value="blank">Blank</option>
+          <option value="cold">Common cold</option>
+          <option value="trauma">Trauma</option>
+          <option value="dyspepsia">Dyspepsia</option>
+        </select>
+      </label>
+
+      <h2>Input</h2>
+
+      <div class="grid2">
+        <label>
+          HN
+          <input id="hn" placeholder="HN" />
+        </label>
+
+        <label>
+          Visit Date/Time
+          <input id="visitDt" type="datetime-local" />
+        </label>
+
+        <label>
+          Name (ชื่อ-สกุล)
+          <input id="ptName" placeholder="Name / ชื่อ" />
+        </label>
+        <label>
+          Age / Sex (อายุ/เพศ)
+          <input id="ageSex" placeholder="e.g., 45 M / 45 ชาย" />
+        </label>
+
+        <label>
+          Chief Complaint (อาการสำคัญ)
+          <input id="cc" placeholder="e.g., Fever 2 days / ไข้ 2 วัน" />
+        </label>
+
+        <label>
+          Allergies (ประวัติแพ้ยา)
+          <input id="allergy" placeholder="NKDA / Penicillin" />
+        </label>
+      </div>
+
+      <div class="block">
+        <div class="dxHeader">
+          <div class="dxTitle">PMH + Home meds (โรคประจำตัว/ยาประจำ)</div>
+        </div>
+
+        <div class="tableWrap">
+          <table id="chronicTable">
+            <thead>
+              <tr>
+                <th style="width:60px;">#</th>
+                <th>Condition</th>
+                <th style="width:120px;">Dx year</th>
+                <th>Medication Details</th>
+                <th style="width:90px;"></th>
+              </tr>
+            </thead>
+            <tbody id="chronicTbody"></tbody>
+          </table>
+          <button id="btnAddChronic" type="button">+ Add</button>
+        </div>
+      </div>
+
+      <label class="block">
+        HPI (ประวัติปัจจุบัน)
+        <textarea id="hpi" rows="4" placeholder="Free text (Thai/Eng mixed ok)"></textarea>
+      </label>
+
+      <!-- <div class="grid2">
+        <label class="block">
+          PMH (โรคประจำตัว)
+          <textarea id="pmh" rows="3"></textarea>
+        </label>
+        <label class="block">
+          Current meds (ยาที่ใช้อยู่)
+          <textarea id="homeMeds" rows="3"></textarea>
+        </label>
+      </div> -->
+
+      <label class="block">
+        Review of System (ทบทวนอาการตามระบบ)
+        <textarea id="ros" rows="3" placeholder="Tip: use bullets like - cough, - sore throat"></textarea>
+      </label>
+
+      <div class="grid2">
+        <label class="block">
+          Vitals (สัญญาณชีพ)
+          <textarea id="vitals" rows="2" placeholder="T, BP, PR, RR, SpO2"></textarea>
+        </label>
+        <label class="block">
+          Physical Exam (ตรวจร่างกาย)
+          <textarea id="pe" rows="2"></textarea>
+        </label>
+      </div>
+
+      <div class="grid2">
+        <div class="block">
+
+          <div class="dxHeader">
+            <div class="dxTitle">Assessment / Dx (การวินิจฉัย)</div>
+          </div>
+
+          <div class="tableWrap">
+            <table id="dxTable">
+              <thead>
+                <tr>
+                  <th style="width:60px;">#</th>
+                  <th>Diagnosis</th>
+                  <th style="width:110px;">Type</th>
+                  <th style="width:90px;"></th>
+                </tr>
+              </thead>
+              <tbody id="dxTbody"></tbody>
+            </table>
+            <button id="btnAddDx" type="button">+ Add Dx</button>
+          </div>
+
+          <div class="hint">Tip: put main diagnosis first. Type can be “Primary / Secondary / Problem”.</div>
+        </div>
+
+        <div class="block">
+          <div class="hint">Type to search, press Enter/click to add. Click a chip to remove.</div>
+
+          <div id="investigationChips" class="chips"></div>
+
+          <input id="investigationInput" list="investigationList" placeholder="e.g., CBC, CXR, UA..." />
+          <datalist id="investigationList"></datalist>
+        </div>
+
+        <label class="block">
+          Treatment Plan (แผนการรักษา)
+          <textarea id="plan" rows="3"></textarea>
+        </label>
+      </div>
+
+      <h3>Medication Orders (รายการยา)</h3>
+      <div class="hint">Use English drug names if possible; instructions can be Thai/Eng.</div>
+
+      <div class="tableWrap">
+        <table id="medTable">
+          <thead>
+            <tr>
+              <th>Drug</th>
+              <th>Dose</th>
+              <th>Route</th>
+              <th>Frequency</th>
+              <th>Duration</th>
+              <th>Instruction</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="medTbody">
+            <!-- rows inserted by JS -->
+          </tbody>
+        </table>
+        <div class="medActions">
+          <button id="btnAddMed" type="button">+ Add medication</button>
+        </div>
+
+      </div>
+
+      <div class="footerRow">
+        <label>
+          Physician (แพทย์)
+          <input id="physician" placeholder="Name" />
+        </label>
+        <label>
+          License No. (เลข ว.)
+          <input id="license" placeholder="License" />
+        </label>
+      </div>
+    </section>
+
+    <!-- PREVIEW / PRINT AREA -->
+    <section class="panel preview">
+      <div id="printHost"></div>
+    </section>
+
+  </main>
+
+  <script src="js/db.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
