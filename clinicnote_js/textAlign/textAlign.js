@@ -1,74 +1,104 @@
-// ====== CONFIG ======
-// Paste your deployed Apps Script Web App URL here:
-const GAS_WEBAPP_URL = "PASTE_YOUR_WEBAPP_URL_HERE";
+/* textAlign.js — realtime topic/bullet aligner (single textarea) */
 
-const $ = (id) => document.getElementById(id);
+const note = document.getElementById("note");
+const autoFmt = document.getElementById("autoFmt");
+const debounceInp = document.getElementById("debounce");
+const topicWidthInp = document.getElementById("topicWidth");
+const btnFormat = document.getElementById("btnFormat");
+const btnExample = document.getElementById("btnExample");
 
-function escapeHTML(s) {
-  return String(s)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+// Defaults
+let DEBOUNCE_MS = Number(debounceInp.value || 220);
+let TOPIC_COL_WIDTH = Number(topicWidthInp.value || 10);
+let BULLET_INDENT = TOPIC_COL_WIDTH + 2;
+
+let timer = null;
+let lastFormatted = "";
+
+// ---------- Utilities ----------
+function padRight(s, n) {
+  s = String(s);
+  return s.length >= n ? s : s + " ".repeat(n - s.length);
 }
 
-// Parse text into sections like:
-// "Neuro:" as topic, then bullets after it.
-// Rule: "- " starts a new bullet; non "- " lines continue the last bullet.
-function parseTopicBullets(raw) {
-  const lines = String(raw || "")
-    .replace(/\r\n/g, "\n")
-    .split("\n")
-    .map(l => l.trimEnd());
+function normalizeTopic(s) {
+  // Keep it simple: trim + collapse spaces
+  return String(s || "").trim().replace(/\s+/g, " ");
+}
+
+function sanitizeBullet(s) {
+  // Optional tiny cleanup (safe):
+  // - remove double spaces
+  // - trim
+  return String(s || "").replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Split "after colon" text into bullets.
+ * Accept separators:
+ *   - semicolon ;
+ *   - additional "- " patterns anywhere
+ *
+ * Example:
+ *   "- a; b; - c" => ["a","b","c"]
+ *   "- a - b - c" => ["a","b","c"] (only if it has spaces around dash)
+ */
+function splitBullets(afterColon) {
+  const s = String(afterColon || "").trim();
+  if (!s) return [];
+
+  // Remove a leading "-" if present
+  let tmp = s.replace(/^\s*-\s*/, "");
+
+  // Convert separators into a single delimiter
+  // - semicolons
+  // - " - " sequences inside the string (avoid hyphenated words)
+  tmp = tmp
+    .replace(/\s*;\s*/g, "|||")
+    .replace(/\s+-\s+/g, "|||");
+
+  return tmp
+    .split("|||")
+    .map(x => sanitizeBullet(x))
+    .filter(Boolean);
+}
+
+/**
+ * Parse the textarea text into sections:
+ * [{ topic: "Neuro", bullets: ["...","..."] }, ...]
+ */
+function parse(text) {
+  const lines = String(text || "").replace(/\r\n/g, "\n").split("\n");
 
   const sections = [];
   let current = null;
 
-  for (let line of lines) {
-    const trimmed = line.trim();
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) continue;
 
-    if (!trimmed) continue;
-
-    // Detect a "Topic:" at start of line
-    const topicMatch = trimmed.match(/^([A-Za-z][A-Za-z0-9 /()_-]{0,40}):\s*(.*)$/);
-    if (topicMatch) {
-      // Start a new section
+    // "Topic: rest"
+    const m = line.match(/^(.{1,40}?):\s*(.*)$/);
+    if (m) {
       if (current) sections.push(current);
 
-      const topic = topicMatch[1].trim();
-      const rest = topicMatch[2].trim();
+      const topic = normalizeTopic(m[1]);
+      const rest = m[2] || "";
 
-      current = { topic, bullets: [] };
-
-      if (rest) {
-        if (rest.startsWith("-")) {
-          // If user wrote "Topic: - bullet"
-          const b = rest.replace(/^-+\s*/, "").trim();
-          if (b) current.bullets.push(b);
-        } else {
-          // Treat rest as first bullet even if no dash
-          current.bullets.push(rest);
-        }
-      }
+      const bullets = splitBullets(rest);
+      current = { topic, bullets: bullets.length ? bullets : [] };
       continue;
     }
 
-    // If no section yet, create a default one
+    // No topic yet => create default
     if (!current) current = { topic: "Notes", bullets: [] };
 
-    // Bullet line
-    if (/^-+\s+/.test(trimmed)) {
-      const b = trimmed.replace(/^-+\s+/, "").trim();
-      if (b) current.bullets.push(b);
-      continue;
-    }
-
-    // Continuation line: append to last bullet (same indent)
-    if (current.bullets.length === 0) {
-      current.bullets.push(trimmed);
+    // Multi-line bullet lines
+    if (/^-+\s+/.test(line)) {
+      current.bullets.push(sanitizeBullet(line.replace(/^-+\s+/, "")));
     } else {
-      current.bullets[current.bullets.length - 1] += " " + trimmed;
+      // Plain line: treat as another bullet (matches your style)
+      current.bullets.push(sanitizeBullet(line));
     }
   }
 
@@ -76,55 +106,110 @@ function parseTopicBullets(raw) {
   return sections;
 }
 
-function sectionsToHTML(sections) {
-  if (!sections.length) return "<div class='note'>No content.</div>";
+function formatSections(sections) {
+  const out = [];
 
-  return sections.map(sec => {
-    const topic = escapeHTML(sec.topic);
-    const items = sec.bullets
-      .map(b => `<li>${escapeHTML(b)}</li>`)
-      .join("");
+  for (const sec of sections) {
+    const topicLabel = `${sec.topic}:`;
+    const topicCol = padRight(topicLabel, TOPIC_COL_WIDTH);
 
-    return `
-      <div class="section">
-        <div class="topic">${topic}:</div>
-        <div>
-          <ul class="bullets">${items || "<li>(none)</li>"}</ul>
-        </div>
-      </div>
-    `;
-  }).join("");
-}
+    if (!sec.bullets.length) {
+      out.push(topicCol);
+      continue;
+    }
 
-function formatNow() {
-  const raw = $("src").value;
-  const sections = parseTopicBullets(raw);
-  const html = sectionsToHTML(sections);
-  $("out").innerHTML = html;
-  return { raw, sections, html };
-}
+    // First bullet on same line as topic
+    out.push(`${topicCol}  - ${sec.bullets[0]}`);
 
-$("btnFormat").addEventListener("click", formatNow);
-
-$("btnSave").addEventListener("click", () => {
-  const payload = formatNow();
-
-  if (!GAS_WEBAPP_URL || GAS_WEBAPP_URL.includes("PASTE_YOUR_WEBAPP_URL_HERE")) {
-    alert("Paste your Apps Script Web App URL into GAS_WEBAPP_URL first.");
-    return;
+    // Subsequent bullets aligned under bullet column
+    const indent = " ".repeat(BULLET_INDENT);
+    for (let i = 1; i < sec.bullets.length; i++) {
+      out.push(`${indent}- ${sec.bullets[i]}`);
+    }
   }
 
-  // Submit via form POST (avoids CORS issues)
-  const form = $("saveForm");
-  form.action = GAS_WEBAPP_URL;
+  return out.join("\n");
+}
 
-  $("rawField").value = payload.raw;
-  $("htmlField").value = payload.html;
-  $("jsonField").value = JSON.stringify(payload.sections);
+/**
+ * Avoid cursor-jump pain:
+ * only rewrite when caret is at end, OR user has selected all text.
+ */
+function isSafeToRewrite(el) {
+  const start = el.selectionStart;
+  const end = el.selectionEnd;
+  const len = el.value.length;
 
-  form.submit();
-  alert("Sent to Google Sheet (check your sheet).");
+  const caretAtEnd = start === len && end === len;
+  const allSelected = start === 0 && end === len;
+
+  return caretAtEnd || allSelected;
+}
+
+function computeFormatted(raw) {
+  const sections = parse(raw);
+  return formatSections(sections);
+}
+
+function applyAutoFormat(force = false) {
+  if (!force && !autoFmt.checked) return;
+
+  const raw = note.value;
+  const formatted = computeFormatted(raw);
+
+  if (!formatted) return;
+  if (formatted === raw) return;
+  if (formatted === lastFormatted) return;
+
+  if (!force && !isSafeToRewrite(note)) return;
+
+  lastFormatted = formatted;
+  note.value = formatted;
+
+  // keep caret at end on auto (force might happen mid-edit)
+  if (!force) {
+    note.selectionStart = note.selectionEnd = note.value.length;
+  }
+}
+
+// ---------- Event wiring ----------
+function scheduleFormat() {
+  clearTimeout(timer);
+  timer = setTimeout(() => applyAutoFormat(false), DEBOUNCE_MS);
+}
+
+note.addEventListener("input", scheduleFormat);
+
+btnFormat.addEventListener("click", () => applyAutoFormat(true));
+
+btnExample.addEventListener("click", () => {
+  note.value =
+`Neuro: - oriented to TPP, no significant dysarthria; pseudo-meningitis; - max ROM
+CVS: - normal S1S2 no murmur
+
+Resp: - clear to auscultation bilaterally; no wheeze
+Abd: - soft, non-tender; no guarding`;
+  lastFormatted = "";
+  applyAutoFormat(true);
 });
 
-// Auto-format on load
-formatNow();
+debounceInp.addEventListener("change", () => {
+  const v = Number(debounceInp.value);
+  if (!Number.isFinite(v) || v < 0) return;
+  DEBOUNCE_MS = v;
+});
+
+topicWidthInp.addEventListener("change", () => {
+  const v = Number(topicWidthInp.value);
+  if (!Number.isFinite(v) || v < 6) return;
+  TOPIC_COL_WIDTH = v;
+  BULLET_INDENT = TOPIC_COL_WIDTH + 2;
+  lastFormatted = "";
+  applyAutoFormat(true);
+});
+
+// Initial content
+note.value =
+`Neuro: - oriented to TPP, no significant dysarthria; pseudo-meningitis; - max ROM
+CVS: - normal S1S2 no murmur`;
+applyAutoFormat(true);

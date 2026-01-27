@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wound Type</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .block {
+            display: block;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        textarea:readonly {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wound Documentation</h1>
+    
+    <label class="block">
+        Wound shorthand
+        <textarea id="woundShort" rows="4" placeholder="e.g., 2-3lw@1a.forearm"></textarea>
+    </label>
+
+    <label class="block">
+        Expanded wound text
+        <textarea id="woundExpanded" rows="4" readonly></textarea>
+    </label>
+
+    <script src="woundType.js"></script>
+</body>
+</html>
