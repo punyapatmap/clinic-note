@@ -56,25 +56,87 @@
             /* readable gray on screen */
         }
 
+        .toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 12px;
+        }
+
+        /* hide the native checkbox */
+        .toggle input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* track */
+        .toggle .slider {
+            width: 42px;
+            height: 24px;
+            border-radius: 999px;
+            background: #2a2f3a;
+            border: 1px solid #ccc;
+            position: relative;
+            transition: background .2s ease;
+            flex: 0 0 auto;
+        }
+
+        /* knob */
+        .toggle .slider::before {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            left: 3px;
+            top: 2.5px;
+            border-radius: 50%;
+            background: #aaa;
+            transition: transform .2s ease, background .2s ease;
+        }
+
+        /* ON state */
+        .toggle input:checked+.slider {
+            background: #2a6df4;
+        }
+
+        .toggle input:checked+.slider::before {
+            transform: translateX(18px);
+            background: #fff;
+        }
+
+        /* optional focus */
+        .toggle input:focus-visible+.slider {
+            outline: 2px solid rgba(42, 109, 244, .35);
+            outline-offset: 2px;
+        }
 
         /* -------- Print mask styles -------- */
         @media print {
-
-            /* hide controls, show only preview */
             .no-print {
                 display: none !important;
             }
 
-            body {
-                margin: 0;
+            /* Optional headers: print by default */
+            .print-optional {
+                display: block !important;
+                visibility: visible !important;
             }
 
-            /* when mask is on: hide non-quoted parts but keep spacing */
-            .print-mask .print-hide {
+            /* BUT: if quote-only mode is ON (print-mask), hide optional headers */
+            body.print-mask .print-optional {
+                visibility: hidden !important;
+            }
+
+            /* Your quote-only visibility rule */
+            body.print-mask .print-hide {
                 color: transparent !important;
             }
 
-            .print-mask .print-keep {
+            body.print-mask .print-keep {
                 color: #000 !important;
             }
         }
@@ -86,10 +148,17 @@
         <h2>Print quoted text only</h2>
 
         <div class="row">
-            <label style="display:flex;align-items:center;gap:8px;">
+            <!-- <label style="display:flex;align-items:center;gap:8px;">
                 <input type="checkbox" id="quotedOnlyToggle" />
                 Quoted text only (print)
+            </label> -->
+
+            <label class="toggle">
+                <input type="checkbox" id="quotedOnlyToggle">
+                <span class="slider" aria-hidden="true"></span>
+                <span class="toggleText">Quoted text only</span>
             </label>
+
 
             <button id="btnPrint" type="button">Print</button>
             <button id="btnLoadExample" type="button">Load example</button>
@@ -102,7 +171,7 @@
         <textarea id="src"></textarea>
     </div>
 
-    <h3 class="no-print" style="margin-top:14px;">Preview (this is what will print)</h3>
+    <h3 class="print-optional" style="margin-top:14px;">Preview (this is what will print)</h3>
     <div id="preview" class="preview"></div>
 
     <script src="quoteText.js"></script>

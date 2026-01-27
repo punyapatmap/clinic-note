@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HN Save/Load (Google Sheet)</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    /* tiny fallback if your styles.css doesn't have these */
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .layout{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+    .panel{padding:12px;border:1px solid #3333;border-radius:12px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .block{display:block;margin-top:10px}
+    textarea,input,select{width:100%}
+    .hint{opacity:.85;margin-top:10px}
+    .noteA4{min-height:200px;border:1px dashed #9996;border-radius:12px}
+    .pre{white-space:pre-wrap}
+    .u{text-decoration:underline}
+    .line{height:1px;background:#0002;margin:12px 0}
+  </style>
+</head>
+
+<body>
+  <header class="topbar no-print">
+    <div>
+      <h1 style="margin:0">Save/Load by HN (Multi-visit)</h1>
+      <div class="hint">1 row = 1 visit • Save appends • Load latest / list visits</div>
+    </div>
+
+    <div class="actions">
+      <button id="btnList" type="button">List visits</button>
+      <button id="btnLoadLatest" type="button">Load latest</button>
+      <button id="btnLoadSelected" type="button">Load selected</button>
+      <button id="btnSaveNew" type="button">Save NEW visit</button>
+      <button id="btnClear" type="button">Clear</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2 style="margin-top:0">Input</h2>
+
+      <!-- hidden visitId (filled when loading a row) -->
+      <input id="visitId" type="hidden" />
+
+      <div class="grid2">
+        <label>
+          HN
+          <input id="hn" placeholder="เช่น 1234567" autocomplete="off" />
+        </label>
+
+        <label>
+          Visit Date/Time
+          <input id="visitDt" type="datetime-local" />
+        </label>
+      </div>
+
+      <label class="block">
+        Visit picker (after “List visits”)
+        <select id="visitPick">
+          <option value="">— no visits loaded yet —</option>
+        </select>
+      </label>
+
+      <label class="block">
+        HPI
+        <textarea id="hpi" rows="5" placeholder="ประวัติปัจจุบัน..."></textarea>
+      </label>
+
+      <label class="block">
+        Past History (PMH)
+        <textarea id="pmh" rows="4" placeholder="เช่น T2DM, HTN, NKDA..."></textarea>
+      </label>
+
+      <label class="block">
+        Diagnosis (Dx)
+        <textarea id="dx" rows="3" placeholder="เช่น URI / Acute gastritis..."></textarea>
+      </label>
+
+      <div class="hint" id="status">Ready.</div>
+
+      <div class="hint">
+        Tip: **Save NEW visit** always appends (keeps history).  
+        If you want “edit/update existing visit”, tell me—it's a small extra endpoint.
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 style="margin-top:0">Preview</h2>
+
+      <div class="noteA4" style="padding:14mm;">
+        <div style="display:flex;justify-content:space-between;gap:12px">
+          <div>
+            <div style="font-weight:700;font-size:18px;">Clinical Note</div>
+            <div style="opacity:.8">HN multi-visit sheet test</div>
+          </div>
+          <div style="text-align:right;font-size:12px;">
+            <div><b>HN:</b> <span id="pv_hn"></span></div>
+            <div><b>Visit:</b> <span id="pv_visitDt"></span></div>
+            <div><b>visitId:</b> <span id="pv_visitId"></span></div>
+          </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="block">
+          <div class="u"><b>HPI</b></div>
+          <div class="pre" id="pv_hpi"></div>
+        </div>
+
+        <div class="block">
+          <div class="u"><b>PMH</b></div>
+          <div class="pre" id="pv_pmh"></div>
+        </div>
+
+        <div class="block">
+          <div class="u"><b>Diagnosis</b></div>
+          <div class="pre" id="pv_dx"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="sheetSave.js"></script>
+</body>
+</html>

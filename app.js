@@ -2363,13 +2363,13 @@ async function init() {
     });
   }
 
-  // ---------- Draft vs fresh start ----------
-  if (!hasDraft) {
-    const startTemplate = templateSelect?.value ?? "blank";
-    applyTemplate(startTemplate);
-  } else {
-    renumberDx();
-  }
+  // // ---------- Draft vs fresh start ----------
+  // if (!hasDraft) {
+  //   const startTemplate = templateSelect?.value ?? "blank";
+  //   applyTemplate(startTemplate);
+  // } else {
+  //   renumberDx();
+  // }
 
   // ---------- Visit datetime ----------
   initVisitDtDefault(false);

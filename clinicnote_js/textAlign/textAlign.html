@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neuro Formatter Test</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; padding: 16px; }
+    textarea { width: 100%; min-height: 180px; padding: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .row { display: flex; gap: 8px; margin: 10px 0 16px; flex-wrap: wrap; }
+    button { padding: 10px 12px; cursor: pointer; }
+
+    /* Output layout: left topic + right list */
+    .section {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 10px;
+      align-items: start;
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+    }
+    .topic {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    ul.bullets {
+      margin: 0;
+      padding-left: 18px; /* bullet indent */
+    }
+    ul.bullets li {
+      margin: 4px 0;
+      line-height: 1.35;
+    }
+    .note { color: #666; margin-top: 8px; font-size: 13px; }
+
+    /* Optional: make topic align baseline nicer */
+    .topic { padding-top: 1px; }
+
+    /* Hidden form for Apps Script (no CORS issues) */
+    .hidden { display: none; }
+  </style>
+</head>
+
+<body>
+  <h2>Neuro Formatter (Topic + Bullets)</h2>
+
+  <textarea id="src">
+Neuro: - Oriented to TPP, no meningeal irritation signs
+Full EOM, no nystagmus, VA intact without visual field deficit.
+- Normal speech and comprehension, intact repetition
+- Motor 5/5 for both upper and lower extremities.
+- Sensation intact pinprick and fine touch
+Modified MoCA intact
+  </textarea>
+
+  <div class="row">
+    <button id="btnFormat" type="button">Format</button>
+    <button id="btnSave" type="button">Save to Sheet (Test)</button>
+  </div>
+
+  <div id="out"></div>
+  <div class="note">Rule: lines starting with “- ” become bullets. Lines without “- ” continue the previous bullet (same indent).</div>
+
+  <!-- ====== Save via form POST (no CORS) ====== -->
+  <form id="saveForm" class="hidden" method="POST" target="saveFrame">
+    <input type="hidden" name="action" value="save">
+    <input type="hidden" name="raw" id="rawField">
+    <input type="hidden" name="html" id="htmlField">
+    <input type="hidden" name="json" id="jsonField">
+  </form>
+  <iframe name="saveFrame" class="hidden"></iframe>
+
+  <script src="textAlign.js"></script>
+</body>
+</html>
