@@ -546,7 +546,7 @@ function bindSnippetAutocomplete(textarea) {
 
     // Insert selected item
     // (Enter inserts; Space inserts too if you want this “fast” behavior)
-    if (e.key === "Enter" || e.key === " ") {
+    if (e.key === "Enter") {
       e.preventDefault();
       chooseSnippet(snipState.activeIndex);
       return;
